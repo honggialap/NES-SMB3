@@ -33,6 +33,7 @@ bool CGraphics::Initialize(
 	if (!CreateSpriteHandler()) return false;
 	if (!CreateBlendState()) return false;
 
+	DebugOut(L"Engine: Direct 3D Initialized.\n");
 	return true;
 }
 

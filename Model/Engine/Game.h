@@ -6,6 +6,7 @@
 #include "Application.h"
 #include "Time.h"
 #include "Graphics.h"
+#include "Audio.h"
 #pragma endregion
 
 class CGame 
@@ -14,6 +15,7 @@ protected:
 	pApplication _application = nullptr;
 	pTime _time = nullptr;
 	pGraphics _graphics = nullptr;
+	pAudio _audio = nullptr;
 
 	float _frameRate = 0.0f;
 
@@ -21,6 +23,7 @@ public:
 	pApplication GetApplication() { return _application; }
 	pTime GetTime() { return _time; }
 	pGraphics GetGraphics() { return _graphics; }
+	pAudio GetAudio() { return _audio; }
 
 public:
 	CGame();

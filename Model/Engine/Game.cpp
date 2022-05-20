@@ -10,10 +10,17 @@ CGame::CGame()
 	_application = new CApplication();
 	_time = new CTime();
 	_graphics = new CGraphics();
+	_audio = new CAudio();
 }
 
 CGame::~CGame()
 {
+	if (_audio != nullptr)
+	{
+		delete _audio;
+		_audio = nullptr;
+	}
+
 	if (_graphics != nullptr)
 	{
 		delete _graphics;
@@ -34,11 +41,11 @@ CGame::~CGame()
 }
 
 void CGame::Run(
-	HINSTANCE hInstance, 
+	HINSTANCE hInstance,
 	std::string gameDataFilePath
 )
 {
-	if (!Load(hInstance, gameDataFilePath)) 
+	if (!Load(hInstance, gameDataFilePath))
 	{
 		Shutdown();
 		return;
@@ -46,10 +53,10 @@ void CGame::Run(
 
 	float msPerFrame = 1000.0f / _frameRate;
 	float elapsedMs = 0.0f;
-	
+
 	_time->Start();
-	
-	while (!_application->HandleMessage()) 
+
+	while (!_application->HandleMessage())
 	{
 		_time->Tick();
 		elapsedMs += _time->GetElapsedMs();
@@ -68,7 +75,7 @@ void CGame::Run(
 }
 
 bool CGame::Load(
-	HINSTANCE hInstance, 
+	HINSTANCE hInstance,
 	std::string gameDataFilePath
 )
 {
@@ -107,10 +114,16 @@ bool CGame::Load(
 		);
 	}
 
+	result = _audio->Initialize(
+		_application->GetWindow()
+	);
+	if (!result) return false;
+
 	return true;
 }
 
 void CGame::Shutdown()
 {
 	_graphics->Shutdown();
+	_audio->Shutdown();
 }
