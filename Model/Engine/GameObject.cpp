@@ -21,10 +21,16 @@ CGameObject::CGameObject(
 	_gx = gx;
 	_gy = gy;
 	_layer = layer;
+	_collider = new CCollider(this);
 }
 
 CGameObject::~CGameObject()
 {
+	if (_collider != nullptr) {
+		delete _collider;
+		_collider = nullptr;
+	}
+
 	for (auto sound : _sounds) {
 		delete sound.second;
 		sound.second = nullptr;

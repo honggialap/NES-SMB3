@@ -11,7 +11,7 @@ typedef CGame* pGame;
 #include "Sprite.h"
 #include "Animation.h"
 #include "Sound.h"
-
+#include "Collision.h"
 #include "pugixml.hpp"
 #include <string>
 #include <unordered_map>
@@ -43,6 +43,7 @@ protected:
 	std::unordered_map<unsigned int, pSprite> _sprites;
 	std::unordered_map<unsigned int, pAnimation> _animations;
 	std::unordered_map<unsigned int, pSound> _sounds;
+	pCollider _collider = nullptr;
 
 public:
 	CGameObject(
@@ -87,6 +88,14 @@ public:
 
 	void AddSound(unsigned int id, pSound sound);
 	pSound GetSound(unsigned int id) { return _sounds[id]; }
+
+	pCollider GetCollider() { return _collider; }
+
+	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom) = 0;
+	virtual int IsCollidable() { return 0; };
+	virtual int IsBlocking() { return 0; }
+	virtual void OnNoCollision(float elapsedMs) {};
+	virtual void OnCollisionWith(pCollision e) {};
 };
 typedef CGameObject* pGameObject;
 

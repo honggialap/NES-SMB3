@@ -144,6 +144,7 @@
     <ClCompile Include="Model\Engine\Animation.cpp" />
     <ClCompile Include="Model\Engine\Application.cpp" />
     <ClCompile Include="Model\Engine\Audio.cpp" />
+    <ClCompile Include="Model\Engine\Collision.cpp" />
     <ClCompile Include="Model\Engine\Game.cpp" />
     <ClCompile Include="Model\Engine\GameObject.cpp" />
     <ClCompile Include="Model\Engine\Graphics.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Model\Engine\Animation.h" />
     <ClInclude Include="Model\Engine\Application.h" />
     <ClInclude Include="Model\Engine\Audio.h" />
+    <ClInclude Include="Model\Engine\Collision.h" />
     <ClInclude Include="Model\Engine\Game.h" />
     <ClInclude Include="Model\Engine\GameObject.h" />
     <ClInclude Include="Model\Engine\Graphics.h" />
