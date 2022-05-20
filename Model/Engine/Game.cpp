@@ -4,17 +4,23 @@
 #include "pugixml.hpp"
 #pragma endregion
 
-
 CGame::CGame()
 {
 	_application = new CApplication();
 	_time = new CTime();
 	_graphics = new CGraphics();
 	_audio = new CAudio();
+	_input = new CInput();
 }
 
 CGame::~CGame()
 {
+	if (_input != nullptr)
+	{
+		delete _input;
+		_input = nullptr;
+	}
+
 	if (_audio != nullptr)
 	{
 		delete _audio;
@@ -63,6 +69,7 @@ void CGame::Run(
 
 		if (elapsedMs >= msPerFrame)
 		{
+			//_input->ProcessKeyboard();
 			elapsedMs = 0.0f;
 		}
 		else
@@ -119,11 +126,19 @@ bool CGame::Load(
 	);
 	if (!result) return false;
 
+	//result = _input->Initialize(
+	//	_application->GetInstance(),
+	//	_application->GetWindow(),
+	//	this
+	//);
+	//if (!result) return false;
+
 	return true;
 }
 
 void CGame::Shutdown()
 {
-	_graphics->Shutdown();
+	_input->Shutdown();
 	_audio->Shutdown();
+	_graphics->Shutdown();
 }

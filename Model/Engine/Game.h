@@ -7,15 +7,17 @@
 #include "Time.h"
 #include "Graphics.h"
 #include "Audio.h"
+#include "Input.h"
 #pragma endregion
 
-class CGame 
+class CGame
 {
 protected:
 	pApplication _application = nullptr;
 	pTime _time = nullptr;
 	pGraphics _graphics = nullptr;
 	pAudio _audio = nullptr;
+	pInput _input = nullptr;
 
 	float _frameRate = 0.0f;
 
@@ -24,6 +26,7 @@ public:
 	pTime GetTime() { return _time; }
 	pGraphics GetGraphics() { return _graphics; }
 	pAudio GetAudio() { return _audio; }
+	pInput GetInput() { return _input; }
 
 public:
 	CGame();
