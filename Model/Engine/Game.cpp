@@ -9,10 +9,17 @@ CGame::CGame()
 {
 	_application = new CApplication();
 	_time = new CTime();
+	_graphics = new CGraphics();
 }
 
 CGame::~CGame()
 {
+	if (_graphics != nullptr)
+	{
+		delete _graphics;
+		_graphics = nullptr;
+	}
+
 	if (_time != nullptr)
 	{
 		delete _time;
@@ -49,10 +56,6 @@ void CGame::Run(
 
 		if (elapsedMs >= msPerFrame)
 		{
-			// This just to check out the time pass each frame.
-			DebugOut(L"Tick: %f \n", elapsedMs);
-
-			// Update & Render loop go here.
 			elapsedMs = 0.0f;
 		}
 		else
@@ -86,8 +89,28 @@ bool CGame::Load(
 		gameSettingsNode.attribute("height").as_uint()
 	);
 	if (!result) return false;
+
+	result = _graphics->Initialize(
+		_application->GetWindow()
+	);
+	if (!result) return false;
+
+	for (auto textureNode = gameDataDoc.child("GameData").child("Texture");
+		textureNode;
+		textureNode = textureNode.next_sibling("Texture"))
+	{
+		_graphics->LoadTexture(
+			textureNode.attribute("ID").as_uint(),
+			std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(
+				textureNode.attribute("source").as_string()
+			)
+		);
+	}
+
+	return true;
 }
 
 void CGame::Shutdown()
 {
+	_graphics->Shutdown();
 }

@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="Model\Engine\Application.cpp" />
     <ClCompile Include="Model\Engine\Game.cpp" />
+    <ClCompile Include="Model\Engine\Graphics.cpp" />
     <ClCompile Include="Model\Engine\pugixml.cpp" />
     <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
@@ -154,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="Model\Engine\Application.h" />
     <ClInclude Include="Model\Engine\Game.h" />
+    <ClInclude Include="Model\Engine\Graphics.h" />
     <ClInclude Include="Model\Engine\pugiconfig.hpp" />
     <ClInclude Include="Model\Engine\pugixml.hpp" />
     <ClInclude Include="Model\Engine\Time.h" />
@@ -161,6 +163,17 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Data\Texture\BBox.png" />
+    <Image Include="Data\Texture\Block.png" />
+    <Image Include="Data\Texture\Effect.png" />
+    <Image Include="Data\Texture\Goomba.png" />
+    <Image Include="Data\Texture\Item.png" />
+    <Image Include="Data\Texture\Koopa.png" />
+    <Image Include="Data\Texture\Mario.png" />
+    <Image Include="Data\Texture\Pipe.png" />
+    <Image Include="Data\Texture\Plant.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

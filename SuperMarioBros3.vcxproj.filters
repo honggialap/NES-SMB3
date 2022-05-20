@@ -33,6 +33,9 @@
     <ClCompile Include="Model\Engine\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Engine\Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -56,8 +59,40 @@
     <ClInclude Include="Model\Engine\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Engine\Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Data\Texture\BBox.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Block.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Effect.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Goomba.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Item.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Koopa.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Mario.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Pipe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\Plant.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

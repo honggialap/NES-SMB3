@@ -5,4 +5,15 @@
     height = "480"
     fps = "144"
     />
+
+  <Texture ID ="101" source="Data/Texture/BBox.png"/>
+  <Texture ID ="201" source="Data/Texture/Mario.png"/>
+  <Texture ID ="202" source="Data/Texture/Goomba.png"/>
+  <Texture ID ="203" source="Data/Texture/Koopa.png"/>
+  <Texture ID ="204" source="Data/Texture/Plant.png"/>
+  <Texture ID ="301" source="Data/Texture/Item.png"/>
+  <Texture ID ="401" source="Data/Texture/Block.png"/>
+  <Texture ID ="402" source="Data/Texture/Pipe.png"/>
+  <Texture ID ="701" source="Data/Texture/Effect.png"/>
+  
 </GameData>
