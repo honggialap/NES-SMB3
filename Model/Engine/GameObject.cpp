@@ -62,6 +62,27 @@ void CGameObject::Load()
 			sprite
 		);
 	}
+
+	/* Animation */
+	for (pugi::xml_node animationNode = prefabDoc.child("Prefab").child("Animation");
+		animationNode;
+		animationNode = animationNode.next_sibling("Animation")) {
+		auto animation = new CAnimation(this);
+
+		for (pugi::xml_node frameNode = animationNode.child("Frame");
+			frameNode;
+			frameNode = frameNode.next_sibling("Frame")) {
+			animation->AddFrame(
+				frameNode.attribute("ID").as_uint(),
+				frameNode.attribute("time").as_float()
+			);
+		}
+
+		AddAnimation(
+			animationNode.attribute("ID").as_uint(),
+			animation
+		);
+	}
 }
 
 void CGameObject::AddSprite(unsigned int ID, pSprite sprite)
@@ -77,4 +98,20 @@ void CGameObject::AddSprite(unsigned int ID, pSprite sprite)
 	}
 
 	_sprites[ID] = sprite;
+}
+
+void CGameObject::AddAnimation(
+	unsigned int ID,
+	pAnimation animation
+) {
+	if (_animations.find(ID) != _animations.end()) {
+		DebugOut(L"[Engine] Animation ID is already existed: %d.\n", ID);
+
+		delete animation;
+		animation = nullptr;
+
+		return;
+	}
+
+	_animations[ID] = animation;
 }

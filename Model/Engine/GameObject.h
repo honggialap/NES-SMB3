@@ -9,6 +9,7 @@ typedef CGame* pGame;
 
 #pragma region INCLUDE
 #include "Sprite.h"
+#include "Animation.h"
 
 #include "pugixml.hpp"
 #include <string>
@@ -39,6 +40,8 @@ protected:
 	unsigned int _layer = 0;
 
 	std::unordered_map<unsigned int, pSprite> _sprites;
+	std::unordered_map<unsigned int, pAnimation> _animations;
+
 
 public:
 	CGameObject(
@@ -77,6 +80,10 @@ public:
 
 	void AddSprite(unsigned int ID, pSprite sprite);
 	pSprite GetSprite(unsigned int ID) { return _sprites[ID]; }
+
+	void AddAnimation(unsigned int id, pAnimation animation);
+	pAnimation GetAnimation(unsigned int id) { return _animations[id]; }
+
 };
 typedef CGameObject* pGameObject;
 

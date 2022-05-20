@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Model\Engine\Animation.cpp" />
     <ClCompile Include="Model\Engine\Application.cpp" />
     <ClCompile Include="Model\Engine\Audio.cpp" />
     <ClCompile Include="Model\Engine\Game.cpp" />
@@ -161,6 +162,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Model\Engine\Animation.h" />
     <ClInclude Include="Model\Engine\Application.h" />
     <ClInclude Include="Model\Engine\Audio.h" />
     <ClInclude Include="Model\Engine\Game.h" />
