@@ -11,7 +11,11 @@ int WINAPI WinMain(
 {
 	auto app = new CApplication();
 
-	app->CreateGameWindow(hInstance, L"Super Mario Bros 3", 512, 480);
+	app->CreateGameWindow(
+		hInstance, 
+		L"Super Mario Bros 3",
+		512, 480
+	);
 	while (!app->HandleMessage());
 
 	delete app;

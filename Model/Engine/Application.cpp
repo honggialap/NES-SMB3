@@ -1,5 +1,6 @@
 #pragma region INCLUDE
 #include "Application.h"
+#include "Ultilities.h"
 #pragma endregion
 
 bool CApplication::CreateGameWindow(
@@ -25,6 +26,7 @@ bool CApplication::CreateGameWindow(
 
 	if (!_hWnd)
 	{
+		DebugOut(L"Engine: Create game window failed.\n");
 		return false;
 	}
 	else
@@ -33,6 +35,7 @@ bool CApplication::CreateGameWindow(
 		ShowWindow(_hWnd, SW_SHOWNORMAL);
 		UpdateWindow(_hWnd);
 
+		DebugOut(L"Engine: Create game window successed.\n");
 		return true;
 	}
 }
@@ -96,7 +99,9 @@ void CApplication::AdjustWindowSize(
 	AdjustWindowRectEx(&rect, dwStyle, FALSE, dwExStyle);
 }
 
-void CApplication::RegisterWindowClass(HINSTANCE hInstance)
+void CApplication::RegisterWindowClass(
+	HINSTANCE hInstance
+)
 {
 	WNDCLASSEX wcex = {};
 
