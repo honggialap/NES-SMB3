@@ -150,6 +150,15 @@ bool CGame::Load(
 		);
 	}
 
+	for (auto sceneNode = gameDataDoc.child("GameData").child("Scene");
+		sceneNode;
+		sceneNode = sceneNode.next_sibling("Scene")) {
+		_scenes[sceneNode.attribute("ID").as_uint()] =
+			sceneNode.attribute("source").as_string();
+	}
+
+	PlayScene(gameSettingsNode.attribute("startScene").as_uint());
+
 	return true;
 }
 

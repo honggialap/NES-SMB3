@@ -4,6 +4,7 @@
     width = "512"
     height = "480"
     fps = "144"
+    startScene ="0"
     />
 
   <PlayerSettings cameraBoundOffset ="16">
@@ -42,5 +43,7 @@
   <Texture ID ="401" source="Data/Texture/Block.png"/>
   <Texture ID ="402" source="Data/Texture/Pipe.png"/>
   <Texture ID ="701" source="Data/Texture/Effect.png"/>
+
+  <Scene ID="0" source="Data/Scene/Sandbox.xml"/>
 
 </GameData>

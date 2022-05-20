@@ -185,6 +185,26 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />
+    <Xml Include="Data\Prefab\World\Mario.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow16x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow1x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow1x16.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow1x2.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow1x4.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow1x8.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow2x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow4x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformHollow8x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid16x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid1x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid1x16.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid1x2.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid1x4.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid1x8.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid2x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid4x1.xml" />
+    <Xml Include="Data\Prefab\World\PlatformSolid8x1.xml" />
+    <Xml Include="Data\Scene\Sandbox.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Data\Texture\BBox.png" />
