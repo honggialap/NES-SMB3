@@ -1832,7 +1832,7 @@ void CMario::OnCollisionWith(
 	if (dynamic_cast<pGoomba>(collision->_target))
 		OnCollisionWithGoomba(collision);
 
-	else
+	else 
 	*/
 
 	if (dynamic_cast<pPlatform>(collision->_target))
@@ -1901,8 +1901,8 @@ void CMario::OnCollisionWithPlatform(
 
 void CMario::OnCollisionWithBlock(
 	pCollision collision
-) {
-	/*
+){
+	/* 
 	auto block = dynamic_cast<pBlock>(collision->_target);
 	if (collision->_ny != 0 && collision->_target->IsBlocking())
 	{
@@ -1923,7 +1923,7 @@ void CMario::OnCollisionWithBlock(
 
 void CMario::OnCollisionWithBrick(
 	pCollision collision
-) {
+){
 	/*
 	auto brick = dynamic_cast<pBrick>(collision->_target);
 	if (collision->_ny != 0 && collision->_target->IsBlocking())
@@ -1952,7 +1952,7 @@ void CMario::OnCollisionWithBrick(
 
 void CMario::OnCollisionWithPipe(
 	pCollision collision
-) {
+){
 	float pipeLeft = 0;
 	float pipeTop = 0;
 	float pipeRight = 0;

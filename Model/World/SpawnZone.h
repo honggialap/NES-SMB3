@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __WORLD_H__
-#define __WORLD_H__
+#ifndef __SPAWN_ZONE_H__
+#define __SPAWN_ZONE_H__
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
@@ -9,9 +9,9 @@
 #pragma region COMPONENT ID
 #pragma endregion
 
-class CWorld : public CGameObject {
+class CSpawnZone : public CGameObject {
 public:
-	CWorld(
+	CSpawnZone(
 		pGame game,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
@@ -27,6 +27,6 @@ public:
 	virtual int IsBlocking();
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };
-typedef CWorld* pWorld;
+typedef CSpawnZone* pSpawnZone;
 
-#endif // !__WORLD_H__
+#endif // !__SPAWN_ZONE_H__

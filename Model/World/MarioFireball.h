@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __WORLD_H__
-#define __WORLD_H__
+#ifndef __MARIO_FIREBALL_H__
+#define __MARIO_FIREBALL_H__
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
@@ -9,13 +9,13 @@
 #pragma region COMPONENT ID
 #pragma endregion
 
-class CWorld : public CGameObject {
+class CMarioFireball : public CGameObject {
 public:
-	CWorld(
+	CMarioFireball(
 		pGame game,
-		unsigned int id, std::string name, std::string source,
+		unsigned int ID, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
@@ -27,6 +27,6 @@ public:
 	virtual int IsBlocking();
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };
-typedef CWorld* pWorld;
+typedef CMarioFireball* pMarioFireball;
 
-#endif // !__WORLD_H__
+#endif // !__MARIO_FIREBALL_H__

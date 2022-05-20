@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __WORLD_H__
-#define __WORLD_H__
+#ifndef __BACKGROUND_H__
+#define __BACKGROUND_H__
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
@@ -9,9 +9,9 @@
 #pragma region COMPONENT ID
 #pragma endregion
 
-class CWorld : public CGameObject {
+class CBackground : public CGameObject {
 public:
-	CWorld(
+	CBackground(
 		pGame game,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
@@ -27,6 +27,6 @@ public:
 	virtual int IsBlocking();
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };
-typedef CWorld* pWorld;
+typedef CBackground* pBackground;
 
-#endif // !__WORLD_H__
+#endif // !__BACKGROUND_H__

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __WORLD_H__
-#define __WORLD_H__
+#ifndef __TRANSPORT_PIPE_H__
+#define __TRANSPORT_PIPE_H__
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
@@ -9,10 +9,10 @@
 #pragma region COMPONENT ID
 #pragma endregion
 
-class CWorld : public CGameObject {
+class CTransportPipe : public CGameObject {
 public:
-	CWorld(
-		pGame game,
+	CTransportPipe(
+		pGame game, 
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
 	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
@@ -27,6 +27,6 @@ public:
 	virtual int IsBlocking();
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };
-typedef CWorld* pWorld;
+typedef CTransportPipe* pTransportPipe;
 
-#endif // !__WORLD_H__
+#endif // !__TRANSPORT_PIPE_H__

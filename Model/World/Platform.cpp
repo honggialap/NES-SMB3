@@ -55,8 +55,8 @@ int CPlatform::IsBlocking() {
 }
 
 void CPlatform::GetBoundingBox(
-	float& left,
-	float& top,
+	float& left, 
+	float& top, 
 	float& right,
 	float& bottom
 ) {
