@@ -69,7 +69,7 @@ void CGame::Run(
 
 		if (elapsedMs >= msPerFrame)
 		{
-			//_input->ProcessKeyboard();
+			_input->ProcessKeyboard();
 			elapsedMs = 0.0f;
 		}
 		else
@@ -126,12 +126,24 @@ bool CGame::Load(
 	);
 	if (!result) return false;
 
-	//result = _input->Initialize(
-	//	_application->GetInstance(),
-	//	_application->GetWindow(),
-	//	this
-	//);
-	//if (!result) return false;
+	result = _input->Initialize(
+		_application->GetInstance(),
+		_application->GetWindow(),
+		this
+	);
+	if (!result) return false;
+
+	auto playerSettingsNode = gameDataDoc.child("GameData").child("PlayerSettings");
+	_cameraBoundOffset = playerSettingsNode.attribute("cameraBoundOffset").as_float();
+
+	for (auto buttonNode = playerSettingsNode.child("Button");
+		buttonNode;
+		buttonNode = buttonNode.next_sibling("Button"))
+	{
+		BindKey(
+			buttonNode.attribute("keyCode").as_int()
+		);
+	}
 
 	return true;
 }

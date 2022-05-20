@@ -1,5 +1,6 @@
 #pragma region INCLUDE
 #include "Input.h"
+#include "Ultilities.h"
 #pragma endregion
 
 bool CInput::Initialize(
@@ -51,6 +52,7 @@ bool CInput::Initialize(
 	result = _device->Acquire();
 	if (result != DI_OK) return false;
 
+	DebugOut(L"Engine: Direct Input Initialized.\n");
 	return true;
 }
 

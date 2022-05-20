@@ -6,6 +6,33 @@
     fps = "144"
     />
 
+  <PlayerSettings cameraBoundOffset ="16">
+    <!--LEFT-->
+    <Button keyCode ="203"/>
+    <!--UP-->
+    <Button keyCode ="200"/>
+    <!--RIGHT-->
+    <Button keyCode ="205"/>
+    <!--DOWN-->
+    <Button keyCode ="208"/>
+    <!--A-->
+    <Button keyCode ="30"/>
+    <!--B-->
+    <Button keyCode ="31"/>
+    <!--HOT1-->
+    <Button keyCode ="2"/>
+    <!--HOT2-->
+    <Button keyCode ="3"/>
+    <!--HOT3-->
+    <Button keyCode ="4"/>
+    <!--HOT4-->
+    <Button keyCode ="5"/>
+    <!--HOT5-->
+    <Button keyCode ="6"/>
+    <!--HOT6-->
+    <Button keyCode ="7"/>
+  </PlayerSettings>
+
   <Texture ID ="101" source="Data/Texture/BBox.png"/>
   <Texture ID ="201" source="Data/Texture/Mario.png"/>
   <Texture ID ="202" source="Data/Texture/Goomba.png"/>
@@ -15,5 +42,5 @@
   <Texture ID ="401" source="Data/Texture/Block.png"/>
   <Texture ID ="402" source="Data/Texture/Pipe.png"/>
   <Texture ID ="701" source="Data/Texture/Effect.png"/>
-  
+
 </GameData>
