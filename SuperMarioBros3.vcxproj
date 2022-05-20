@@ -149,6 +149,7 @@
     <ClCompile Include="Model\Engine\Graphics.cpp" />
     <ClCompile Include="Model\Engine\Input.cpp" />
     <ClCompile Include="Model\Engine\pugixml.cpp" />
+    <ClCompile Include="Model\Engine\Sound.cpp" />
     <ClCompile Include="Model\Engine\Sprite.cpp" />
     <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Model\Engine\Input.h" />
     <ClInclude Include="Model\Engine\pugiconfig.hpp" />
     <ClInclude Include="Model\Engine\pugixml.hpp" />
+    <ClInclude Include="Model\Engine\Sound.h" />
     <ClInclude Include="Model\Engine\Sprite.h" />
     <ClInclude Include="Model\Engine\Time.h" />
     <ClInclude Include="Model\Engine\Ultilities.h" />

@@ -25,6 +25,18 @@ CGameObject::CGameObject(
 
 CGameObject::~CGameObject()
 {
+	for (auto sound : _sounds) {
+		delete sound.second;
+		sound.second = nullptr;
+	}
+	_sounds.clear();
+
+	for (auto animation : _animations) {
+		delete animation.second;
+		animation.second = nullptr;
+	}
+	_animations.clear();
+
 	for (auto sprite : _sprites) 
 	{
 		delete sprite.second;
@@ -83,6 +95,22 @@ void CGameObject::Load()
 			animation
 		);
 	}
+
+	/* Sound */
+	for (pugi::xml_node soundNode = prefabDoc.child("Prefab").child("Sound");
+		soundNode;
+		soundNode = soundNode.next_sibling("Sound")) {
+		auto sound = new CSound(this);
+		_game->GetAudio()->LoadSoundFromFile(
+			sound->GetBuffer(),
+			soundNode.attribute("source").as_string()
+		);
+
+		AddSound(
+			soundNode.attribute("ID").as_uint(),
+			sound
+		);
+	}
 }
 
 void CGameObject::AddSprite(unsigned int ID, pSprite sprite)
@@ -114,4 +142,20 @@ void CGameObject::AddAnimation(
 	}
 
 	_animations[ID] = animation;
+}
+
+void CGameObject::AddSound(
+	unsigned int ID,
+	pSound sound
+) {
+	if (_sounds.find(ID) != _sounds.end()) {
+		DebugOut(L"[Engine] Sound ID is already existed: %d.\n", ID);
+
+		delete sound;
+		sound = nullptr;
+
+		return;
+	}
+
+	_sounds[ID] = sound;
 }
