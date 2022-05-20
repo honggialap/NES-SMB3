@@ -44,6 +44,10 @@ protected:
 	std::vector<unsigned int> _updateQueue;
 	std::vector<pGameObject> _renderQueue;
 
+	std::map<std::pair<int, int>, std::vector<unsigned int>> _grid;
+	int _gridWidth = 0;
+	int _gridHeight = 0;
+
 public:
 	pApplication GetApplication() { return _application; }
 	pTime GetTime() { return _time; }
@@ -110,6 +114,7 @@ public:
 	virtual pGameObject Create(
 		unsigned int actorID, std::string name, std::string source,
 		float posX, float posY,
+		int gridX, int gridY,
 		unsigned int layer
 	) = 0;
 
@@ -117,6 +122,11 @@ public:
 	pGameObject GetGameObject(unsigned int gameObjectID);
 	pGameObject GetGameObject(std::string gameObjectName);
 	std::vector<unsigned int> GetActives();
+
+	void AddGrid(unsigned int gameObjectID);
+	void RemoveGrid(unsigned int gameObjectID);
+	void UpdateGrid(unsigned int gameObjectID);
+	std::vector<pGameObject> GetLocal(unsigned int gameObjectID);
 };
 typedef CGame* pGame;
 

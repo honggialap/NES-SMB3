@@ -1,5 +1,5 @@
 #pragma region INCLUDE
-#include "Model/Engine/Game.h"
+#include "Model/SMB3.h"
 #pragma endregion
 
 int WINAPI WinMain(
@@ -9,7 +9,7 @@ int WINAPI WinMain(
 	_In_ int nCmdShow
 )
 {
-	auto game = new CGame();
+	auto game = new CSMB3();
 	game->Run(hInstance, "Data/GameData.xml");
 
 	delete game;

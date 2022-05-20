@@ -29,6 +29,9 @@ protected:
 	float _vx = 0;
 	float _vy = 0;
 
+	int _gx = 0;
+	int _gy = 0;
+
 	unsigned int _layer = 0;
 
 public:
@@ -36,6 +39,7 @@ public:
 		pGame game,
 		unsigned int ID, std::string name, std::string source,
 		float x, float y,
+		int gx, int gy,
 		unsigned int layer
 	);
 	~CGameObject();
@@ -56,6 +60,9 @@ public:
 
 	void SetVelocity(float vx, float vy) { _vx = vx; _vy = vy; }
 	void GetVelocity(float& vx, float& vy) { vx = _vx; vy = _vy; }
+
+	void GetGrid(int& gx, int& gy) { gx = _gx; gy = _gy; }
+	void SetGrid(int gx, int gy) { _gx = gx; _gy = gy; }
 
 	unsigned int GetLayer() { return _layer; }
 	void SetLayer(unsigned int layer) { _layer = layer; }

@@ -6,6 +6,7 @@ CGameObject::CGameObject(
 	pGame game, 
 	unsigned int ID, std::string name, std::string source, 
 	float x, float y, 
+	int gx, int gy,
 	unsigned int layer
 )
 {
@@ -15,6 +16,8 @@ CGameObject::CGameObject(
 	_source = source;
 	_x = x;
 	_y = y;
+	_gx = gx;
+	_gy = gy;
 	_layer = layer;
 }
 

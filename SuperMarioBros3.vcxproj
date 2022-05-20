@@ -150,6 +150,7 @@
     <ClCompile Include="Model\Engine\pugixml.cpp" />
     <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
+    <ClCompile Include="Model\SMB3.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Model\Engine\pugixml.hpp" />
     <ClInclude Include="Model\Engine\Time.h" />
     <ClInclude Include="Model\Engine\Ultilities.h" />
+    <ClInclude Include="Model\SMB3.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />
