@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="Model\Engine\Application.cpp" />
     <ClCompile Include="Model\Engine\pugixml.cpp" />
+    <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="Model\Engine\Application.h" />
     <ClInclude Include="Model\Engine\pugiconfig.hpp" />
     <ClInclude Include="Model\Engine\pugixml.hpp" />
+    <ClInclude Include="Model\Engine\Time.h" />
     <ClInclude Include="Model\Engine\Ultilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
