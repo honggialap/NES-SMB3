@@ -18,13 +18,13 @@ private:
 	float _totalElapsedMs = 0.0f;
 
 public:
-	float GetElapsed() { return _elapsedMs; }
-	float GetTotalElapsed() { return _totalElapsedMs; }
+	float GetElapsedMs() { return _elapsedMs; }
+	float GetTotalElapsedMs() { return _totalElapsedMs; }
 
 public:
 	void Start();
 	void Tick();
 };
-typedef CTime pTime;
+typedef CTime* pTime;
 
 #endif // !__TIME_H__

@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Model\Engine\Application.cpp" />
+    <ClCompile Include="Model\Engine\Game.cpp" />
     <ClCompile Include="Model\Engine\pugixml.cpp" />
     <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
@@ -152,10 +153,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Model\Engine\Application.h" />
+    <ClInclude Include="Model\Engine\Game.h" />
     <ClInclude Include="Model\Engine\pugiconfig.hpp" />
     <ClInclude Include="Model\Engine\pugixml.hpp" />
     <ClInclude Include="Model\Engine\Time.h" />
     <ClInclude Include="Model\Engine\Ultilities.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Data\GameData.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

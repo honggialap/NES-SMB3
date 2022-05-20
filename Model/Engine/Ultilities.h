@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <codecvt>
+#include <string.h>
 #pragma endregion
 
 void DebugOut(

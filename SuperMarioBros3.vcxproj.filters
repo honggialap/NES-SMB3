@@ -30,6 +30,9 @@
     <ClCompile Include="Model\Engine\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Engine\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -50,5 +53,11 @@
     <ClInclude Include="Model\Engine\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Engine\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Data\GameData.xml" />
   </ItemGroup>
 </Project>

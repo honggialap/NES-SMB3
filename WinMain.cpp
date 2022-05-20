@@ -1,6 +1,5 @@
 #pragma region INCLUDE
-#include "Model/Engine/Application.h"
-#include "Model/Engine/Time.h"
+#include "Model/Engine/Game.h"
 #pragma endregion
 
 int WINAPI WinMain(
@@ -10,24 +9,9 @@ int WINAPI WinMain(
 	_In_ int nCmdShow
 )
 {
-	auto app = new CApplication();
-	auto time = new CTime();
-	time->Start();
+	auto game = new CGame();
+	game->Run(hInstance, "Data/GameData.xml");
 
-	app->CreateGameWindow(
-		hInstance, 
-		L"Super Mario Bros 3",
-		512, 480
-	);
-	while (!app->HandleMessage())
-	{
-		time->Tick();
-		if (time->GetTotalElapsed() > 5000)
-		{
-			app->Exit();
-		}
-	}
-
-	delete time;
-	delete app;
+	delete game;
+	game = nullptr;
 }
