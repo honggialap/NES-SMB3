@@ -64,12 +64,17 @@ void CGame::Run(
 
 	while (!_application->HandleMessage())
 	{
+		Loading();
+
 		_time->Tick();
 		elapsedMs += _time->GetElapsedMs();
 
 		if (elapsedMs >= msPerFrame)
 		{
 			_input->ProcessKeyboard();
+			Update(elapsedMs);
+			Render();
+			Purge();
 			elapsedMs = 0.0f;
 		}
 		else
@@ -153,4 +158,140 @@ void CGame::Shutdown()
 	_input->Shutdown();
 	_audio->Shutdown();
 	_graphics->Shutdown();
+}
+
+void CGame::PlayScene(unsigned int nextPlaySceneID)
+{
+	if (_scenes.find(nextPlaySceneID) == _scenes.end())
+		return;
+
+	_nextPlaySceneID = nextPlaySceneID;
+	_sceneLoading = true;
+}
+
+void CGame::Loading()
+{
+	if (!_sceneLoading) return;
+
+	for (auto gameObjectContainer : _gameObjects)
+		gameObjectContainer.second->Destroy();
+
+	Purge();
+
+	LoadScene(_scenes[_nextPlaySceneID]);
+	_sceneLoading = false;
+}
+
+void CGame::LoadScene(std::string sceneDataPath)
+{
+	_nextGameObjectID = 0;
+
+	pugi::xml_document sceneDoc;
+	sceneDoc.load_file(sceneDataPath.c_str());
+
+	for (auto gameObjectNode = sceneDoc.child("Scene").child("GameObject");
+		gameObjectNode;
+		gameObjectNode = gameObjectNode.next_sibling("GameObject")) {
+		Create(
+			gameObjectNode.attribute("actorID").as_uint(),
+			gameObjectNode.attribute("name").as_string(),
+			gameObjectNode.attribute("source").as_string(),
+			gameObjectNode.attribute("x").as_float(),
+			gameObjectNode.attribute("y").as_float(),
+			gameObjectNode.attribute("layer").as_int()
+		);
+	}
+}
+
+void CGame::Update(float elapsedMs)
+{
+	_updateQueue.clear();
+	_renderQueue.clear();
+
+	for (auto gameObjectContainer : _gameObjects)
+	{
+		if (!gameObjectContainer.second->IsDestroyed())
+		{
+			_updateQueue.push_back(gameObjectContainer.first);
+			_renderQueue.push_back(gameObjectContainer.second);
+		}
+	}
+
+	for (auto gameObjectID : _updateQueue)
+	{
+		_gameObjects[gameObjectID]->Update(elapsedMs);
+	}
+}
+
+void CGame::Render()
+{
+	std::sort(
+		_renderQueue.begin(),
+		_renderQueue.end(),
+		CGameObject::CompareLayer
+	);
+
+	_graphics->GetDevice()->ClearRenderTargetView(
+		_graphics->GetRenderTargetView(),
+		D3DXCOLOR(200.0f / 255, 200.0f / 255, 255.0f / 255, 0.0f)
+	);
+	_graphics->GetSpriteHandler()->Begin(D3DX10_SPRITE_SORT_TEXTURE);
+	
+	FLOAT NewBlendFactor[4] = { 0,0,0,0 };
+	_graphics->GetDevice()->OMSetBlendState(_graphics->GetBlendStateAlpha(), NewBlendFactor, 0xffffffff);
+
+	for (auto& gameObject : _renderQueue) 
+		gameObject->Render();
+
+	_graphics->GetSpriteHandler()->End();
+	_graphics->GetSwapChain()->Present(0, 0);
+}
+
+void CGame::Purge()
+{
+	for (auto gameObjectContainer = _gameObjects.begin();
+		gameObjectContainer != _gameObjects.end();
+		)
+	{
+		if (gameObjectContainer->second->IsDestroyed())
+		{
+			_dictionary.erase(gameObjectContainer->second->GetName());
+
+			delete gameObjectContainer->second;
+			gameObjectContainer->second = nullptr;
+
+			gameObjectContainer = _gameObjects.erase(gameObjectContainer);
+		}
+		else
+		{
+			gameObjectContainer++;
+		}
+	}
+}
+
+void CGame::AddGameObject(pGameObject gameObject)
+{
+	_gameObjects[gameObject->GetID()] = gameObject;
+	_dictionary[gameObject->GetName()] = gameObject->GetID();
+}
+
+pGameObject CGame::GetGameObject(unsigned int gameObjectID)
+{
+	if (_gameObjects.find(gameObjectID) != _gameObjects.end()) 
+		return _gameObjects[gameObjectID];
+
+	return nullptr;
+}
+
+pGameObject CGame::GetGameObject(std::string gameObjectName)
+{
+	if (_dictionary.find(gameObjectName) != _dictionary.end())
+		return GetGameObject(_dictionary[gameObjectName]);
+
+	return nullptr;
+}
+
+std::vector<unsigned int> CGame::GetActives()
+{
+	return _updateQueue;
 }

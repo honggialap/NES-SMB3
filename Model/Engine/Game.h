@@ -8,8 +8,10 @@
 #include "Graphics.h"
 #include "Audio.h"
 #include "Input.h"
+#include "GameObject.h"
 
 #include <map>
+#include <algorithm>
 #pragma endregion
 
 class CGame : public IKeyHandler
@@ -30,6 +32,17 @@ protected:
 	float _cameraY = 0;
 
 	float _cameraBoundOffset = 0;
+
+	std::unordered_map<unsigned int, std::string> _scenes;
+	unsigned int _nextPlaySceneID = 0;
+	bool _sceneLoading = false;
+
+	unsigned int _nextGameObjectID = 0;
+	std::unordered_map<unsigned int, pGameObject> _gameObjects;
+	std::unordered_map<std::string, unsigned int> _dictionary;
+
+	std::vector<unsigned int> _updateQueue;
+	std::vector<pGameObject> _renderQueue;
 
 public:
 	pApplication GetApplication() { return _application; }
@@ -85,6 +98,25 @@ public:
 	void MoveCameraBy(float x, float y) { _cameraX += x; _cameraY += y; }
 
 	float GetCameraBoundOffset() { return _cameraBoundOffset; }
+
+	void PlayScene(unsigned int nextPlaySceneID);
+	void Loading();
+	void LoadScene(std::string sceneDataPath);
+
+	void Update(float elapsedMs);
+	void Render();
+	void Purge();
+
+	virtual pGameObject Create(
+		unsigned int actorID, std::string name, std::string source,
+		float posX, float posY,
+		unsigned int layer
+	) = 0;
+
+	void AddGameObject(pGameObject gameObject);
+	pGameObject GetGameObject(unsigned int gameObjectID);
+	pGameObject GetGameObject(std::string gameObjectName);
+	std::vector<unsigned int> GetActives();
 };
 typedef CGame* pGame;
 
