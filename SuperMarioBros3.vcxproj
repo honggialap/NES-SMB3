@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Model\Engine\Application.cpp" />
     <ClCompile Include="Model\Engine\pugixml.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Model\Engine\Application.h" />
     <ClInclude Include="Model\Engine\pugiconfig.hpp" />
     <ClInclude Include="Model\Engine\pugixml.hpp" />
   </ItemGroup>
