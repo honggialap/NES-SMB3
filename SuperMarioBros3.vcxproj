@@ -148,9 +148,13 @@
     <ClCompile Include="Model\Engine\Graphics.cpp" />
     <ClCompile Include="Model\Engine\Input.cpp" />
     <ClCompile Include="Model\Engine\pugixml.cpp" />
+    <ClCompile Include="Model\Engine\Sprite.cpp" />
     <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
     <ClCompile Include="Model\SMB3.cpp" />
+    <ClCompile Include="Model\World\Mario.cpp" />
+    <ClCompile Include="Model\World\Platform.cpp" />
+    <ClCompile Include="Model\World\World.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +169,13 @@
     <ClInclude Include="Model\Engine\Input.h" />
     <ClInclude Include="Model\Engine\pugiconfig.hpp" />
     <ClInclude Include="Model\Engine\pugixml.hpp" />
+    <ClInclude Include="Model\Engine\Sprite.h" />
     <ClInclude Include="Model\Engine\Time.h" />
     <ClInclude Include="Model\Engine\Ultilities.h" />
     <ClInclude Include="Model\SMB3.h" />
+    <ClInclude Include="Model\World\Mario.h" />
+    <ClInclude Include="Model\World\Platform.h" />
+    <ClInclude Include="Model\World\World.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />

@@ -111,13 +111,6 @@ public:
 	void Render();
 	void Purge();
 
-	virtual pGameObject Create(
-		unsigned int actorID, std::string name, std::string source,
-		float posX, float posY,
-		int gridX, int gridY,
-		unsigned int layer
-	) = 0;
-
 	void AddGameObject(pGameObject gameObject);
 	pGameObject GetGameObject(unsigned int gameObjectID);
 	pGameObject GetGameObject(std::string gameObjectName);
@@ -127,6 +120,13 @@ public:
 	void RemoveGrid(unsigned int gameObjectID);
 	void UpdateGrid(unsigned int gameObjectID);
 	std::vector<pGameObject> GetLocal(unsigned int gameObjectID);
+
+	virtual pGameObject Create(
+		unsigned int actorID, std::string name, std::string source,
+		float posX, float posY,
+		int gridX, int gridY,
+		unsigned int layer
+	) = 0;
 };
 typedef CGame* pGame;
 

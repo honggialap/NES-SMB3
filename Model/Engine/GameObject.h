@@ -8,7 +8,11 @@ typedef CGame* pGame;
 #pragma endregion
 
 #pragma region INCLUDE
+#include "Sprite.h"
+
+#include "pugixml.hpp"
 #include <string>
+#include <unordered_map>
 #pragma endregion
 
 class CGameObject 
@@ -34,6 +38,8 @@ protected:
 
 	unsigned int _layer = 0;
 
+	std::unordered_map<unsigned int, pSprite> _sprites;
+
 public:
 	CGameObject(
 		pGame game,
@@ -44,6 +50,7 @@ public:
 	);
 	~CGameObject();
 
+	pGame GetGame() { return _game; }
 	unsigned int GetID() { return _ID; }
 	std::string GetName() { return _name; }
 
@@ -67,6 +74,9 @@ public:
 	unsigned int GetLayer() { return _layer; }
 	void SetLayer(unsigned int layer) { _layer = layer; }
 	static bool CompareLayer(CGameObject* a, CGameObject* b) { return a->_layer < b->_layer; }
+
+	void AddSprite(unsigned int ID, pSprite sprite);
+	pSprite GetSprite(unsigned int ID) { return _sprites[ID]; }
 };
 typedef CGameObject* pGameObject;
 
