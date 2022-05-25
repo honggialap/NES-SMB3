@@ -7,10 +7,8 @@
 #include <string>
 #pragma endregion
 
-class CAudio
-{
-	struct WaveHeaderType 
-	{
+class CAudio {
+	struct WaveHeaderType {
 		char chunkId[4];
 		unsigned long chunkSize;
 		char format[4];
@@ -32,9 +30,7 @@ class CAudio
 public:
 	LPDIRECTSOUND8 GetDevice() { return _device; }
 
-	bool Initialize(
-		HWND hWnd
-	);
+	bool Initialize(HWND hWnd);
 	void Shutdown();
 
 	bool LoadSoundFromFile(

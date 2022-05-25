@@ -1,6 +1,10 @@
 #pragma region INCLUDE
 #include "SMB3.h"
 
+#include "Title/Title.h"
+
+#include "WorldMap/WorldMap.h"
+
 #include "World/Background.h"
 #include "World/Block.h"
 #include "World/Brick.h"
@@ -37,6 +41,28 @@ pGameObject CSMB3::Create(
 	unsigned int layer
 ) {
 	switch (actorID) {
+
+	case ACT_TITLE: {
+		auto gameObject = new CTitle(
+			this,
+			_nextGameObjectID++, name, source,
+			posX, posY, gridX, gridY, layer
+		);
+		AddGameObject(gameObject);
+		gameObject->Load();
+		return gameObject;
+	} break;
+
+	case ACT_WORLD_MAP: {
+		auto gameObject = new CWorldMap(
+			this,
+			_nextGameObjectID++, name, source,
+			posX, posY, gridX, gridY, layer
+		);
+		AddGameObject(gameObject);
+		gameObject->Load();
+		return gameObject;
+	} break;
 
 	case ACT_WORLD: {
 		auto gameObject = new CWorld(

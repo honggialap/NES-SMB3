@@ -6,8 +6,8 @@
 bool CInput::Initialize(
 	HINSTANCE hInstance, 
 	HWND hWnd, 
-	pKeyHandler keyHandler)
-{
+	pKeyHandler keyHandler
+) {
 	_keyHandler = keyHandler;
 
 	HRESULT result = DirectInput8Create(
@@ -56,27 +56,23 @@ bool CInput::Initialize(
 	return true;
 }
 
-void CInput::Shutdown()
-{
-	if (_device) 
-	{
+void CInput::Shutdown() {
+	if (_device) {
 		_device->Unacquire();
 		_device->Release();
 	}
 
-	if (_directInput) _directInput->Release();
+	if (_directInput) 
+		_directInput->Release();
 }
 
-void CInput::ProcessKeyboard()
-{
+void CInput::ProcessKeyboard() {
 	HRESULT result = _device->GetDeviceState(
 		sizeof(_keyStates),
 		_keyStates
 	);
-	if (FAILED(result)) 
-	{
-		if ((result == DIERR_INPUTLOST) || (result == DIERR_NOTACQUIRED)) 
-		{
+	if (FAILED(result)) {
+		if ((result == DIERR_INPUTLOST) || (result == DIERR_NOTACQUIRED)) {
 			HRESULT h = _device->Acquire();
 			if (h != DI_OK) return;
 		}
@@ -94,8 +90,7 @@ void CInput::ProcessKeyboard()
 	);
 	if (FAILED(result)) return;
 
-	for (DWORD i = 0; i < dwElements; i++) 
-	{
+	for (DWORD i = 0; i < dwElements; i++) {
 		int KeyCode = _keyEvents[i].dwOfs;
 		int KeyState = _keyEvents[i].dwData;
 

@@ -43,7 +43,12 @@
   <Texture ID ="401" source="Data/Texture/Block.png"/>
   <Texture ID ="402" source="Data/Texture/Pipe.png"/>
   <Texture ID ="701" source="Data/Texture/Effect.png"/>
+  <Texture ID ="901" source="Data/Texture/World11MainSection.png"/>
 
   <Scene ID="0" source="Data/Scene/Sandbox.xml"/>
+  <Scene ID="101" source="Data/Scene/Title.xml"/>
+  <Scene ID="201" source="Data/Scene/WorldMap1.xml"/>
+  <Scene ID="301" source="Data/Scene/World11.xml"/>
+  <Scene ID="302" source="Data/Scene/World12.xml"/>
 
 </GameData>

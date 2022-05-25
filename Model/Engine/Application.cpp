@@ -7,8 +7,7 @@ bool CApplication::CreateGameWindow(
 	HINSTANCE hInstance,
 	std::wstring title,
 	unsigned int width, unsigned int height
-)
-{
+) {
 	RegisterWindowClass(hInstance);
 
 	_hInstance = hInstance;
@@ -24,38 +23,31 @@ bool CApplication::CreateGameWindow(
 		NULL
 	);
 
-	if (!_hWnd)
-	{
-		DebugOut(L"Engine: Create game window failed.\n");
+	if (!_hWnd) {
+		DebugOut(L"[Engine][Application] Game window's creation failed.\n");
 		return false;
 	}
-	else
-	{
+	else {
 		AdjustWindowSize(_hWnd, width, height);
 		ShowWindow(_hWnd, SW_SHOWNORMAL);
 		UpdateWindow(_hWnd);
 
-		DebugOut(L"Engine: Create game window successed.\n");
+		DebugOut(L"[Engine][Application] Game window's creation successed.\n");
 		return true;
 	}
 }
 
-void CApplication::Exit()
-{
+void CApplication::Exit() {
 	SendMessage(_hWnd, WM_DESTROY, 0, 0);
 }
 
-bool CApplication::HandleMessage()
-{
+bool CApplication::HandleMessage() {
 	MSG msg = {};
 	bool done = false;
 
-	if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-	{
+	if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 		if (msg.message == WM_QUIT)
-		{
 			done = true;
-		}
 
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
@@ -68,21 +60,15 @@ LRESULT CApplication::WinProc(
 	HWND hWnd,
 	UINT uMsg,
 	WPARAM wParam, LPARAM lParam
-)
-{
-	switch (uMsg)
-	{
-	case WM_DESTROY:
-	{
+) {
+	switch (uMsg) {
+	case WM_DESTROY: {
 		PostQuitMessage(0);
-	}
-	break;
+	} break;
 
-	default:
-	{
+	default: {
 		return DefWindowProc(hWnd, uMsg, wParam, lParam);
-	}
-	break;
+	} break;
 	}
 	
 	return 0;
@@ -91,8 +77,7 @@ LRESULT CApplication::WinProc(
 void CApplication::AdjustWindowSize(
 	HWND hWnd, 
 	unsigned int width, unsigned int height
-)
-{
+) {
 	DWORD dwStyle = GetWindowLongPtr(hWnd, GWL_STYLE);
 	DWORD dwExStyle = GetWindowLongPtr(hWnd, GWL_EXSTYLE);
 	RECT rect = { 0, 0, LONG(width), LONG(height) };
@@ -101,8 +86,7 @@ void CApplication::AdjustWindowSize(
 
 void CApplication::RegisterWindowClass(
 	HINSTANCE hInstance
-)
-{
+) {
 	WNDCLASSEX wcex = {};
 
 	wcex.cbSize = sizeof(WNDCLASSEX);

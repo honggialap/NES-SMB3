@@ -138,6 +138,12 @@
     <ClCompile Include="Model\World\TransportPipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Title\Title.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\WorldMap\WorldMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -266,6 +272,12 @@
     <ClInclude Include="Model\World\TransportPipe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\Title\Title.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\WorldMap\WorldMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />
@@ -289,6 +301,60 @@
     <Xml Include="Data\Prefab\World\PlatformSolid8x1.xml" />
     <Xml Include="Data\Prefab\World\PlatformSolid16x1.xml" />
     <Xml Include="Data\Scene\Sandbox.xml" />
+    <Xml Include="Data\Scene\Title.xml" />
+    <Xml Include="Data\Scene\World11.xml" />
+    <Xml Include="Data\Scene\WorldMap1.xml" />
+    <Xml Include="Data\Scene\World12.xml" />
+    <Xml Include="Data\Prefab\Title\Title.xml" />
+    <Xml Include="Data\Prefab\WorldMap\WorldMap1.xml" />
+    <Xml Include="Data\Prefab\World\World11SubTransportPipe.xml" />
+    <Xml Include="Data\Prefab\World\QuestionCoinBlock.xml" />
+    <Xml Include="Data\Prefab\World\QuestionFireFlowerBlock.xml" />
+    <Xml Include="Data\Prefab\World\QuestionPowerUpBlock.xml" />
+    <Xml Include="Data\Prefab\World\RedGoomba.xml" />
+    <Xml Include="Data\Prefab\World\RedKoopa.xml" />
+    <Xml Include="Data\Prefab\World\RedParaGoomba.xml" />
+    <Xml Include="Data\Prefab\World\RedParaKoopa.xml" />
+    <Xml Include="Data\Prefab\World\RedPiranhaDown.xml" />
+    <Xml Include="Data\Prefab\World\RedPiranhaUp.xml" />
+    <Xml Include="Data\Prefab\World\RedVenusDown.xml" />
+    <Xml Include="Data\Prefab\World\RedVenusUp.xml" />
+    <Xml Include="Data\Prefab\World\Relay.xml" />
+    <Xml Include="Data\Prefab\World\SuperLeaf.xml" />
+    <Xml Include="Data\Prefab\World\SuperMushroom.xml" />
+    <Xml Include="Data\Prefab\World\VenusDown.xml" />
+    <Xml Include="Data\Prefab\World\VenusUp.xml" />
+    <Xml Include="Data\Prefab\World\World11MainSectionBackground.xml" />
+    <Xml Include="Data\Prefab\World\World11MainTransportPipe.xml" />
+    <Xml Include="Data\Prefab\World\World11SpawnZone1.xml" />
+    <Xml Include="Data\Prefab\World\World11SpawnZone2.xml" />
+    <Xml Include="Data\Prefab\World\World11SubSectionBackground.xml" />
+    <Xml Include="Data\Prefab\World\PlantSensor.xml" />
+    <Xml Include="Data\Prefab\World\MarioFireball.xml" />
+    <Xml Include="Data\Prefab\World\MarioTail.xml" />
+    <Xml Include="Data\Prefab\World\MicroGoomba.xml" />
+    <Xml Include="Data\Prefab\World\ParaGoomba.xml" />
+    <Xml Include="Data\Prefab\World\ParaKoopa.xml" />
+    <Xml Include="Data\Prefab\World\PiranhaDown.xml" />
+    <Xml Include="Data\Prefab\World\PiranhaUp.xml" />
+    <Xml Include="Data\Prefab\World\PlantFireball.xml" />
+    <Xml Include="Data\Prefab\World\MainMenu.xml" />
+    <Xml Include="Data\Prefab\World\BlackDownPipe.xml" />
+    <Xml Include="Data\Prefab\World\Brick.xml" />
+    <Xml Include="Data\Prefab\World\BrickExtraLifeBlock.xml" />
+    <Xml Include="Data\Prefab\World\BrickMultipleCoinBlock.xml" />
+    <Xml Include="Data\Prefab\World\BrickRelayBlock.xml" />
+    <Xml Include="Data\Prefab\World\Coin.xml" />
+    <Xml Include="Data\Prefab\World\DeadZone.xml" />
+    <Xml Include="Data\Prefab\World\ExtraLifeMushroom.xml" />
+    <Xml Include="Data\Prefab\World\FireFlower.xml" />
+    <Xml Include="Data\Prefab\World\Goal.xml" />
+    <Xml Include="Data\Prefab\World\Goomba.xml" />
+    <Xml Include="Data\Prefab\World\GreenUpPipe.xml" />
+    <Xml Include="Data\Prefab\World\Koopa.xml" />
+    <Xml Include="Data\Prefab\World\KoopaSensor.xml" />
+    <Xml Include="Data\Prefab\World\World11.xml" />
+    <Xml Include="Data\Prefab\World\World12.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Data\Texture\BBox.png">
@@ -316,6 +382,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Data\Texture\Plant.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\World11SubSection.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Data\Texture\World11MainSection.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

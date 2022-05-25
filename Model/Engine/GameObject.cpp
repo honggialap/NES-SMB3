@@ -10,8 +10,7 @@ CGameObject::CGameObject(
 	float x, float y, 
 	int gx, int gy,
 	unsigned int layer
-)
-{
+) {
 	_game = game;
 	_ID = ID;
 	_name = name;
@@ -24,8 +23,7 @@ CGameObject::CGameObject(
 	_collider = new CCollider(this);
 }
 
-CGameObject::~CGameObject()
-{
+CGameObject::~CGameObject() {
 	if (_collider != nullptr) {
 		delete _collider;
 		_collider = nullptr;
@@ -43,16 +41,14 @@ CGameObject::~CGameObject()
 	}
 	_animations.clear();
 
-	for (auto sprite : _sprites) 
-	{
+	for (auto sprite : _sprites) {
 		delete sprite.second;
 		sprite.second = nullptr;
 	}
 	_sprites.clear();
 }
 
-void CGameObject::Load()
-{
+void CGameObject::Load() {
 	/* Read file */
 	pugi::xml_document prefabDoc;
 	prefabDoc.load_file(_source.c_str());
@@ -60,8 +56,7 @@ void CGameObject::Load()
 	/* Sprite */
 	for (pugi::xml_node spriteNode = prefabDoc.child("Prefab").child("Sprite");
 		spriteNode;
-		spriteNode = spriteNode.next_sibling("Sprite")) 
-	{
+		spriteNode = spriteNode.next_sibling("Sprite")) {
 		auto sprite = new CSprite(
 			this,
 			spriteNode.attribute("left").as_uint(),
@@ -119,10 +114,11 @@ void CGameObject::Load()
 	}
 }
 
-void CGameObject::AddSprite(unsigned int ID, pSprite sprite)
-{
-	if (_sprites.find(ID) != _sprites.end()) 
-	{
+void CGameObject::AddSprite(
+	unsigned int ID, 
+	pSprite sprite
+) {
+	if (_sprites.find(ID) != _sprites.end()) {
 		DebugOut(L"[Engine] Sprite ID is already existed: %d.\n", ID);
 
 		delete sprite;

@@ -155,6 +155,8 @@
     <ClCompile Include="Model\Engine\Time.cpp" />
     <ClCompile Include="Model\Engine\Ultilities.cpp" />
     <ClCompile Include="Model\SMB3.cpp" />
+    <ClCompile Include="Model\Title\Title.cpp" />
+    <ClCompile Include="Model\WorldMap\WorldMap.cpp" />
     <ClCompile Include="Model\World\Background.cpp" />
     <ClCompile Include="Model\World\Block.cpp" />
     <ClCompile Include="Model\World\Brick.cpp" />
@@ -202,6 +204,8 @@
     <ClInclude Include="Model\Engine\Time.h" />
     <ClInclude Include="Model\Engine\Ultilities.h" />
     <ClInclude Include="Model\SMB3.h" />
+    <ClInclude Include="Model\Title\Title.h" />
+    <ClInclude Include="Model\WorldMap\WorldMap.h" />
     <ClInclude Include="Model\World\Background.h" />
     <ClInclude Include="Model\World\Block.h" />
     <ClInclude Include="Model\World\Brick.h" />
@@ -231,7 +235,33 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Data\GameData.xml" />
+    <Xml Include="Data\Prefab\Title\Title.xml" />
+    <Xml Include="Data\Prefab\WorldMap\WorldMap1.xml" />
+    <Xml Include="Data\Prefab\World\BlackDownPipe.xml" />
+    <Xml Include="Data\Prefab\World\Brick.xml" />
+    <Xml Include="Data\Prefab\World\BrickExtraLifeBlock.xml" />
+    <Xml Include="Data\Prefab\World\BrickMultipleCoinBlock.xml" />
+    <Xml Include="Data\Prefab\World\BrickRelayBlock.xml" />
+    <Xml Include="Data\Prefab\World\Coin.xml" />
+    <Xml Include="Data\Prefab\World\DeadZone.xml" />
+    <Xml Include="Data\Prefab\World\ExtraLifeMushroom.xml" />
+    <Xml Include="Data\Prefab\World\FireFlower.xml" />
+    <Xml Include="Data\Prefab\World\Goal.xml" />
+    <Xml Include="Data\Prefab\World\Goomba.xml" />
+    <Xml Include="Data\Prefab\World\GreenUpPipe.xml" />
+    <Xml Include="Data\Prefab\World\Koopa.xml" />
+    <Xml Include="Data\Prefab\World\KoopaSensor.xml" />
+    <Xml Include="Data\Prefab\World\MainMenu.xml" />
     <Xml Include="Data\Prefab\World\Mario.xml" />
+    <Xml Include="Data\Prefab\World\MarioFireball.xml" />
+    <Xml Include="Data\Prefab\World\MarioTail.xml" />
+    <Xml Include="Data\Prefab\World\MicroGoomba.xml" />
+    <Xml Include="Data\Prefab\World\ParaGoomba.xml" />
+    <Xml Include="Data\Prefab\World\ParaKoopa.xml" />
+    <Xml Include="Data\Prefab\World\PiranhaDown.xml" />
+    <Xml Include="Data\Prefab\World\PiranhaUp.xml" />
+    <Xml Include="Data\Prefab\World\PlantFireball.xml" />
+    <Xml Include="Data\Prefab\World\PlantSensor.xml" />
     <Xml Include="Data\Prefab\World\PlatformHollow16x1.xml" />
     <Xml Include="Data\Prefab\World\PlatformHollow1x1.xml" />
     <Xml Include="Data\Prefab\World\PlatformHollow1x16.xml" />
@@ -250,7 +280,35 @@
     <Xml Include="Data\Prefab\World\PlatformSolid2x1.xml" />
     <Xml Include="Data\Prefab\World\PlatformSolid4x1.xml" />
     <Xml Include="Data\Prefab\World\PlatformSolid8x1.xml" />
+    <Xml Include="Data\Prefab\World\QuestionCoinBlock.xml" />
+    <Xml Include="Data\Prefab\World\QuestionFireFlowerBlock.xml" />
+    <Xml Include="Data\Prefab\World\QuestionPowerUpBlock.xml" />
+    <Xml Include="Data\Prefab\World\RedGoomba.xml" />
+    <Xml Include="Data\Prefab\World\RedKoopa.xml" />
+    <Xml Include="Data\Prefab\World\RedParaGoomba.xml" />
+    <Xml Include="Data\Prefab\World\RedParaKoopa.xml" />
+    <Xml Include="Data\Prefab\World\RedPiranhaDown.xml" />
+    <Xml Include="Data\Prefab\World\RedPiranhaUp.xml" />
+    <Xml Include="Data\Prefab\World\RedVenusDown.xml" />
+    <Xml Include="Data\Prefab\World\RedVenusUp.xml" />
+    <Xml Include="Data\Prefab\World\Relay.xml" />
+    <Xml Include="Data\Prefab\World\SuperLeaf.xml" />
+    <Xml Include="Data\Prefab\World\SuperMushroom.xml" />
+    <Xml Include="Data\Prefab\World\VenusDown.xml" />
+    <Xml Include="Data\Prefab\World\VenusUp.xml" />
+    <Xml Include="Data\Prefab\World\World11.xml" />
+    <Xml Include="Data\Prefab\World\World11MainSectionBackground.xml" />
+    <Xml Include="Data\Prefab\World\World11MainTransportPipe.xml" />
+    <Xml Include="Data\Prefab\World\World11SpawnZone1.xml" />
+    <Xml Include="Data\Prefab\World\World11SpawnZone2.xml" />
+    <Xml Include="Data\Prefab\World\World11SubSectionBackground.xml" />
+    <Xml Include="Data\Prefab\World\World11SubTransportPipe.xml" />
+    <Xml Include="Data\Prefab\World\World12.xml" />
     <Xml Include="Data\Scene\Sandbox.xml" />
+    <Xml Include="Data\Scene\Title.xml" />
+    <Xml Include="Data\Scene\World11.xml" />
+    <Xml Include="Data\Scene\World12.xml" />
+    <Xml Include="Data\Scene\WorldMap1.xml" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Data\Texture\BBox.png" />
@@ -262,6 +320,8 @@
     <Image Include="Data\Texture\Mario.png" />
     <Image Include="Data\Texture\Pipe.png" />
     <Image Include="Data\Texture\Plant.png" />
+    <Image Include="Data\Texture\World11MainSection.png" />
+    <Image Include="Data\Texture\World11SubSection.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

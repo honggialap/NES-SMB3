@@ -5,8 +5,7 @@
 void DebugOut(
 	const wchar_t* fmt,
 	...
-)
-{
+) {
 	va_list argp;
 	va_start(argp, fmt);
 	wchar_t dbg_out[4096];

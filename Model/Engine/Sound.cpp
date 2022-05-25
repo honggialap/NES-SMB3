@@ -9,9 +9,8 @@ CSound::CSound(
 }
 
 CSound::~CSound() {
-	if (_secondaryBuffer) {
+	if (_secondaryBuffer)
 		_secondaryBuffer->Release();
-	}
 }
 
 void CSound::Play(
@@ -21,17 +20,11 @@ void CSound::Play(
 	HRESULT result;
 
 	result = _secondaryBuffer->SetCurrentPosition(0);
-	if (FAILED(result)) {
-		return;
-	}
+	if (FAILED(result)) return;
 
 	result = _secondaryBuffer->SetVolume(DSBVOLUME_MAX);
-	if (FAILED(result)) {
-		return;
-	}
+	if (FAILED(result)) return;
 
 	result = _secondaryBuffer->Play(0, 0, 0);
-	if (FAILED(result)) {
-		return;
-	}
+	if (FAILED(result)) return;
 }

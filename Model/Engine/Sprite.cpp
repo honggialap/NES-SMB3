@@ -10,8 +10,7 @@ CSprite::CSprite(
 	unsigned int width, unsigned int height,
 	int offsetX, int offsetY,
 	pTexture texture
-) 
-{
+) {
 	_gameObject = gameObject;
 
 	_left = left;
@@ -38,21 +37,20 @@ CSprite::CSprite(
 	D3DXMatrixScaling(&_matScaling, (FLOAT)_width, (FLOAT)_height, 1.0f);
 }
 
-CSprite::~CSprite()
-{
+CSprite::~CSprite() {
 	_gameObject = nullptr;
 }
 
 void CSprite::Render(
 	float x, float y,
 	bool screenSpace
-)
-{
-	auto graphics = _gameObject->GetGame()->GetGraphics();
+) {
+	auto game = _gameObject->GetGame();
+	auto graphics = game->GetGraphics();
 
 	float cameraX = 0;
 	float cameraY = 0;
-	float cameraBuffer = _gameObject->GetGame()->GetCameraBoundOffset();
+	float cameraBuffer = game->GetCameraBoundOffset();
 	_gameObject->GetGame()->GetCamera(cameraX, cameraY);
 	cameraX = (FLOAT)floor(cameraX);
 	cameraY = (FLOAT)floor(cameraY);
@@ -62,19 +60,16 @@ void CSprite::Render(
 	x = (FLOAT)floor(x) + _offsetX;
 	y = (FLOAT)floor(y) + _offsetY;
 
-	if (screenSpace)
-	{
+	if (screenSpace) {
 		D3DXMatrixTranslation(&matTranslation, x, graphics->GetBackBufferHeight() + y, 0.1f);
 		_sprite.matWorld = (_matScaling * matTranslation);
 		graphics->GetSpriteHandler()->DrawSpritesImmediate(&_sprite, 1, 0, 0);
 	}
-	else 
-	{
+	else {
 		if ((x > cameraX - cameraBuffer)
 			&& (x < cameraX + graphics->GetBackBufferWidth() + cameraBuffer)
 			&& (y < cameraY + cameraBuffer)
-			&& (y > cameraY - graphics->GetBackBufferWidth() - cameraBuffer)) 
-		{
+			&& (y > cameraY - graphics->GetBackBufferWidth() - cameraBuffer)) {
 			D3DXMatrixTranslation(&matTranslation, x - cameraX, graphics->GetBackBufferHeight() + y - cameraY, 0.1f);
 			_sprite.matWorld = (_matScaling * matTranslation);
 			graphics->GetSpriteHandler()->DrawSpritesImmediate(&_sprite, 1, 0, 0);

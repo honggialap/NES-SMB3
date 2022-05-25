@@ -108,15 +108,12 @@ pCollision CCollider::Overlap(
 	_gameObject->GetBoundingBox(ml, mt, mr, mb);
 	collidable->GetBoundingBox(sl, st, sr, sb);
 
-	if (sr < ml || mr < sl) {
+	if (sr < ml || mr < sl)
 		t = -1.0f;
-	}
-	else if (mb > st || sb > mt) {
+	else if (mb > st || sb > mt)
 		t = -1.0f;
-	}
-	else {
+	else
 		t = 0.0f;
-	}
 
 	pCollision e = new CCollision(t, 0, 0, 0, 0, true, collidable);
 	return e;
@@ -128,12 +125,10 @@ void CCollider::ScanOverlap(
 	for (UINT i = 0; i < collidables->size(); i++) {
 		pCollision e = Overlap(collidables->at(i));
 
-		if (e->WasCollided() == 1) {
+		if (e->WasCollided() == 1)
 			_collisions.push_back(e);
-		}
-		else {
+		else
 			delete e;
-		}
 	}
 }
 
@@ -209,17 +204,14 @@ void CCollider::Filter(
 		if (c->_target->IsDestroyed()) continue;
 
 		// ignore collision event with object having IsBlocking = 0 (like coin, mushroom, etc)
-		if (filterBlock == 1 && !c->_target->IsBlocking()) {
+		if (filterBlock == 1 && !c->_target->IsBlocking())
 			continue;
-		}
 
-		if (c->_t < min_tx && c->_nx != 0 && filterX == 1) {
+		if (c->_t < min_tx && c->_nx != 0 && filterX == 1)
 			min_tx = c->_t; min_ix = i;
-		}
 
-		if (c->_t < min_ty && c->_ny != 0 && filterY == 1) {
+		if (c->_t < min_ty && c->_ny != 0 && filterY == 1)
 			min_ty = c->_t; min_iy = i;
-		}
 	}
 
 	if (min_ix >= 0) colX = _collisions[min_ix];
@@ -233,9 +225,9 @@ void CCollider::Process(
 	_collisions.clear();
 
 	// Overlapping
-	if (_gameObject->IsCollidable()) {
+	if (_gameObject->IsCollidable())
 		ScanOverlap(collidables);
-	}
+
 	if (_collisions.size() != 0) {
 		for (UINT i = 0; i < _collisions.size(); i++) {
 			pCollision e = _collisions[i];
@@ -243,6 +235,7 @@ void CCollider::Process(
 			if (e->_overlap) _gameObject->OnCollisionWith(e);
 			if (e->_target->IsBlocking()) continue;  // blocking collisions will be handled later, skip them
 		}
+
 		for (UINT i = 0; i < _collisions.size(); i++) delete _collisions[i];
 	}
 
@@ -252,13 +245,11 @@ void CCollider::Process(
 	pCollision colY = NULL;
 
 	// Sweeping
-	if (_gameObject->IsCollidable()) {
+	if (_gameObject->IsCollidable())
 		ScanSweptAABB(elapsedMs, collidables);
-	}
 
-	if (_collisions.size() == 0) {
+	if (_collisions.size() == 0)
 		_gameObject->OnNoCollision(elapsedMs);
-	}
 	else {
 		Filter(colX, colY);
 
@@ -269,7 +260,7 @@ void CCollider::Process(
 		dy = vy * elapsedMs;
 
 		if (colX != NULL && colY != NULL) {
-			if (colY->_t < colX->_t) {	// was collision on Y first ?
+			if (colY->_t < colX->_t) {	// collision on X first
 				y += colY->_t * dy + colY->_ny * BLOCK_PUSH_FACTOR;
 				_gameObject->SetPosition(x, y);
 
@@ -306,7 +297,6 @@ void CCollider::Process(
 				}
 			}
 			else { // collision on X first
-
 				x += colX->_t * dx + colX->_nx * BLOCK_PUSH_FACTOR;
 				_gameObject->SetPosition(x, y);
 

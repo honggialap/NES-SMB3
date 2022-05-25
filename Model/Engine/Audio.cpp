@@ -5,19 +5,16 @@
 
 bool CAudio::Initialize(
 	HWND hWnd
-)
-{
+) {
 	HRESULT result = DirectSoundCreate8(NULL, &_device, NULL);
-	if (FAILED(result)) 
-	{
-		DebugOut(L"Engine: initialize Direct Sound Device failed.\n");
+	if (FAILED(result)) {
+		DebugOut(L"[Engine][Audio] Initialize Direct Sound Device failed.\n");
 		return false;
 	}
 
 	result = _device->SetCooperativeLevel(hWnd, DSSCL_PRIORITY);
-	if (FAILED(result)) 
-	{
-		DebugOut(L"Engine: set Cooperative Level of Direct Sound Device failed.\n");
+	if (FAILED(result)) {
+		DebugOut(L"[Engine][Audio] Set Cooperative Level of Direct Sound Device failed.\n");
 		return false;
 	}
 
@@ -30,9 +27,8 @@ bool CAudio::Initialize(
 	bufferDesc.guid3DAlgorithm = GUID_NULL;
 
 	result = _device->CreateSoundBuffer(&bufferDesc, &_primaryBuffer, NULL);
-	if (FAILED(result)) 
-	{
-		DebugOut(L"Engine: create Primary Buffer for Direct Sound failed.\n");
+	if (FAILED(result)) {
+		DebugOut(L"[Engine][Audio] Create Primary Buffer for Direct Sound failed.\n");
 		return false;
 	}
 
@@ -46,18 +42,16 @@ bool CAudio::Initialize(
 	waveFormat.cbSize = 0;
 
 	result = _primaryBuffer->SetFormat(&waveFormat);
-	if (FAILED(result)) 
-	{
-		DebugOut(L"Engine: set format of Primary Buffer for Direct Sound failed.\n");
+	if (FAILED(result)) {
+		DebugOut(L"[Engine][Audio] Set format of Primary Buffer for Direct Sound failed.\n");
 		return false;
 	}
 
-	DebugOut(L"Engine: Direct Sound Initialized.\n");
+	DebugOut(L"[Engine][Audio] Direct Sound Initialized.\n");
 	return true;
 }
 
-void CAudio::Shutdown()
-{
+void CAudio::Shutdown() {
 	if (_primaryBuffer) _primaryBuffer->Release();
 	if (_device) _device->Release();
 }
@@ -65,8 +59,7 @@ void CAudio::Shutdown()
 bool CAudio::LoadSoundFromFile(
 	LPDIRECTSOUNDBUFFER8 secondaryBuffer, 
 	std::string soundFilePath
-)
-{
+) {
 	int error;
 	FILE* filePtr;
 	unsigned int count;

@@ -2,8 +2,7 @@
 #include "Time.h"
 #pragma endregion
 
-void CTime::Start()
-{
+void CTime::Start() {
 	_elapsedMs = 0.0f;
 	_totalElapsedMs = 0.0f;
 
@@ -12,8 +11,7 @@ void CTime::Start()
 	_currentTimeStamp = _startTimeStamp;
 }
 
-void CTime::Tick()
-{
+void CTime::Tick() {
 	_previousTimeStamp = _currentTimeStamp;
 	_currentTimeStamp = _clock.now();
 

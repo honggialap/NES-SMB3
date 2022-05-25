@@ -43,9 +43,7 @@ void CAnimation::Stop() {
 void CAnimation::Update(
 	float elapsedMs
 ) {
-	if (!_play) {
-		return;
-	}
+	if (!_play) return;
 
 	_elapsedTime += elapsedMs;
 
@@ -53,21 +51,21 @@ void CAnimation::Update(
 		_elapsedTime -= _frames.at(_frameIndex).second;
 		_frameIndex++;
 
-		if (_frameIndex < _frames.size()) {
+		if (_frameIndex < _frames.size())
 			continue;
-		}
 
-		if (_loop) {
+		if (_loop)
 			_frameIndex = 0;
-		}
-		else {
+		else
 			Stop();
-		}
 	}
 }
 
-void CAnimation::Render(float x, float y, bool isUI) {
+void CAnimation::Render(
+	float x, float y,
+	bool screenSpace
+) {
 	_gameObject->GetSprite(
 		_frames.at(_frameIndex).first
-	)->Render(x, y, isUI);
+	)->Render(x, y, screenSpace);
 }

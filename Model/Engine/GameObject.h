@@ -17,8 +17,7 @@ typedef CGame* pGame;
 #include <unordered_map>
 #pragma endregion
 
-class CGameObject 
-{
+class CGameObject {
 protected:
 	pGame _game = nullptr;
 
@@ -90,7 +89,6 @@ public:
 	pSound GetSound(unsigned int id) { return _sounds[id]; }
 
 	pCollider GetCollider() { return _collider; }
-
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom) = 0;
 	virtual int IsCollidable() { return 0; };
 	virtual int IsBlocking() { return 0; }

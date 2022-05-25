@@ -8,8 +8,7 @@
 #include <unordered_map>
 #pragma endregion
 
-struct CTexture
-{
+struct CTexture {
 	ID3D10Texture2D* _texture = nullptr;
 	ID3D10ShaderResourceView* _srview = nullptr;
 
@@ -24,8 +23,8 @@ struct CTexture
 };
 typedef CTexture* pTexture;
 
-class CGraphics
-{
+class CGraphics {
+	/* DIRECT 3D */
 private:
 	ID3D10Device* _device = NULL;
 	IDXGISwapChain* _swapChain = NULL;
@@ -37,11 +36,9 @@ private:
 	unsigned int _backBufferWidth = 0;
 	unsigned int _backBufferHeight = 0;
 
-	std::unordered_map<unsigned int, pTexture> _textures;
-
 public:
-	ID3D10Device* GetDevice() { return _device; }
-	IDXGISwapChain* GetSwapChain() { return _swapChain; }
+	ID3D10Device* GetDevice() { return _device;	}
+	IDXGISwapChain* GetSwapChain() { return _swapChain;	}
 	ID3D10RenderTargetView* GetRenderTargetView() { return _renderTargetView; }
 	ID3DX10Sprite* GetSpriteHandler() { return _spriteHandler; }
 	ID3D10BlendState* GetBlendStateAlpha() { return _blendStateAlpha; }
@@ -49,31 +46,26 @@ public:
 	unsigned int GetBackBufferWidth() { return _backBufferWidth; }
 	unsigned int GetBackBufferHeight() { return _backBufferHeight; }
 
-public:
-	bool Initialize(
-		HWND hWnd
-	);
+	bool Initialize(HWND hWnd);
 	void Shutdown();
 
-	void LoadTexture(
-		unsigned int ID, 
-		std::wstring textureFilePath
-	);
-	pTexture GetTexture(
-		unsigned int ID
-	);
-
 private:
-	bool CreateSwapChain(
-		HWND hWnd
-	);
+	bool CreateSwapChain(HWND hWnd);
 	bool CreateRenderTargetView();
 	bool CreateSpriteHandler();
 	bool CreateBlendState();
 
-	pTexture LoadTextureFromFile(
-		std::wstring textureFilePath
-	);
+
+	/* Textures Database */
+private:
+	std::unordered_map<unsigned int, pTexture> _textures;
+
+public:
+	void LoadTexture(unsigned int ID, std::wstring textureFilePath);
+	pTexture GetTexture(unsigned int ID);
+
+private:
+	pTexture LoadTextureFromFile(std::wstring textureFilePath);
 };
 typedef CGraphics* pGraphics;
 

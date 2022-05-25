@@ -10,8 +10,7 @@
 #include <dinput.h>
 #pragma endregion
 
-class IKeyHandler 
-{
+class IKeyHandler {
 public:
 	virtual void KeyState() = 0;
 	virtual void OnKeyDown(int keyCode) = 0;
@@ -19,8 +18,7 @@ public:
 };
 typedef IKeyHandler* pKeyHandler;
 
-class CInput
-{
+class CInput {
 private:
 	static const unsigned int KEYBOARD_BUFFER_SIZE = 1024;
 	static const unsigned int KEYBOARD_STATE_SIZE = 256;
@@ -32,13 +30,8 @@ private:
 	pKeyHandler _keyHandler = nullptr;
 
 public:
-	bool Initialize(
-		HINSTANCE hInstance,
-		HWND hWnd,
-		pKeyHandler keyHandler
-	);
+	bool Initialize(HINSTANCE hInstance, HWND hWnd, pKeyHandler keyHandler);
 	void Shutdown();
-
 	void ProcessKeyboard();
 };
 typedef CInput* pInput;

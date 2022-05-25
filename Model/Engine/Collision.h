@@ -41,9 +41,7 @@ struct CCollision {
 	}
 
 	bool WasCollided() { return _t >= 0.0f && _t <= 1.0f; }
-	static bool CompareTime(CCollision*& a, CCollision*& b) {
-		return a->_t < b->_t;
-	}
+	static bool CompareTime(CCollision*& a, CCollision*& b) { return a->_t < b->_t; }
 };
 typedef CCollision* pCollision;
 
@@ -79,17 +77,12 @@ public:
 	void ScanSweptAABB(float elapsedMs, std::vector<pGameObject>* collidables);
 
 	void Filter(
-		pCollision& colX,
-		pCollision& colY,
+		pCollision& colX, pCollision& colY,
 		int filterBlock = 1,
-		int filterX = 1,
-		int filterY = 1
+		int filterX = 1, int filterY = 1
 	);
 
-	void Process(
-		float elapsedMs,
-		std::vector<pGameObject>* collidables
-	);
+	void Process(float elapsedMs, std::vector<pGameObject>* collidables);
 };
 typedef CCollider* pCollider;
 

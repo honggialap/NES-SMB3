@@ -6,8 +6,16 @@
 #include "Engine/Game.h"
 #pragma endregion
 
+#pragma region SCENE
+#define SCENE_SANDBOX			0
+#define SCENE_TITLE				101
+#define SCENE_WORLDMAP1			201
+#define SCENE_WORLD1			301
+#define SCENE_WORLD2			302
+#pragma endregion
+
 #pragma region ACTOR
-#define ACT_MENU				10101
+#define ACT_TITLE				10101
 #define ACT_WORLD_MAP			10201
 #define ACT_WORLD				10301
 

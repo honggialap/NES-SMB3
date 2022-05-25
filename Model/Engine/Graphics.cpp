@@ -3,11 +3,12 @@
 #include "Ultilities.h"
 #pragma endregion
 
+#pragma region TEXTURE
+
 CTexture::CTexture(
 	ID3D10Texture2D* texture, 
 	ID3D10ShaderResourceView* srview
-)
-{
+) {
 	_texture = texture;
 	_srview = srview;
 
@@ -18,75 +19,58 @@ CTexture::CTexture(
 	_height = desc.Height;
 }
 
-CTexture::~CTexture()
-{
+CTexture::~CTexture() {
 	if (_srview) _srview->Release();
 	if (_texture) _texture->Release();
 }
 
-bool CGraphics::Initialize(
-	HWND hWnd
-)
-{
-	if (!CreateSwapChain(hWnd)) return false;
-	if (!CreateRenderTargetView()) return false;
-	if (!CreateSpriteHandler()) return false;
-	if (!CreateBlendState()) return false;
+#pragma endregion
+
+#pragma region DIRECT 3D
+
+bool CGraphics::Initialize(HWND hWnd) {
+	if (!CreateSwapChain(hWnd))
+		return false;
+
+	if (!CreateRenderTargetView())
+		return false;
+
+	if (!CreateSpriteHandler())
+		return false;
+
+	if (!CreateBlendState())
+		return false;
 
 	DebugOut(L"Engine: Direct 3D Initialized.\n");
 	return true;
 }
 
-void CGraphics::Shutdown()
-{
-	for (auto texture : _textures)
-	{
+void CGraphics::Shutdown() {
+	for (auto texture : _textures) {
 		delete texture.second;
 		texture.second = nullptr;
 	}
 	_textures.clear();
 
-	if (_blendStateAlpha) _blendStateAlpha->Release();
-	if (_spriteHandler) _spriteHandler->Release();
-	if (_renderTargetView) _renderTargetView->Release();
-	if (_swapChain) _swapChain->Release();
-	if (_device) _device->Release();
-}
-
-void CGraphics::LoadTexture(
-	unsigned int ID,
-	std::wstring textureFilePath
-)
-{
-	if (_textures.find(ID) != _textures.end()) 
-	{
-		DebugOut(L"Engine: Texture ID is already existed: %d.\n", ID);
-		return;
-	}
-
-	auto texture = LoadTextureFromFile(textureFilePath);
-	if (texture == nullptr) return;
-
-	_textures[ID] = texture;
-}
-
-pTexture CGraphics::GetTexture(
-	unsigned int ID
-)
-{
-	if (_textures.find(ID) == _textures.end()) 
-	{
-		DebugOut(L"Engine: Texture not found: %d\n", ID);
-		return nullptr;
-	}
-
-	return _textures[ID];
+	if (_blendStateAlpha) 
+		_blendStateAlpha->Release();
+	
+	if (_spriteHandler) 
+		_spriteHandler->Release();
+	
+	if (_renderTargetView) 
+		_renderTargetView->Release();
+	
+	if (_swapChain) 
+		_swapChain->Release();
+	
+	if (_device) 
+		_device->Release();
 }
 
 bool CGraphics::CreateSwapChain(
 	HWND hWnd
-)
-{
+) {
 	RECT rect;
 	GetClientRect(hWnd, &rect);
 	_backBufferWidth = rect.right + 1;
@@ -116,8 +100,7 @@ bool CGraphics::CreateSwapChain(
 		&_swapChain,
 		&_device
 	);
-	if (result != S_OK) 
-	{
+	if (result != S_OK) {
 		DebugOut(L"Engine: Create D3D10 Device failed.\n");
 		return false;
 	}
@@ -125,20 +108,17 @@ bool CGraphics::CreateSwapChain(
 	return true;
 }
 
-bool CGraphics::CreateRenderTargetView()
-{
+bool CGraphics::CreateRenderTargetView() {
 	ID3D10Texture2D* pBackBuffer;
 	HRESULT result = _swapChain->GetBuffer(0, __uuidof(ID3D10Texture2D), (LPVOID*)&pBackBuffer);
-	if (result != S_OK) 
-	{
+	if (result != S_OK) {
 		DebugOut(L"Engine: Get D3D10 Back buffer failed.\n");
 		return false;
 	}
 
 	result = _device->CreateRenderTargetView(pBackBuffer, NULL, &_renderTargetView);
 	pBackBuffer->Release();
-	if (result != S_OK) 
-	{
+	if (result != S_OK) {
 		DebugOut(L"Engine: Create D3D10 Render target view failed.\n");
 		return false;
 	}
@@ -148,8 +128,7 @@ bool CGraphics::CreateRenderTargetView()
 	return true;
 }
 
-bool CGraphics::CreateSpriteHandler()
-{
+bool CGraphics::CreateSpriteHandler() {
 	D3D10_VIEWPORT viewPort;
 	viewPort.Width = _backBufferWidth;
 	viewPort.Height = _backBufferHeight;
@@ -180,8 +159,7 @@ bool CGraphics::CreateSpriteHandler()
 	_device->PSSetSamplers(0, 1, &_pointSamplerState);
 
 	HRESULT result = D3DX10CreateSprite(_device, 0, &_spriteHandler);
-	if (result != S_OK) 
-	{
+	if (result != S_OK) {
 		DebugOut(L"Engine: Create D3D10 Sprite handler failed.\n");
 		return false;
 	}
@@ -198,8 +176,7 @@ bool CGraphics::CreateSpriteHandler()
 	);
 
 	result = _spriteHandler->SetProjectionTransform(&matProjection);
-	if (result != S_OK) 
-	{
+	if (result != S_OK) {
 		DebugOut(L"Engine: Set D3D10 viewport failed.\n");
 		return false;
 	}
@@ -207,8 +184,7 @@ bool CGraphics::CreateSpriteHandler()
 	return true;
 }
 
-bool CGraphics::CreateBlendState()
-{
+bool CGraphics::CreateBlendState() {
 	D3D10_BLEND_DESC StateDesc;
 	ZeroMemory(&StateDesc, sizeof(D3D10_BLEND_DESC));
 	StateDesc.AlphaToCoverageEnable = FALSE;
@@ -222,8 +198,7 @@ bool CGraphics::CreateBlendState()
 	StateDesc.RenderTargetWriteMask[0] = D3D10_COLOR_WRITE_ENABLE_ALL;
 
 	HRESULT result = _device->CreateBlendState(&StateDesc, &_blendStateAlpha);
-	if (result != S_OK) 
-	{
+	if (result != S_OK) {
 		DebugOut(L"Engine: Create D3D10 Blend state failed.\n");
 		return false;
 	}
@@ -231,10 +206,40 @@ bool CGraphics::CreateBlendState()
 	return true;
 }
 
+#pragma endregion
+
+#pragma region TEXTURES DATABASE
+
+void CGraphics::LoadTexture(
+	unsigned int ID,
+	std::wstring textureFilePath
+) {
+	if (_textures.find(ID) != _textures.end()) {
+		DebugOut(L"Engine: Texture ID is already existed: %d.\n", ID);
+		return;
+	}
+
+	auto texture = LoadTextureFromFile(textureFilePath);
+	if (texture == nullptr)
+		return;
+
+	_textures[ID] = texture;
+}
+
+pTexture CGraphics::GetTexture(
+	unsigned int ID
+) {
+	if (_textures.find(ID) == _textures.end()) {
+		DebugOut(L"Engine: Texture not found: %d\n", ID);
+		return nullptr;
+	}
+
+	return _textures[ID];
+}
+
 pTexture CGraphics::LoadTextureFromFile(
 	std::wstring textureFilePath
-)
-{
+) {
 	ID3D10Resource* pD3D10Resource = NULL;
 	ID3D10Texture2D* texture = NULL;
 
@@ -245,8 +250,7 @@ pTexture CGraphics::LoadTextureFromFile(
 		&imageInfo,
 		NULL
 	);
-	if (FAILED(result)) 
-	{
+	if (FAILED(result)) {
 		DebugOut(L"Engine: Texture load failed (imageInfo): %s\n", textureFilePath.c_str());
 		return nullptr;
 	}
@@ -275,8 +279,7 @@ pTexture CGraphics::LoadTextureFromFile(
 		&pD3D10Resource,
 		NULL
 	);
-	if (FAILED(result)) 
-	{
+	if (FAILED(result)) {
 		DebugOut(L"Engine: Texture load failed (createTexture): %s\n", textureFilePath.c_str());
 		return nullptr;
 	}
@@ -286,8 +289,7 @@ pTexture CGraphics::LoadTextureFromFile(
 		(LPVOID*)&texture
 	);
 	pD3D10Resource->Release();
-	if (!texture) 
-	{
+	if (!texture) {
 		DebugOut(L"Engine: Texture load failed (resource): %s\n", textureFilePath.c_str());
 		return nullptr;
 	}
@@ -303,8 +305,7 @@ pTexture CGraphics::LoadTextureFromFile(
 
 	ID3D10ShaderResourceView* gSpriteTextureRV = NULL;
 	result = _device->CreateShaderResourceView(texture, &SRVDesc, &gSpriteTextureRV);
-	if (FAILED(result)) 
-	{
+	if (FAILED(result)) {
 		DebugOut(L"Engine: Texture load failed (srview): %s\n", textureFilePath.c_str());
 		return nullptr;
 	}
@@ -312,3 +313,5 @@ pTexture CGraphics::LoadTextureFromFile(
 	DebugOut(L"Engine: Texture loaded: %s\n", textureFilePath.c_str());
 	return new CTexture(texture, gSpriteTextureRV);
 }
+
+#pragma endregion

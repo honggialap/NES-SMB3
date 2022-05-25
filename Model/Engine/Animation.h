@@ -31,7 +31,10 @@ public:
 	void Stop();
 
 	void Update(float elapsedMs);
-	void Render(float x, float y, bool isUI = false);
+	void Render(
+		float x, float y,
+		bool screenSpace = false
+	);
 };
 typedef CAnimation* pAnimation;
 

@@ -11,8 +11,7 @@ typedef CGameObject* pGameObject;
 #include "Graphics.h"
 #pragma endregion
 
-class CSprite 
-{
+class CSprite {
 private:
 	pGameObject _gameObject;
 
@@ -38,7 +37,10 @@ public:
 	);
 	~CSprite();
 
-	void Render(float x, float y, bool screenSpace = false);
+	void Render(
+		float x, float y, 
+		bool screenSpace = false
+	);
 };
 typedef CSprite* pSprite;
 #endif // !__SPRITE_H__
