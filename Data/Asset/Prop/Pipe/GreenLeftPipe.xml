@@ -1,0 +1,26 @@
+<Prefab>
+	<!--BBOX-->
+	<Sprite id="999901" textureId="101" left="0" top="0" width="64" height="64" offsetX="0" offsetY="32"/>
+
+	<!--GREEN-->
+	<Sprite id="100101" textureId="402" left="2" top="2" width="64" height="64" offsetX="0" offsetY="32"/>
+	<Sprite id="100102" textureId="402" left="70" top="2" width="64" height="64" offsetX="0" offsetY="32"/>
+	<Sprite id="100103" textureId="402" left="138" top="2" width="64" height="64" offsetX="0" offsetY="32"/>
+	<Sprite id="100104" textureId="402" left="206" top="2" width="64" height="64" offsetX="0" offsetY="32"/>
+
+	<!--BLACK-->
+	<Sprite id="100201" textureId="402" left="2" top="70" width="64" height="64" offsetX="0" offsetY="32"/>
+	<Sprite id="100202" textureId="402" left="70" top="70" width="64" height="64" offsetX="0" offsetY="32"/>
+	<Sprite id="100203" textureId="402" left="138" top="70" width="64" height="64" offsetX="0" offsetY="32"/>
+	<Sprite id="100204" textureId="402" left="206" top="70" width="64" height="64" offsetX="0" offsetY="32"/>
+
+	<!--BODY-->
+	<Body render="true" width="64" height="64" offsetX="0" offsetY="32"/>
+
+	<!--Type-->
+	<Type
+		type				="0"
+		direction			="0"
+		/>
+
+</Prefab>

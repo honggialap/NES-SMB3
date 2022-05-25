@@ -6,7 +6,9 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
+
+/* SPRITE ID */
 #define SPR_BBOX									999901
 
 #define SPR_PLANT_FIREBALL1_LEFT					110101
@@ -22,15 +24,17 @@
 /* ANIMATION ID */
 #define ANI_PLANT_FIREBALL_LEFT						1101
 #define ANI_PLANT_FIREBALL_RIGHT					1201
+
 #pragma endregion
 
-class CPlantFireball : public CGameObject {
+class CPlantFireball : public CGameObject
+{
 public:
 	CPlantFireball(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
@@ -60,6 +64,7 @@ public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 
 #pragma endregion
+
 };
 typedef CPlantFireball* pPlantFireball;
 

@@ -1,0 +1,60 @@
+<Prefab>
+	<!--BBOX-->
+	<Sprite id="999901" textureId="101" left="0" top="0" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--BLOCK-->
+	<Sprite id="100101" textureId="401" left="2" top="2" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100102" textureId="401" left="38" top="2" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100103" textureId="401" left="74" top="2" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100104" textureId="401" left="110" top="2" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--BRICK-->
+	<Sprite id="100201" textureId="401" left="2" top="38" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100202" textureId="401" left="38" top="38" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100203" textureId="401" left="74" top="38" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100204" textureId="401" left="110" top="38" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--EMPTY-->
+	<Sprite id="100301" textureId="401" left="110" top="146" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--BLOCK-->
+	<Animation id="1001">
+		<Frame id="100101" time="100"/>
+		<Frame id="100102" time="100"/>
+		<Frame id="100103" time="100"/>
+		<Frame id="100104" time="100"/>
+	</Animation>
+	<Animation id="1002">
+		<Frame id="100201" time="100"/>
+		<Frame id="100202" time="100"/>
+		<Frame id="100203" time="100"/>
+		<Frame id="100204" time="100"/>
+	</Animation>
+
+	<!--BODY-->
+	<Body render="true" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--Type-->
+	<Type
+		type				="0"
+		spawn				="1"
+		spawnCount			="1"
+		/>
+
+	<!--BOUNCE-->
+	<Bounce
+		BOUNCE_LIMIT		="16"
+		BOUNCE_SPEED		="0.25"
+		target				="mario"
+		/>
+
+	<!--SPAWN-->
+	<Coin actor ="30101" name="coin" source="Data/Asset/Item/Coin.xml"/>
+	<SuperMushroom actor ="30201" name="superMushroom" source="Data/Asset/Item/SuperMushroom.xml"/>
+	<SuperLeaf actor ="30401" name="superLeaf" source="Data/Asset/Item/SuperLeaf.xml"/>
+	<FireFlower actor ="30301" name="fireFlower" source="Data/Asset/Item/FireFlower.xml"/>
+	<Starman actor ="30501" name="starman" source="Data/Asset/Item/Starman.xml"/>
+	<ExtraLifeMushroom actor ="30601" name="extraLifeMushroom" source="Data/Asset/Item/ExtraLifeMushroom.xml"/>
+	<Relay actor ="40501" name="relay" source="Data/Asset/Prop/Relay/Relay.xml"/>
+
+</Prefab>

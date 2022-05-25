@@ -3,24 +3,41 @@
 #define __GAME_H__
 
 #pragma region INCLUDE
-#include "Application.h"
-#include "Time.h"
-#include "Graphics.h"
-#include "Audio.h"
-#include "Input.h"
+#include "Framework/Application.h"
+#include "Framework/Time.h"
+#include "Framework/Graphics.h"
+#include "Framework/Input.h"
+#include "Framework/Audio.h"
+#include "Framework/pugixml.hpp"
 #include "GameObject.h"
-
 #include <map>
-#include <algorithm>
+#include <vector>
+#include <unordered_map>
 #pragma endregion
 
-class CGame : public IKeyHandler {
+struct CScene
+{
+	bool _play;
+	bool _load;
+	std::string _source;
+	std::vector<unsigned int> _gameObjects;
+
+	CScene(std::string source)
+	{
+		_source = source;
+		_load = false;
+		_play = false;
+	}
+};
+typedef CScene* pScene;
+
+class CGame : public IKeyHandler
+{
 public:
 	CGame();
 	~CGame();
 
-
-	/* Framework components */
+	/* Framework */
 protected:
 	pApplication _application = nullptr;
 	pTime _time = nullptr;
@@ -35,132 +52,87 @@ public:
 	pAudio GetAudio() { return _audio; }
 	pInput GetInput() { return _input; }
 
+	/* Game loop */
+protected:
+	unsigned int _framePerSecond = 0;
+	std::vector<unsigned int> _updateQueue;
+	std::vector<pGameObject> _renderQueue;
 
-	/* Player components */
+public:
+	void Load(HINSTANCE hInstance, std::string gameDataPath);
+	void Run();
+	void Update(float elapsedMs);
+	void Render();
+	void Shutdown();
+
+	/* Camera */
+protected:
+	float _cameraX = 0;
+	float _cameraY = 0;
+	float _cameraBuffer = 0;
+
+public:
+	float GetCameraBuffer() { return _cameraBuffer; }
+	void GetCamera(float& x, float& y) { x = _cameraX; y = _cameraY; }
+	void MoveCameraTo(float x, float y) { _cameraX = x; _cameraY = y; }
+	void MoveCameraBy(float x, float y) { _cameraX += x; _cameraY += y; }
+
+	/* Button */
 protected:
 	std::map<int, bool> _currentButtonState;
 	std::map<int, bool> _previousButtonState;
 
-	float _cameraX = 0;
-	float _cameraY = 0;
+public:
+	virtual void KeyState();
+	virtual void OnKeyUp(int keyCode);
+	virtual void OnKeyDown(int keyCode);
 
-	float _cameraBoundOffset = 0;
+	void BindKey(int keyCode);
+	bool IsKeyDown(int keyCode);
+	bool IsKeyPressed(int keyCode);
+	bool IsKeyReleased(int keyCode);
+
+	/* Scene */
+protected:
+	std::map<unsigned int, pScene> _scenes;
+	bool _load = false;
+	unsigned int _startScene = 0;
 
 public:
-	virtual void KeyState() {
-		_previousButtonState = _currentButtonState;
-	}
-	virtual void OnKeyUp(int keyCode) {
-		if (_currentButtonState.find(keyCode) 
-			!= _currentButtonState.end())
-			_currentButtonState[keyCode] = false;
-	}
-	virtual void OnKeyDown(int keyCode) {
-		if (_currentButtonState.find(keyCode)
-			!= _currentButtonState.end())
-			_currentButtonState[keyCode] = true;
-	}
+	void PlayScene(unsigned int id);
+	void StopScene(unsigned int id);
+	void LoadScene();
 
-	bool IsKeyDown(int keyCode) {
-		return _currentButtonState[keyCode];
-	}
-	bool IsKeyPressed(int keyCode) {
-		return !_previousButtonState[keyCode]
-			&& _currentButtonState[keyCode];
-	}
-	bool IsKeyReleased(int keyCode) {
-		return _previousButtonState[keyCode]
-			&& !_currentButtonState[keyCode];
-	}
-
-	void GetCamera(float& x, float& y) {
-		x = _cameraX;
-		y = _cameraY;
-	}
-	void MoveCameraTo(float x, float y) {
-		_cameraX = x;
-		_cameraY = y;
-	}
-	void MoveCameraBy(float x, float y) {
-		_cameraX += x;
-		_cameraY += y;
-	}
-
-	float GetCameraBoundOffset() {
-		return _cameraBoundOffset;
-	}
-	void SetCameraBoundOffset(float cameraBoundOffset) {
-		_cameraBoundOffset = cameraBoundOffset;
-	}
-
+	/* Game Object */
 protected:
-	void BindKey(int keyCode) {
-		_previousButtonState[keyCode] = false;
-		_currentButtonState[keyCode] = false;
-	}
-
-
-	/* Scene managing */
-protected:
-	std::unordered_map<unsigned int, std::string> _scenes;
-	unsigned int _nextPlaySceneID = 0;
-	bool _sceneLoading = false;
-
-public:
-	void PlayScene(unsigned int nextPlaySceneID);
-
-protected:
-	void Loading();
-	void LoadScene(std::string sceneDataPath);
-
-
-	/* Game object managing */
-protected:
+	unsigned int nextId = 0;
 	std::unordered_map<unsigned int, pGameObject> _gameObjects;
 	std::unordered_map<std::string, unsigned int> _dictionary;
-	std::vector<pGameObject> _activeQueue;
-	unsigned int _nextGameObjectID = 0;
-
-	std::map<std::pair<int, int>, std::vector<unsigned int>> _grid;
-	int _gridWidth = 0;
-	int _gridHeight = 0;
 
 public:
-	pGameObject GetGameObject(unsigned int gameObjectID);
-	pGameObject GetGameObject(std::string gameObjectName);
-
-	std::vector<pGameObject> GetActives();
-	std::vector<pGameObject> GetLocal(unsigned int gameObjectID);
-
 	virtual pGameObject Create(
-		unsigned int actorID, std::string name, std::string source,
-		float posX, float posY,
-		int gridX, int gridY,
+		pScene scene,
+		unsigned int actorID, std::string name, std::string prefabSource,
+		float posX, float posY, int gridX, int gridY,
 		unsigned int layer
 	) = 0;
+	void Add(pGameObject gameObject);
+	pGameObject Get(unsigned int id);
+	pGameObject Get(std::string name);
+	std::vector<unsigned int> GetActives();
+	void Purge();
 
+	/* Grid */
 protected:
-	void AddGameObject(pGameObject gameObject);
-
-	void AddGrid(unsigned int gameObjectID);
-	void RemoveGrid(unsigned int gameObjectID);
-	void UpdateGrid(unsigned int gameObjectID);
-
-
-	/* Game loop */
-protected:
-	float _frameRate = 0.0f;
+	int _gridWidth = 0;
+	int _gridHeight = 0;
+	std::map<std::pair<int, int>, std::vector<unsigned int>> _grid;
 
 public:
-	void Run(HINSTANCE hInstance, std::string gameDataFilePath);
-
-protected:
-	bool Load(HINSTANCE hInstance, std::string gameDataFilePath);
-	void Shutdown();
-	
-	void Update(float elapsedMs);
-	void Render();
-	void Purge();
+	void AddGrid(unsigned int gameObjectId);
+	void RemoveGrid(unsigned int gameObjectId);
+	void UpdateGrid(unsigned int gameObjectId);
+	std::vector<pGameObject> GetLocal(unsigned int gameObjectId);
 };
 typedef CGame* pGame;
 

@@ -7,7 +7,7 @@
 #include "PlantSensor.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
 /* SPRITE ID */
 #define SPR_BBOX						999901
 
@@ -58,25 +58,26 @@
 /* ANIMATION ID */
 #define ANI_PLANT_UP				1101
 #define ANI_PLANT_DOWN				2101
-
+		
 #define ANI_RED_PLANT_UP			3101
 #define ANI_RED_PLANT_DOWN			4101
+
 #pragma endregion
 
-class CPlant : public CGameObject {
+class CPlant : public CGameObject
+{
 public:
 	CPlant(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
 	virtual void Start();
 	virtual void Update(float elapsedMs);
 	virtual void Render();
-
 
 #pragma region LOGIC
 
@@ -88,12 +89,14 @@ public:
 	float BODY_OFFSETY = 0;
 
 	/* Type */
-	enum class EPlant {
+	enum class EPlant
+	{
 		PIRANHA,
 		VENUS
 	};
 	EPlant _plant = EPlant::PIRANHA;
-	enum class EType {
+	enum class EType
+	{
 		GREEN,
 		RED
 	};
@@ -112,7 +115,7 @@ public:
 	float _growOrigin = 0;
 	float _standInterval = 0;
 	float _hideInterval = 0;
-
+	
 	/* Shoot */
 	float SHOOT_OFFSETY = 0;
 	float SHOOT_INTERVAL = 0;
@@ -127,7 +130,8 @@ public:
 
 #pragma region STATE MACHINE
 
-	enum class EAction {
+	enum class EAction
+	{
 		HIDE,
 		GROW,
 		STAND,
@@ -138,22 +142,26 @@ public:
 	EAction _action = EAction::HIDE;
 	EAction _nextAction = EAction::HIDE;
 
-	enum class EActionStage {
+	enum class EActionStage
+	{
 		ENTRY,
 		PROGRESS,
 		EXIT
 	};
 	EActionStage _actionStage = EActionStage::ENTRY;
 
-	void SetAction(EAction action) {
+	void SetAction(EAction action)
+	{
 		_action = action;
 		_actionStage = EActionStage::ENTRY;
 	}
-	void SetNextAction(EAction action) {
+	void SetNextAction(EAction action)
+	{
 		_nextAction = action;
 		_actionStage = EActionStage::EXIT;
 	}
-	void NextAction() {
+	void NextAction()
+	{
 		_action = _nextAction;
 		_actionStage = EActionStage::ENTRY;
 	}

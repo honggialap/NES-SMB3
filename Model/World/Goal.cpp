@@ -1,27 +1,33 @@
 #pragma region INCLUDE
 #include "Goal.h"
-#include "../SMB3.h"
 #pragma endregion
 
-void CGoal::Load() {
+void CGoal::Load()
+{
 }
 
-void CGoal::Start() {
+void CGoal::Start()
+{
 }
 
-void CGoal::Update(float elapsedMs) {
+void CGoal::Update(float elapsedMs)
+{
 }
 
-void CGoal::Render() {
+void CGoal::Render()
+{
 }
 
-int CGoal::IsCollidable() {
+int CGoal::IsCollidable()
+{
 	return 0;
 }
 
-int CGoal::IsBlocking() {
+int CGoal::IsBlocking()
+{
 	return 0;
 }
 
-void CGoal::GetBoundingBox(float& left, float& top, float& right, float& bottom) {
+void CGoal::GetBoundingBox(float& left, float& top, float& right, float& bottom)
+{
 }

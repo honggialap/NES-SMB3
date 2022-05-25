@@ -1,0 +1,31 @@
+<Prefab>
+	<!--BBOX-->
+	<Sprite id="999901" textureId="101" left="0" top="0" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--STARMAN-->
+	<Sprite id="100101" textureId="301" left="2" top="74" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100102" textureId="301" left="38" top="74" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="100103" textureId="301" left="74" top="74" width="32" height="32" offsetX="0" offsetY="16"/>
+	
+	<!--STARMAN-->
+	<Animation id="1001">
+		<Frame id="100101" time="50"/>
+		<Frame id="100102" time="50"/>
+		<Frame id="100103" time="50"/>
+		<Frame id="100102" time="50"/>
+	</Animation>
+
+	<!--BODY-->
+	<Body render="true" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--STATS-->
+	<Move
+		GRAVITY			= "0.001"
+		MOVE_SPEED		= "0.15"
+		JUMP_FORCE		= "0.4"
+		SPAWN_SPEED		= "0.1"
+		SPAWN_LIMIT		= "32"
+		targetName		= "mario"
+		/>
+
+</Prefab>

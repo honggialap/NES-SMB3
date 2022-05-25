@@ -6,7 +6,7 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
 /* SPRITE ID */
 #define SPR_BBOX				999901
 
@@ -25,15 +25,17 @@
 /* ANIMATION ID */
 #define ANI_QUESTION_BLOCK		1001
 #define ANI_BRICK_BLOCK			1002
+
 #pragma endregion
 
-class CBlock : public CGameObject {
+class CBlock : public CGameObject
+{
 public:
 	CBlock(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
@@ -51,15 +53,18 @@ public:
 	float BODY_OFFSETY = 0;
 
 	/* Type */
-	enum class EType {
+	enum class EType
+	{
 		QUESTION,
 		BRICK
 	};
 	EType _type = EType::QUESTION;
-	enum class ESpawn {
+	enum class ESpawn
+	{
 		COIN,
 		POWER_UP,
 		FIRE_FLOWER,
+		STARMAN,
 		EXTRA_LIFE,
 		RELAY
 	};
@@ -82,7 +87,8 @@ public:
 
 #pragma region STATE MACHINE
 
-	enum class EAction {
+	enum class EAction
+	{
 		IDLE,
 		BOUNCE,
 		EMPTY
@@ -90,22 +96,26 @@ public:
 	EAction _action = EAction::IDLE;
 	EAction _nextAction = EAction::IDLE;
 
-	enum class EActionStage {
+	enum class EActionStage
+	{
 		ENTRY,
 		PROGRESS,
 		EXIT
 	};
 	EActionStage _actionStage = EActionStage::ENTRY;
 
-	void SetAction(EAction action) {
+	void SetAction(EAction action)
+	{
 		_action = action;
 		_actionStage = EActionStage::ENTRY;
 	}
-	void SetNextAction(EAction action) {
+	void SetNextAction(EAction action)
+	{
 		_nextAction = action;
 		_actionStage = EActionStage::EXIT;
 	}
-	void NextAction() {
+	void NextAction()
+	{
 		_action = _nextAction;
 		_actionStage = EActionStage::ENTRY;
 	}

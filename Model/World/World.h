@@ -6,16 +6,20 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
+/* SPRITE ID */
+/* ANIMATION ID */
+/* SOUNDCLIP ID */
 #pragma endregion
 
-class CWorld : public CGameObject {
+class CWorld : public CGameObject
+{
 public:
 	CWorld(
-		pGame game,
+		pGame game, pScene scene,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();

@@ -1,31 +1,31 @@
 #pragma once
-#ifndef __EXTRA_LIFE_MUSHROOM_H__
-#define __EXTRA_LIFE_MUSHROOM_H__
+#ifndef __EXTRALIFE_MUSHROOM_H_
+#define __EXTRALIFE_MUSHROOM_H_
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
 /* SPRITE ID */
 #define SPR_BBOX				999901
 #define SPR_EXTRALIFE_MUSHROOM	100101
 #pragma endregion
 
-class CExtraLifeMushroom : public CGameObject {
+class CExtraLifeMushroom : public CGameObject
+{
 public:
 	CExtraLifeMushroom(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
 	virtual void Start();
 	virtual void Update(float elapsedMs);
 	virtual void Render();
-
 
 #pragma region LOGIC
 
@@ -49,7 +49,8 @@ public:
 
 #pragma region STATE MACHINE
 
-	enum class EAction {
+	enum class EAction
+	{
 		SPAWN,
 		MOVE,
 		CONSUMED
@@ -57,22 +58,26 @@ public:
 	EAction _action = EAction::SPAWN;
 	EAction _nextAction = EAction::SPAWN;
 
-	enum class EActionStage {
+	enum class EActionStage
+	{
 		ENTRY,
 		PROGRESS,
 		EXIT
 	};
 	EActionStage _actionStage = EActionStage::ENTRY;
 
-	void SetAction(EAction action) {
+	void SetAction(EAction action)
+	{
 		_action = action;
 		_actionStage = EActionStage::ENTRY;
 	}
-	void SetNextAction(EAction action) {
+	void SetNextAction(EAction action)
+	{
 		_nextAction = action;
 		_actionStage = EActionStage::EXIT;
 	}
-	void NextAction() {
+	void NextAction()
+	{
 		_action = _nextAction;
 		_actionStage = EActionStage::ENTRY;
 	}
@@ -98,7 +103,8 @@ public:
 	void OnCollisionWithPlatform(pCollision collision);
 
 #pragma endregion
+
 };
 typedef CExtraLifeMushroom* pExtraLifeMushroom;
 
-#endif // !__EXTRA_LIFE_MUSHROOM_H__
+#endif // !__EXTRALIFE_MUSHROOM_H_

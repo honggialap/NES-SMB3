@@ -6,16 +6,21 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
+/* SPRITE ID */
+#define SPR_BBOX					999901
+#define SPR_MICRO_GOOMBA_LEFT		110101
+#define SPR_MICRO_GOOMBA_RIGHT		120101
 #pragma endregion
 
-class CMicroGoomba : public CGameObject {
+class CMicroGoomba : public CGameObject
+{
 public:
 	CMicroGoomba(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();

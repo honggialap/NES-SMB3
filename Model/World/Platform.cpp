@@ -1,9 +1,9 @@
 #pragma region INCLUDE
 #include "Platform.h"
-#include "../SMB3.h"
 #pragma endregion
 
-void CPlatform::Load() {
+void CPlatform::Load()
+{
 	CGameObject::Load();
 
 	/* Read file */
@@ -23,45 +23,40 @@ void CPlatform::Load() {
 	BODY_OFFSETY = bodyNode.attribute("offsetY").as_float();
 }
 
-void CPlatform::Start() {
+void CPlatform::Start()
+{
 	CGameObject::Start();
 }
 
-void CPlatform::Update(
-	float elapsedMs
-) {
-	if (!_start) {
-		Start();
-	}
+void CPlatform::Update(float elapsedMs)
+{
+	if (!_start) Start();
 }
 
-void CPlatform::Render() {
-	if (_renderBody) {
-		_sprites[SPR_BBOX]->Render(_x, _y);
-	}
+void CPlatform::Render()
+{
+	if (_renderBody) _sprites[SPR_BBOX]->Render(_x, _y);
 }
 
-int CPlatform::IsCollidable() {
+#pragma region COLLISION
+
+int CPlatform::IsCollidable()
+{
 	return 1;
 }
 
-int CPlatform::IsBlocking() {
-	if (_solid) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
+int CPlatform::IsBlocking()
+{
+	if (_solid) return 1;
+	else return 0;
 }
 
-void CPlatform::GetBoundingBox(
-	float& left, 
-	float& top, 
-	float& right,
-	float& bottom
-) {
+void CPlatform::GetBoundingBox(float& left, float& top, float& right, float& bottom)
+{
 	left = _x + BODY_OFFSETX - (BODY_WIDTH / 2);
 	right = _x + BODY_OFFSETX + (BODY_WIDTH / 2);
 	top = _y + BODY_OFFSETY + (BODY_HEIGHT / 2);
 	bottom = _y + BODY_OFFSETY - (BODY_HEIGHT / 2);
 }
+
+#pragma endregion

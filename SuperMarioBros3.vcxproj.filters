@@ -15,73 +15,109 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="WinMain.cpp">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Engine\pugixml.cpp">
+    <ClCompile Include="Model\Engine\Component\Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Engine\Application.cpp">
+    <ClCompile Include="Model\Engine\Component\Collision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Engine\Ultilities.cpp">
+    <ClCompile Include="Model\Engine\Component\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Engine\Time.cpp">
+    <ClCompile Include="Model\Engine\Framework\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Engine\Framework\Audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Engine\Framework\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Engine\Framework\Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Engine\Framework\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Engine\Framework\pugixml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Engine\Framework\Time.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\Engine\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Engine\Graphics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Engine\Audio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Engine\Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\Engine\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\SMB3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Engine\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\World.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Mario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Platform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Engine\Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Engine\Sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\Engine\Collision.cpp">
+    <ClCompile Include="Model\Title\Title.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\World\BigCannon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model\World\Block.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\World\BoomBoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Boomerang.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\BounceBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model\World\Brick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\BrickFragEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Brother.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\BubbleEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\BulletBill.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\BulletBillCannon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\BuzzyBeetle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Cannonball.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\CannonSmokeEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Coin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\DeadZone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\DeathEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\DropCeiling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\DryBones.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\ExtraLifeMushroom.cpp">
@@ -96,10 +132,31 @@
     <ClCompile Include="Model\World\Goomba.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\World\Hammer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\HitEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\HUD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model\World\Koopa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\KoopaSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Larry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\LarryProjectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\LavaEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Mario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\MarioFireball.cpp">
@@ -109,6 +166,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\MicroGoomba.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\MovingPlatform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Pipe.cpp">
@@ -123,10 +183,40 @@
     <ClCompile Include="Model\World\PlantSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\World\Platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Podoboo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\PowerBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Pusher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model\World\Relay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\World\Roto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\ScoreEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\SemiPlatform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Slope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\SmallCannon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model\World\SpawnZone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Starman.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\SuperLeaf.cpp">
@@ -135,87 +225,144 @@
     <ClCompile Include="Model\World\SuperMushroom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\World\TransportBounceBlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\TransportDoor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Model\World\TransportPipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Title\Title.cpp">
+    <ClCompile Include="Model\World\TreasureBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Water.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\WaterEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\WorldMap\Kactus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\WorldMap\Panel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\WorldMap\WorldMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model\WorldMap\WorldMapMario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\SuperMarioBros3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Model\Engine\pugiconfig.hpp">
+    <ClInclude Include="Model\Engine\Component\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Engine\pugixml.hpp">
+    <ClInclude Include="Model\Engine\Component\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Engine\Application.h">
+    <ClInclude Include="Model\Engine\Component\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Engine\Ultilities.h">
+    <ClInclude Include="Model\Engine\Framework\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Engine\Time.h">
+    <ClInclude Include="Model\Engine\Framework\Audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Engine\Framework\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Engine\Framework\Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Engine\Framework\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Engine\Framework\pugiconfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Engine\Framework\pugixml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Engine\Framework\Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\Engine\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Engine\Graphics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Engine\Audio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Engine\Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\Engine\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\SMB3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Engine\Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\World.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Mario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Engine\Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Engine\Sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\Engine\Collision.h">
+    <ClInclude Include="Model\Title\Title.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\World\BigCannon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Model\World\Block.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\World\BoomBoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Boomerang.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\BounceBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Model\World\Brick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\BrickFragEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Brother.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\BubbleEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\BulletBill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\BulletBillCannon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\BuzzyBeetle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Cannonball.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\CannonSmokeEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Coin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\DeadZone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\DeathEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\DropCeiling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\DryBones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\ExtraLifeMushroom.h">
@@ -230,10 +377,31 @@
     <ClInclude Include="Model\World\Goomba.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\World\Hammer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\HitEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\HUD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Model\World\Koopa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\KoopaSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Larry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\LarryProjectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\LavaEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Mario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\MarioFireball.h">
@@ -243,6 +411,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\MicroGoomba.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\MovingPlatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Pipe.h">
@@ -257,10 +428,40 @@
     <ClInclude Include="Model\World\PlantSensor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\World\Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Podoboo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\PowerBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Pusher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Model\World\Relay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\World\Roto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\ScoreEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\SemiPlatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Slope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\SmallCannon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Model\World\SpawnZone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Starman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\SuperLeaf.h">
@@ -269,126 +470,41 @@
     <ClInclude Include="Model\World\SuperMushroom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Model\World\TransportBounceBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\TransportDoor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Model\World\TransportPipe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Title\Title.h">
+    <ClInclude Include="Model\World\TreasureBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Water.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\WaterEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\WorldMap\Kactus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\WorldMap\Panel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\WorldMap\WorldMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="Data\GameData.xml" />
-    <Xml Include="Data\Prefab\World\Mario.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow1x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow1x2.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow1x4.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow1x8.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow1x16.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow2x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow4x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow8x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformHollow16x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid1x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid1x2.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid1x4.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid1x8.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid1x16.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid2x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid4x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid8x1.xml" />
-    <Xml Include="Data\Prefab\World\PlatformSolid16x1.xml" />
-    <Xml Include="Data\Scene\Sandbox.xml" />
-    <Xml Include="Data\Scene\Title.xml" />
-    <Xml Include="Data\Scene\World11.xml" />
-    <Xml Include="Data\Scene\WorldMap1.xml" />
-    <Xml Include="Data\Scene\World12.xml" />
-    <Xml Include="Data\Prefab\Title\Title.xml" />
-    <Xml Include="Data\Prefab\WorldMap\WorldMap1.xml" />
-    <Xml Include="Data\Prefab\World\World11SubTransportPipe.xml" />
-    <Xml Include="Data\Prefab\World\QuestionCoinBlock.xml" />
-    <Xml Include="Data\Prefab\World\QuestionFireFlowerBlock.xml" />
-    <Xml Include="Data\Prefab\World\QuestionPowerUpBlock.xml" />
-    <Xml Include="Data\Prefab\World\RedGoomba.xml" />
-    <Xml Include="Data\Prefab\World\RedKoopa.xml" />
-    <Xml Include="Data\Prefab\World\RedParaGoomba.xml" />
-    <Xml Include="Data\Prefab\World\RedParaKoopa.xml" />
-    <Xml Include="Data\Prefab\World\RedPiranhaDown.xml" />
-    <Xml Include="Data\Prefab\World\RedPiranhaUp.xml" />
-    <Xml Include="Data\Prefab\World\RedVenusDown.xml" />
-    <Xml Include="Data\Prefab\World\RedVenusUp.xml" />
-    <Xml Include="Data\Prefab\World\Relay.xml" />
-    <Xml Include="Data\Prefab\World\SuperLeaf.xml" />
-    <Xml Include="Data\Prefab\World\SuperMushroom.xml" />
-    <Xml Include="Data\Prefab\World\VenusDown.xml" />
-    <Xml Include="Data\Prefab\World\VenusUp.xml" />
-    <Xml Include="Data\Prefab\World\World11MainSectionBackground.xml" />
-    <Xml Include="Data\Prefab\World\World11MainTransportPipe.xml" />
-    <Xml Include="Data\Prefab\World\World11SpawnZone1.xml" />
-    <Xml Include="Data\Prefab\World\World11SpawnZone2.xml" />
-    <Xml Include="Data\Prefab\World\World11SubSectionBackground.xml" />
-    <Xml Include="Data\Prefab\World\PlantSensor.xml" />
-    <Xml Include="Data\Prefab\World\MarioFireball.xml" />
-    <Xml Include="Data\Prefab\World\MarioTail.xml" />
-    <Xml Include="Data\Prefab\World\MicroGoomba.xml" />
-    <Xml Include="Data\Prefab\World\ParaGoomba.xml" />
-    <Xml Include="Data\Prefab\World\ParaKoopa.xml" />
-    <Xml Include="Data\Prefab\World\PiranhaDown.xml" />
-    <Xml Include="Data\Prefab\World\PiranhaUp.xml" />
-    <Xml Include="Data\Prefab\World\PlantFireball.xml" />
-    <Xml Include="Data\Prefab\World\MainMenu.xml" />
-    <Xml Include="Data\Prefab\World\BlackDownPipe.xml" />
-    <Xml Include="Data\Prefab\World\Brick.xml" />
-    <Xml Include="Data\Prefab\World\BrickExtraLifeBlock.xml" />
-    <Xml Include="Data\Prefab\World\BrickMultipleCoinBlock.xml" />
-    <Xml Include="Data\Prefab\World\BrickRelayBlock.xml" />
-    <Xml Include="Data\Prefab\World\Coin.xml" />
-    <Xml Include="Data\Prefab\World\DeadZone.xml" />
-    <Xml Include="Data\Prefab\World\ExtraLifeMushroom.xml" />
-    <Xml Include="Data\Prefab\World\FireFlower.xml" />
-    <Xml Include="Data\Prefab\World\Goal.xml" />
-    <Xml Include="Data\Prefab\World\Goomba.xml" />
-    <Xml Include="Data\Prefab\World\GreenUpPipe.xml" />
-    <Xml Include="Data\Prefab\World\Koopa.xml" />
-    <Xml Include="Data\Prefab\World\KoopaSensor.xml" />
-    <Xml Include="Data\Prefab\World\World11.xml" />
-    <Xml Include="Data\Prefab\World\World12.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Data\Texture\BBox.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Block.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Effect.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Goomba.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Item.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Koopa.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Mario.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Pipe.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\Plant.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\World11SubSection.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\Texture\World11MainSection.png">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <ClInclude Include="Model\WorldMap\WorldMapMario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\SuperMarioBros3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,23 +6,20 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
+/* SPRITE ID */
+/* ANIMATION ID */
+/* SOUNDCLIP ID */
 #pragma endregion
 
-class CBackground : public CGameObject {
+class CBackground : public CGameObject
+{
 public:
 	CBackground(
-		pGame game,
+		pGame game, pScene scene,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
-
-	/* Tiled Map */
-	unsigned int _mapWidth = 0;
-	unsigned int _mapHeight = 0;
-	float _cellWidth = 0;
-	float _cellHeight = 0;
-	std::vector<unsigned int> _cells;
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();

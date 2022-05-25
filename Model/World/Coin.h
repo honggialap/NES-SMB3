@@ -6,7 +6,7 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region COMPONENT ID
+#pragma region DEFINE
 /* SPRITE ID */
 #define SPR_BBOX				999901
 
@@ -20,16 +20,16 @@
 /* ANIMATION ID */
 #define ANI_COIN_SPIN_SLOW		1001
 #define ANI_COIN_SPIN_FAST		1002
-
 #pragma endregion
 
-class CCoin : public CGameObject {
+class CCoin : public CGameObject
+{
 public:
 	CCoin(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
@@ -57,29 +57,34 @@ public:
 
 #pragma region STATE MACHINE
 
-	enum class EAction {
+	enum class EAction
+	{
 		IDLE,
 		CONSUMED
 	};
 	EAction _action = EAction::IDLE;
 	EAction _nextAction = EAction::IDLE;
 
-	enum class EActionStage	{
+	enum class EActionStage
+	{
 		ENTRY,
 		PROGRESS,
 		EXIT
 	};
 	EActionStage _actionStage = EActionStage::ENTRY;
 
-	void SetAction(EAction action) {
+	void SetAction(EAction action)
+	{
 		_action = action;
 		_actionStage = EActionStage::ENTRY;
 	}
-	void SetNextAction(EAction action) {
+	void SetNextAction(EAction action)
+	{
 		_nextAction = action;
 		_actionStage = EActionStage::EXIT;
 	}
-	void NextAction() {
+	void NextAction()
+	{
 		_action = _nextAction;
 		_actionStage = EActionStage::ENTRY;
 	}
@@ -100,6 +105,7 @@ public:
 	void OnCollisionWith(pCollision collision);
 
 #pragma endregion
+
 };
 typedef CCoin* pCoin;
 

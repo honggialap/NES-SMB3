@@ -1,59 +1,86 @@
-<Scene gridWidth ="512" gridHeight ="480">
-  <GameObject actorID="20101" name="mario" source="Data/Prefab/World/Mario.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+<Scene>
+	<GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="20201" name="goomba" source="Data/Asset/Character/Goomba/Goomba.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="paraGoomba" source="Data/Asset/Character/Goomba/ParaGoomba.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="redGoomba" source="Data/Asset/Character/Goomba/RedGoomba.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="redParaGoomba" source="Data/Asset/Character/Goomba/RedParaGoomba.xml" x="600" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="20301" name="koopa" source="Data/Asset/Character/Koopa/Koopa.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20301" name="paraKoopa" source="Data/Asset/Character/Koopa/ParaKoopa.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20301" name="redKoopa" source="Data/Asset/Character/Koopa/RedKoopa.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20301" name="redParaKoopa" source="Data/Asset/Character/Koopa/RedParaKoopa.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="20401" name="piranhaUp" source="Data/Asset/Character/Plant/PiranhaUp.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="piranhaDown" source="Data/Asset/Character/Plant/PiranhaDown.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="redPiranhaUp" source="Data/Asset/Character/Plant/RedPiranhaUp.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="redPiranhaDown" source="Data/Asset/Character/Plant/RedPiranhaDown.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="venusUp" source="Data/Asset/Character/Plant/VenusUp.xml" x="600" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="venusDown" source="Data/Asset/Character/Plant/VenusDown.xml" x="700" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="redVenusUp" source="Data/Asset/Character/Plant/RedVenusUp.xml" x="800" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20401" name="redVenusDown" source="Data/Asset/Character/Plant/RedVenusDown.xml" x="900" y="200" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="30101" name="coin1" source="Data/Asset/Item/Coin.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30101" name="coin2" source="Data/Asset/Item/Coin.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30101" name="coin3" source="Data/Asset/Item/Coin.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30101" name="coin4" source="Data/Asset/Item/Coin.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30101" name="coin5" source="Data/Asset/Item/Coin.xml" x="600" y="200" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="30201" name="superMushroom" source="Data/Asset/Item/SuperMushroom.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30301" name="fireFlower" source="Data/Asset/Item/FireFlower.xml" x="200" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30401" name="superLeaf" source="Data/Asset/Item/SuperLeaf.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30501" name="starman" source="Data/Asset/Item/Starman.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="30601" name="extraLifeMushroom" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40201" name="brickExtraLifeBlock" source="Data/Asset/Prop/Block/BrickExtraLifeBlock.xml" x="200" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40201" name="brickRelayBlock" source="Data/Asset/Prop/Block/BrickRelayBlock.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40201" name="brickMultipleCoinBlock" source="Data/Asset/Prop/Block/BrickMultipleCoinBlock.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40201" name="questionCoinBlock" source="Data/Asset/Prop/Block/QuestionCoinBlock.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40201" name="questionPowerUpBlock" source="Data/Asset/Prop/Block/QuestionPowerUpBlock.xml" x="600" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40201" name="questionFireFlowerBlock" source="Data/Asset/Prop/Block/QuestionFireFlowerBlock.xml" x="700" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40201" name="questionStarmanBlock" source="Data/Asset/Prop/Block/QuestionStarmanBlock.xml" x="800" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40301" name="brick1" source="Data/Asset/Prop/Brick/Brick.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40301" name="brick2" source="Data/Asset/Prop/Brick/Brick.xml" x="200" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40301" name="brick3" source="Data/Asset/Prop/Brick/Brick.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40301" name="brick4" source="Data/Asset/Prop/Brick/Brick.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40301" name="brick5" source="Data/Asset/Prop/Brick/Brick.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40401" name="emptyLeftGreenPipe" source="Data/Asset/Prop/Pipe/GreenLeftPipe.xml" x="200" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyUpGreenPipe" source="Data/Asset/Prop/Pipe/GreenUpPipe.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyRightGreenPipe" source="Data/Asset/Prop/Pipe/GreenRightPipe.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyDownGreenPipe" source="Data/Asset/Prop/Pipe/GreenDownPipe.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyLeftBlackPipe" source="Data/Asset/Prop/Pipe/BlackLeftPipe.xml" x="600" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyUpBlackPipe" source="Data/Asset/Prop/Pipe/BlackUpPipe.xml" x="700" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyRightBlackPipe" source="Data/Asset/Prop/Pipe/BlackRightPipe.xml" x="800" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="emptyDownBlackPipe" source="Data/Asset/Prop/Pipe/BlackDownPipe.xml" x="900" y="100" gx="0" gy="0" layer="10"/>
 
-  <GameObject actorID="50101" name="background1" source="Data/Prefab/World/World11MainSectionBackground.xml" x="0" y="864" gx="0" gy="0" layer="0"/>
-  
-  <GameObject actorID="20201" name="goomba" source="Data/Prefab/World/Goomba.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20201" name="paraGoomba" source="Data/Prefab/World/ParaGoomba.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20201" name="redGoomba" source="Data/Prefab/World/RedGoomba.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20201" name="redParaGoomba" source="Data/Prefab/World/RedParaGoomba.xml" x="600" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="entryGreenPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="exitBlackPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40402" name="downTransportPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40401" name="entryBlackPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40401" name="exitGreenPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40402" name="upTranportPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
 
-  <GameObject actorID="20301" name="koopa" source="Data/Prefab/World/Koopa.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20301" name="paraKoopa" source="Data/Prefab/World/ParaKoopa.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20301" name="redKoopa" source="Data/Prefab/World/RedKoopa.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20301" name="redParaKoopa" source="Data/Prefab/World/RedParaKoopa.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
-
-  <GameObject actorID="20401" name="piranhaUp" source="Data/Prefab/World/PiranhaUp.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="piranhaDown" source="Data/Prefab/World/PiranhaDown.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="redPiranhaUp" source="Data/Prefab/World/RedPiranhaUp.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="redPiranhaDown" source="Data/Prefab/World/RedPiranhaDown.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="venusUp" source="Data/Prefab/World/VenusUp.xml" x="600" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="venusDown" source="Data/Prefab/World/VenusDown.xml" x="700" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="redVenusUp" source="Data/Prefab/World/RedVenusUp.xml" x="800" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="20401" name="redVenusDown" source="Data/Prefab/World/RedVenusDown.xml" x="900" y="200" gx="0" gy="0" layer="10"/>
-
-  <GameObject actorID="30101" name="coin1" source="Data/Prefab/World/Coin.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30101" name="coin2" source="Data/Prefab/World/Coin.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30101" name="coin3" source="Data/Prefab/World/Coin.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30101" name="coin4" source="Data/Prefab/World/Coin.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30101" name="coin5" source="Data/Prefab/World/Coin.xml" x="600" y="200" gx="0" gy="0" layer="10"/>
-
-  <GameObject actorID="30201" name="superMushroom" source="Data/Prefab/World/SuperMushroom.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30301" name="fireFlower" source="Data/Prefab/World/FireFlower.xml" x="200" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30401" name="superLeaf" source="Data/Prefab/World/SuperLeaf.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="30501" name="extraLifeMushroom" source="Data/Prefab/World/ExtraLifeMushroom.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
-  
   <!--
-  <GameObject actorID="40201" name="brickExtraLifeBlock" source="Data/Prefab/World/BrickExtraLifeBlock.xml" x="200" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40201" name="brickRelayBlock" source="Data/Prefab/World/BrickRelayBlock.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40201" name="brickMultipleCoinBlock" source="Data/Prefab/World/BrickMultipleCoinBlock.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40201" name="questionCoinBlock" source="Data/Prefab/World/QuestionCoinBlock.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40201" name="questionPowerUpBlock" source="Data/Prefab/World/QuestionPowerUpBlock.xml" x="600" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40201" name="questionFireFlowerBlock" source="Data/Prefab/World/QuestionFireFlowerBlock.xml" x="700" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40501" name="relay" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40601" name="spawnZone1" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40601" name="spawnZone2" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40701" name="deadZone1" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40701" name="deadZone2" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	
+	<GameObject actor="40801" name="goal" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
+	-->
 
-  <GameObject actorID="40301" name="brick1" source="Data/Prefab/World/Brick.xml" x="100" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40301" name="brick2" source="Data/Prefab/World/Brick.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40301" name="brick3" source="Data/Prefab/World/Brick.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40301" name="brick4" source="Data/Prefab/World/Brick.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40301" name="brick5" source="Data/Prefab/World/Brick.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
-  -->
- 
-  <GameObject actorID="40101" name="platform1" source="Data/Prefab/World/PlatformSolid16x1.xml" x="0" y="0" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform2" source="Data/Prefab/World/PlatformSolid16x1.xml" x="512" y="0" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform3" source="Data/Prefab/World/PlatformHollow16x1.xml" x="512" y="100" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform4" source="Data/Prefab/World/PlatformSolid16x1.xml" x="1024" y="0" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform5" source="Data/Prefab/World/PlatformSolid16x1.xml" x="1536" y="0" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform6" source="Data/Prefab/World/PlatformSolid16x1.xml" x="2048" y="0" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform7" source="Data/Prefab/World/PlatformSolid1x16.xml" x="-32" y="0" gx="0" gy="0" layer="10"/>
-  <GameObject actorID="40101" name="platform8" source="Data/Prefab/World/PlatformSolid1x16.xml" x="2048" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform1" source="Data/Asset/Prop/Platform/PlatformS161.xml" x="0" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform2" source="Data/Asset/Prop/Platform/PlatformS161.xml" x="512" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform3" source="Data/Asset/Prop/Platform/PlatformH161.xml" x="512" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform4" source="Data/Asset/Prop/Platform/PlatformS161.xml" x="1024" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform5" source="Data/Asset/Prop/Platform/PlatformS161.xml" x="1536" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform6" source="Data/Asset/Prop/Platform/PlatformS161.xml" x="2048" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform7" source="Data/Asset/Prop/Platform/PlatformS116.xml" x="-32" y="0" gx="0" gy="0" layer="10"/>
+	<GameObject actor="40101" name="platform8" source="Data/Asset/Prop/Platform/PlatformS116.xml" x="2048" y="0" gx="0" gy="0" layer="10"/>
 </Scene>

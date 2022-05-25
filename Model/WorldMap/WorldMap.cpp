@@ -1,4 +1,6 @@
+#pragma region INCLUDE
 #include "WorldMap.h"
+#pragma endregion
 
 void CWorldMap::Load()
 {
@@ -18,12 +20,12 @@ void CWorldMap::Render()
 
 int CWorldMap::IsCollidable()
 {
-    return 0;
+	return 0;
 }
 
 int CWorldMap::IsBlocking()
 {
-    return 0;
+	return 0;
 }
 
 void CWorldMap::GetBoundingBox(float& left, float& top, float& right, float& bottom)

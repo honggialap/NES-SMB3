@@ -6,7 +6,9 @@
 #include "../Engine/GameObject.h"
 #pragma endregion
 
-#pragma region SPRITE ID
+#pragma region DEFINE
+/* SPRITE ID */
+
 // BBOX
 #define SPR_MARIO_S_BBOX				999901
 #define SPR_MARIO_L_BBOX				999902
@@ -263,9 +265,8 @@
 #define SPR_MARIO_TRANSFORM2_RIGHT		520102
 #define SPR_MARIO_TRANSFORM3_RIGHT		520103
 #define SPR_MARIO_TRANSFORM4_RIGHT		520104
-#pragma endregion
 
-#pragma region ANIMATION ID
+/* ANIMATION ID - {state - direction - action} */
 // SMALL - LEFT
 #define ANI_MARIO_S_WALK_LEFT			1101
 #define ANI_MARIO_S_RUN_LEFT			1102
@@ -334,15 +335,20 @@
 #define ANI_MARIO_SHRINK_RIGHT			5201
 #define ANI_MARIO_GROW_RIGHT			5202
 #define ANI_MARIO_TRANSFORM_RIGHT		5203
+
+/* SOUNDCLIP ID */
+#define SC_MARIO_JUMP					1001
+
 #pragma endregion
 
-class CMario : public CGameObject {
+class CMario : public CGameObject
+{
 public:
 	CMario(
-		pGame game,
-		unsigned int ID, std::string name, std::string source,
+		pGame game, pScene scene,
+		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, ID, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
@@ -359,23 +365,24 @@ public:
 	int DOWN = 0;
 	int ACTION = 0;
 	int JUMP = 0;
-
+	
 	/* Small Body */
 	bool _renderSmallBody = false;
 	float SMALL_BODY_WIDTH = 0;
 	float SMALL_BODY_HEIGHT = 0;
 	float SMALL_BODY_OFFSETX = 0;
 	float SMALL_BODY_OFFSETY = 0;
-
+	
 	/* Large Body */
 	bool _renderLargeBody = false;
 	float LARGE_BODY_WIDTH = 0;
 	float LARGE_BODY_HEIGHT = 0;
 	float LARGE_BODY_OFFSETX = 0;
 	float LARGE_BODY_OFFSETY = 0;
-
+	
 	/* Mario Power */
-	enum class EPower {
+	enum class EPower
+	{
 		SMALL,
 		LARGE,
 		FIRE,
@@ -451,6 +458,7 @@ public:
 
 #pragma endregion
 
+
 #pragma region CHEAT
 
 	/* Cheat (for dev) */
@@ -463,9 +471,11 @@ public:
 
 #pragma endregion
 
+
 #pragma region STATE MACHINE
 
-	enum class EAction {
+	enum class EAction
+	{
 		IDLE,
 		CROUNCH,
 		WALK,
@@ -487,24 +497,26 @@ public:
 	EAction _action = EAction::IDLE;
 	EAction _nextAction = EAction::IDLE;
 
-	enum class EActionStage {
+	enum class EActionStage 
+	{
 		ENTRY,
 		PROGRESS,
 		EXIT
 	};
 	EActionStage _actionStage = EActionStage::ENTRY;
 
-	void SetAction(EAction action) {
+	void SetAction(EAction action)
+	{
 		_action = action;
 		_actionStage = EActionStage::ENTRY;
 	}
-
-	void SetNextAction(EAction action) {
+	void SetNextAction(EAction action)
+	{
 		_nextAction = action;
 		_actionStage = EActionStage::EXIT;
 	}
-
-	void NextAction() {
+	void NextAction()
+	{
 		_action = _nextAction;
 		_actionStage = EActionStage::ENTRY;
 	}
@@ -533,11 +545,12 @@ public:
 	void UpdateFlyTimeout(float elapsedMs);
 	void UpdateInvincible(float elapsedMs);
 
-	void OnHit();
+	void Hit();
 
+	// temporary function for development
 	void CameraControl();
-
 #pragma endregion
+
 
 #pragma region COLLISION
 
