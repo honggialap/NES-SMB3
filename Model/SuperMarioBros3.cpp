@@ -14,7 +14,7 @@
 #include "World/MarioTail.h"
 #include "World/MarioFireball.h"
 #include "World/Goomba.h"
-#include "World/MicroGoomba.h"
+#include "World/GoombaMicro.h"
 #include "World/Koopa.h"
 #include "World/KoopaSensor.h"
 #include "World/Plant.h"
@@ -27,7 +27,6 @@
 #include "World/SuperMushroom.h"
 #include "World/FireFlower.h"
 #include "World/SuperLeaf.h"
-#include "World/Starman.h"
 #include "World/ExtraLifeMushroom.h"
 
 
@@ -57,7 +56,7 @@
 /* World Map */
 #pragma endregion
 
-pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::string name, std::string source, float x, float y, int gx, int gy, unsigned int layer)
+pGameObject CSuperMarioBros3::Create(unsigned int actor, std::string name, std::string source, float x, float y, int gx, int gy, unsigned int layer)
 {
 	switch (actor)
 	{
@@ -66,7 +65,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_TITLE:
 	{
 		auto gameObject = new CTitle(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -80,7 +79,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_WORLDMAP:
 	{
 		auto gameObject = new CWorldMap(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -94,7 +93,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_WORLD:
 	{
 		auto gameObject = new CWorld(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -110,7 +109,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_MARIO:
 	{
 		auto gameObject = new CMario(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -123,7 +122,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_MARIO_TAIL:
 	{
 		auto gameObject = new CMarioTail(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -136,7 +135,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_MARIO_FIREBALL:
 	{
 		auto gameObject = new CMarioFireball(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -150,7 +149,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_GOOMBA:
 	{
 		auto gameObject = new CGoomba(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -162,8 +161,8 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 
 	case ACT_GOOMBA_MICRO:
 	{
-		auto gameObject = new CMicroGoomba(
-			this, scene, nextId++,
+		auto gameObject = new CGoombaMicro(
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -177,7 +176,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_KOOPA:
 	{
 		auto gameObject = new CKoopa(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -190,7 +189,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_KOOPA_SENSOR:
 	{
 		auto gameObject = new CKoopaSensor(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -204,7 +203,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_PLANT:
 	{
 		auto gameObject = new CPlant(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -217,7 +216,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_PLANT_SENSOR:
 	{
 		auto gameObject = new CPlantSensor(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -230,7 +229,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_PLANT_FIREBALL:
 	{
 		auto gameObject = new CPlantFireball(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -246,7 +245,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_COIN:
 	{
 		auto gameObject = new CCoin(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -260,7 +259,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_SUPER_MUSHROOM:
 	{
 		auto gameObject = new CSuperMushroom(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -274,7 +273,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_FIRE_FLOWER:
 	{
 		auto gameObject = new CFireFlower(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -288,21 +287,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_SUPER_LEAF:
 	{
 		auto gameObject = new CSuperLeaf(
-			this, scene, nextId++,
-			name, source,
-			x, y, gx, gy, layer
-		);
-		Add(gameObject);
-		gameObject->Load();
-		return gameObject;
-	}
-	break;
-
-	// Starman
-	case ACT_STARMAN:
-	{
-		auto gameObject = new CStarman(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -316,7 +301,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_EXTRA_LIFE_MUSHROOM:
 	{
 		auto gameObject = new CExtraLifeMushroom(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -332,7 +317,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_BLOCK:
 	{
 		auto gameObject = new CBlock(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -346,7 +331,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_BRICK:
 	{
 		auto gameObject = new CBrick(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -360,7 +345,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_PLATFORM:
 	{
 		auto gameObject = new CPlatform(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -374,7 +359,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_RELAY:
 	{
 		auto gameObject = new CRelay(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -388,7 +373,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_PIPE:
 	{
 		auto gameObject = new CPipe(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -401,7 +386,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_TRANSPORT_PIPE:
 	{
 		auto gameObject = new CTransportPipe(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -415,7 +400,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_SPAWN_ZONE:
 	{
 		auto gameObject = new CSpawnZone(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -429,7 +414,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_DEAD_ZONE:
 	{
 		auto gameObject = new CDeadZone(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -443,7 +428,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_GOAL:
 	{
 		auto gameObject = new CGoal(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -459,7 +444,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_BACKGROUND:
 	{
 		auto gameObject = new CBackground(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -473,7 +458,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_HUD:
 	{
 		auto gameObject = new CHUD(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -486,7 +471,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_POWER_BAR:
 	{
 		auto gameObject = new CPowerBar(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -500,7 +485,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_SCORE_EFFECT:
 	{
 		auto gameObject = new CScoreEffect(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -514,7 +499,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_BRICK_FRAG_EFFECT:
 	{
 		auto gameObject = new CBrickFragEffect(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -528,7 +513,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_HIT_EFFECT:
 	{
 		auto gameObject = new CHitEffect(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -542,7 +527,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 	case ACT_DEATH_EFFECT:
 	{
 		auto gameObject = new CDeathEffect(
-			this, scene, nextId++,
+			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer
 		);
@@ -551,7 +536,7 @@ pGameObject CSuperMarioBros3::Create(pScene scene, unsigned int actor, std::stri
 		return gameObject;
 	}
 	break;
-
+	
 	default:
 		return nullptr;
 		break;

@@ -7,7 +7,6 @@
 #include "SuperMushroom.h"
 #include "SuperLeaf.h"
 #include "FireFlower.h"
-#include "Starman.h"
 #include "ExtraLifeMushroom.h"
 #include "Relay.h"
 
@@ -408,7 +407,6 @@ void CBlock::Spawn()
 		pugi::xml_node coin = prefab.child("Prefab").child("Coin");
 		auto spawnedCoin = dynamic_cast<pCoin>(
 			_game->Create(
-				_scene,
 				coin.attribute("actor").as_int(),
 				_name + coin.attribute("name").as_string(),
 				coin.attribute("source").as_string(),
@@ -429,7 +427,6 @@ void CBlock::Spawn()
 				pugi::xml_node superMushroom = prefab.child("Prefab").child("SuperMushroom");
 				auto spawnedSuperMushroom = dynamic_cast<pSuperMushroom>(
 					_game->Create(
-						_scene,
 						superMushroom.attribute("actor").as_int(),
 						_name + superMushroom.attribute("name").as_string(),
 						superMushroom.attribute("source").as_string(),
@@ -443,7 +440,6 @@ void CBlock::Spawn()
 				pugi::xml_node superLeaf = prefab.child("Prefab").child("SuperLeaf");
 				auto spawnedSuperLeaf = dynamic_cast<pSuperLeaf>(
 					_game->Create(
-						_scene,
 						superLeaf.attribute("actor").as_int(),
 						_name + superLeaf.attribute("name").as_string(),
 						superLeaf.attribute("source").as_string(),
@@ -461,7 +457,6 @@ void CBlock::Spawn()
 		pugi::xml_node fireFlower = prefab.child("Prefab").child("FireFlower");
 		auto spawnedFireFlower = dynamic_cast<pFireFlower>(
 			_game->Create(
-				_scene,
 				fireFlower.attribute("actor").as_int(),
 				_name + fireFlower.attribute("name").as_string(),
 				fireFlower.attribute("source").as_string(),
@@ -472,28 +467,26 @@ void CBlock::Spawn()
 	}
 	break;
 
-	case CBlock::ESpawn::STARMAN:
-	{
-		pugi::xml_node starman = prefab.child("Prefab").child("Starman");
-		auto spawnedStarman = dynamic_cast<pStarman>(
-			_game->Create(
-				_scene,
-				starman.attribute("actor").as_int(),
-				_name + starman.attribute("name").as_string(),
-				starman.attribute("source").as_string(),
-				_x, _y, _gx, _gy, _layer - 1
-			)
-			);
-		spawnedStarman->SetAction(CStarman::EAction::SPAWN);
-	}
-	break;
+	//case CBlock::ESpawn::STARMAN:
+	//{
+	//	pugi::xml_node starman = prefab.child("Prefab").child("Starman");
+	//	auto spawnedStarman = dynamic_cast<pStarman>(
+	//		_game->Create(
+	//			starman.attribute("actor").as_int(),
+	//			_name + starman.attribute("name").as_string(),
+	//			starman.attribute("source").as_string(),
+	//			_x, _y, _gx, _gy, _layer - 1
+	//		)
+	//		);
+	//	spawnedStarman->SetAction(CStarman::EAction::SPAWN);
+	//}
+	//break;
 
 	case CBlock::ESpawn::EXTRA_LIFE:
 	{
 		pugi::xml_node extraLifeMushroom = prefab.child("Prefab").child("ExtraLifeMushroom");
 		auto spawnedExtraLifeMushroom = dynamic_cast<pExtraLifeMushroom>(
 			_game->Create(
-				_scene,
 				extraLifeMushroom.attribute("actor").as_int(),
 				_name + extraLifeMushroom.attribute("name").as_string(),
 				extraLifeMushroom.attribute("source").as_string(),
@@ -509,7 +502,6 @@ void CBlock::Spawn()
 		pugi::xml_node relay = prefab.child("Prefab").child("Relay");
 		auto spawnedRelay = dynamic_cast<pRelay>(
 			_game->Create(
-				_scene,
 				relay.attribute("actor").as_int(),
 				_name + relay.attribute("name").as_string(),
 				relay.attribute("source").as_string(),

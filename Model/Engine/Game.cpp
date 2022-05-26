@@ -47,20 +47,18 @@ CGame::~CGame()
 	}
 }
 
+#pragma region Game loop
+
 void CGame::Load(HINSTANCE hInstance, std::string gameDataPath)
 {
 	/* Read file */
 	pugi::xml_document gameDataDoc;
 	gameDataDoc.load_file(gameDataPath.c_str());
 
-
 	/* Game settings */
 	pugi::xml_node gameSettingsNode = gameDataDoc.child("GameData").child("GameSettings");
 	_framePerSecond = gameSettingsNode.attribute("framePerSecond").as_uint();
-	_gridWidth = gameSettingsNode.attribute("gridWidth").as_int();
-	_gridHeight = gameSettingsNode.attribute("gridHeight").as_int();
 	_cameraBuffer = gameSettingsNode.attribute("cameraBuffer").as_float();
-	_startScene = gameSettingsNode.attribute("startScene").as_uint();
 
 	/* Framework */
 	_application->CreateGameWindow
@@ -110,27 +108,27 @@ void CGame::Load(HINSTANCE hInstance, std::string gameDataPath)
 	for (pugi::xml_node sceneNode = gameDataDoc.child("GameData").child("Scene");
 		sceneNode;
 		sceneNode = sceneNode.next_sibling("Scene"))
-		_scenes[sceneNode.attribute("id").as_uint()]
-		= new CScene(sceneNode.attribute("source").as_string());
+		_scenes[sceneNode.attribute("id").as_uint()] 
+		= sceneNode.attribute("source").as_string();
+	
+	PlayScene(gameSettingsNode.attribute("startScene").as_uint());
 }
 
-
-#pragma region Game loop
-
-void CGame::Run()
+void CGame::Run(HINSTANCE hInstance, std::string gameDataPath)
 {
+	Load(hInstance, gameDataPath);
+
 	float msPerFrame = 1000.0f / _framePerSecond;
 	float elapsedMs = 0;
 	bool done = false;
 
-	PlayScene(_startScene);
 	_time->Start();
 	while (!done)
 	{
 		_time->Tick();
 		elapsedMs += _time->GetElapsedMs();
 
-		LoadScene();
+		SceneLoading();
 
 		if (elapsedMs >= msPerFrame)
 		{
@@ -147,31 +145,41 @@ void CGame::Run()
 	Shutdown();
 }
 
+void CGame::Shutdown()
+{
+	for (auto gameObjectContainer : _gameObjects)
+		gameObjectContainer.second->Destroy();
+
+	Purge();
+
+	_graphics->Shutdown();
+	_audio->Shutdown();
+	_input->Shutdown();
+}
+
 void CGame::Update(float elapsedMs)
 {
-	_updateQueue.clear();
-	_renderQueue.clear();
+	_activeQueue.clear();
 
-	for (auto gameObject : _gameObjects)
+	for (auto gameObjectContainer : _gameObjects)
 	{
-		if (!gameObject.second->IsDestroyed())
+		if (!gameObjectContainer.second->IsDestroyed())
 		{
-			_updateQueue.push_back(gameObject.first);
-			_renderQueue.push_back(gameObject.second);
+			_activeQueue.push_back(gameObjectContainer.second);
 		}
 	}
 
-	for (auto id : _updateQueue)
+	for (auto &gameObject : _activeQueue)
 	{
-		_gameObjects[id]->Update(elapsedMs);
-		UpdateGrid(id);
+		gameObject->Update(elapsedMs);
+		UpdateGrid(gameObject->GetId());
 	}
-
-	std::sort(_renderQueue.begin(), _renderQueue.end(), CGameObject::CompareLayer);
 }
 
 void CGame::Render()
 {
+	std::sort(_activeQueue.begin(), _activeQueue.end(), CGameObject::CompareLayer);
+
 	_graphics->GetDevice()->ClearRenderTargetView(
 		_graphics->GetRenderTargetView(),
 		D3DXCOLOR(200.0f / 255, 200.0f / 255, 255.0f / 255, 0.0f)
@@ -181,19 +189,30 @@ void CGame::Render()
 	FLOAT NewBlendFactor[4] = { 0,0,0,0 };
 	_graphics->GetDevice()->OMSetBlendState(_graphics->GetBlendStateAlpha(), NewBlendFactor, 0xffffffff);
 
-	for (auto &gameObject : _renderQueue)
+	for (auto &gameObject : _activeQueue)
 		gameObject->Render();
 
 	_graphics->GetSpriteHandler()->End();
 	_graphics->GetSwapChain()->Present(0, 0);
 }
 
-
-void CGame::Shutdown()
+void CGame::Purge()
 {
-	_graphics->Shutdown();
-	_audio->Shutdown();
-	_input->Shutdown();
+	for (auto it = _gameObjects.begin(); it != _gameObjects.end();)
+	{
+		if (it->second->IsDestroyed())
+		{
+			RemoveGrid(it->first);
+
+			_dictionary.erase(it->second->GetName());
+
+			delete it->second;
+			it->second = nullptr;
+
+			it = _gameObjects.erase(it);
+		}
+		else it++;
+	}
 }
 
 #pragma endregion
@@ -250,72 +269,51 @@ bool CGame::IsKeyReleased(int keyCode)
 
 #pragma region Scene
 
-void CGame::PlayScene(unsigned int id)
+void CGame::PlayScene(unsigned int nextSceneID)
 {
-	if (_scenes.find(id) != _scenes.end())
-	{
-		if (!_scenes[id]->_play && !_scenes[id]->_load)
-		{
-			_load = true;
-			_scenes[id]->_play = true;
-			_scenes[id]->_load = true;
-		}		
-	}
+	if (_scenes.find(nextSceneID) == _scenes.end())
+		return;
+
+	_nextSceneID = nextSceneID;
+	_sceneLoading = true;
 }
 
-void CGame::StopScene(unsigned int id)
+void CGame::SceneLoading()
 {
-	if (_scenes.find(id) != _scenes.end())
-	{
-		if (_scenes[id]->_play && !_scenes[id]->_load)
-		{
-			_load = true;
-			_scenes[id]->_play = false;
-			_scenes[id]->_load = true;
-		}
-	}
+	if (!_sceneLoading) return;
+
+	for (auto gameObjectContainer : _gameObjects)
+		gameObjectContainer.second->Destroy();
+
+	Purge();
+
+	LoadScene(_scenes[_nextSceneID]);
+	_sceneLoading = false;
 }
 
-void CGame::LoadScene()
+void CGame::LoadScene(std::string sceneDataPath)
 {
-	if (_load)
-	{
-		for (auto scene : _scenes)
-		{
-			if (scene.second->_play && scene.second->_load)
-			{
-				pugi::xml_document sceneDoc;
-				sceneDoc.load_file(scene.second->_source.c_str());
+	_nextGameObjectID = 0;
 
-				for (auto gameObjectNode = sceneDoc.child("Scene").child("GameObject");
-					gameObjectNode;
-					gameObjectNode = gameObjectNode.next_sibling("GameObject"))
-				{
-					Create(
-						scene.second,
-						gameObjectNode.attribute("actor").as_uint(),
-						gameObjectNode.attribute("name").as_string(),
-						gameObjectNode.attribute("source").as_string(),
-						gameObjectNode.attribute("x").as_float(),
-						gameObjectNode.attribute("y").as_float(),
-						gameObjectNode.attribute("gx").as_int(),
-						gameObjectNode.attribute("gy").as_int(),
-						gameObjectNode.attribute("layer").as_uint()
-					);
-				}
-				scene.second->_load = false;
-			}
-			else if (!scene.second->_play && scene.second->_load)
-			{
-				for (auto gameObject : scene.second->_gameObjects)
-				{
-					if (Get(gameObject) != nullptr)
-						_gameObjects[gameObject]->Destroy();
-				}
-				scene.second->_load = false;
-			}
-		}
-		_load = false;
+	pugi::xml_document sceneDoc;
+	sceneDoc.load_file(sceneDataPath.c_str());
+
+	_gridWidth = sceneDoc.child("Scene").attribute("gridWidth").as_int();
+	_gridHeight = sceneDoc.child("Scene").attribute("gridHeight").as_int();
+
+	for (auto gameObjectNode = sceneDoc.child("Scene").child("GameObject");
+		gameObjectNode;
+		gameObjectNode = gameObjectNode.next_sibling("GameObject")) {
+		Create(
+			gameObjectNode.attribute("actor").as_uint(),
+			gameObjectNode.attribute("name").as_string(),
+			gameObjectNode.attribute("source").as_string(),
+			gameObjectNode.attribute("x").as_float(),
+			gameObjectNode.attribute("y").as_float(),
+			gameObjectNode.attribute("gx").as_int(),
+			gameObjectNode.attribute("gy").as_int(),
+			gameObjectNode.attribute("layer").as_int()
+		);
 	}
 }
 
@@ -328,7 +326,6 @@ void CGame::Add(pGameObject gameObject)
 	_gameObjects[gameObject->GetId()] = gameObject;
 	_dictionary[gameObject->GetName()] = gameObject->GetId();
 	AddGrid(gameObject->GetId());
-	gameObject->GetScene()->_gameObjects.push_back(gameObject->GetId());
 }
 
 pGameObject CGame::Get(unsigned int id)
@@ -347,28 +344,9 @@ pGameObject CGame::Get(std::string name)
 		return nullptr;
 }
 
-std::vector<unsigned int> CGame::GetActives()
+std::vector<pGameObject> CGame::GetActives()
 {
-	return _updateQueue;
-}
-
-void CGame::Purge()
-{
-	for (auto it = _gameObjects.begin(); it != _gameObjects.end();)
-	{
-		if (it->second->IsDestroyed())
-		{
-			RemoveGrid(it->first);
-
-			_dictionary.erase(it->second->GetName());
-
-			delete it->second;
-			it->second = nullptr;
-
-			it = _gameObjects.erase(it);
-		}
-		else it++;
-	}
+	return _activeQueue;
 }
 
 #pragma endregion

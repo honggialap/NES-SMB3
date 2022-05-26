@@ -183,9 +183,9 @@ void CRelay::Transform()
 	auto actives = _game->GetActives();
 	for (auto gameObject : actives)
 	{
-		if (dynamic_cast<pCoin>(_game->Get(gameObject)))
+		if (dynamic_cast<pCoin>(gameObject))
 		{
-			auto activeCoin = dynamic_cast<pCoin>(_game->Get(gameObject));
+			auto activeCoin = dynamic_cast<pCoin>(gameObject);
 			if (!activeCoin->IsDestroyed())
 			{
 				float x = 0;
@@ -197,7 +197,6 @@ void CRelay::Transform()
 				activeCoin->GetGrid(gx, gy);
 
 				_game->Create(
-					_scene,
 					brick.attribute("actor").as_uint(),
 					activeCoin->GetName() + brick.attribute("name").as_string(),
 					brick.attribute("source").as_string(),
@@ -207,9 +206,9 @@ void CRelay::Transform()
 				activeCoin->Destroy();
 			}
 		}
-		else if (dynamic_cast<pBrick>(_game->Get(gameObject)))
+		else if (dynamic_cast<pBrick>(gameObject))
 		{
-			auto activeBrick = dynamic_cast<pBrick>(_game->Get(gameObject));
+			auto activeBrick = dynamic_cast<pBrick>(gameObject);
 			if (!activeBrick->IsDestroyed())
 			{
 				float x = 0;
@@ -222,7 +221,6 @@ void CRelay::Transform()
 
 				auto spawnedCoin = dynamic_cast<pCoin>(
 					_game->Create(
-						_scene,
 						coin.attribute("actor").as_uint(),
 						activeBrick->GetName() + coin.attribute("name").as_string(),
 						coin.attribute("source").as_string(),

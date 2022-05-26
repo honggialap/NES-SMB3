@@ -10,26 +10,11 @@
 #include "Framework/Audio.h"
 #include "Framework/pugixml.hpp"
 #include "GameObject.h"
+
 #include <map>
 #include <vector>
 #include <unordered_map>
 #pragma endregion
-
-struct CScene
-{
-	bool _play;
-	bool _load;
-	std::string _source;
-	std::vector<unsigned int> _gameObjects;
-
-	CScene(std::string source)
-	{
-		_source = source;
-		_load = false;
-		_play = false;
-	}
-};
-typedef CScene* pScene;
 
 class CGame : public IKeyHandler
 {
@@ -55,15 +40,15 @@ public:
 	/* Game loop */
 protected:
 	unsigned int _framePerSecond = 0;
-	std::vector<unsigned int> _updateQueue;
-	std::vector<pGameObject> _renderQueue;
 
 public:
 	void Load(HINSTANCE hInstance, std::string gameDataPath);
-	void Run();
+	void Run(HINSTANCE hInstance, std::string gameDataPath);
+	void Shutdown();
+	
 	void Update(float elapsedMs);
 	void Render();
-	void Shutdown();
+	void Purge();
 
 	/* Camera */
 protected:
@@ -94,24 +79,27 @@ public:
 
 	/* Scene */
 protected:
-	std::map<unsigned int, pScene> _scenes;
-	bool _load = false;
-	unsigned int _startScene = 0;
+	std::map<unsigned int, std::string> _scenes;
+	bool _sceneLoading = false;
+	unsigned int _nextSceneID = 0;
 
 public:
-	void PlayScene(unsigned int id);
-	void StopScene(unsigned int id);
-	void LoadScene();
+	void PlayScene(unsigned int nextSceneID);
+	void SceneLoading();
+	void LoadScene(std::string sceneDataPath);
 
 	/* Game Object */
 protected:
-	unsigned int nextId = 0;
 	std::unordered_map<unsigned int, pGameObject> _gameObjects;
 	std::unordered_map<std::string, unsigned int> _dictionary;
+	std::vector<pGameObject> _activeQueue;
+	std::map<std::pair<int, int>, std::vector<unsigned int>> _grid;
+	unsigned int _nextGameObjectID = 0;
+	int _gridWidth = 0;
+	int _gridHeight = 0;
 
 public:
 	virtual pGameObject Create(
-		pScene scene,
 		unsigned int actorID, std::string name, std::string prefabSource,
 		float posX, float posY, int gridX, int gridY,
 		unsigned int layer
@@ -119,16 +107,8 @@ public:
 	void Add(pGameObject gameObject);
 	pGameObject Get(unsigned int id);
 	pGameObject Get(std::string name);
-	std::vector<unsigned int> GetActives();
-	void Purge();
+	std::vector<pGameObject> GetActives();
 
-	/* Grid */
-protected:
-	int _gridWidth = 0;
-	int _gridHeight = 0;
-	std::map<std::pair<int, int>, std::vector<unsigned int>> _grid;
-
-public:
 	void AddGrid(unsigned int gameObjectId);
 	void RemoveGrid(unsigned int gameObjectId);
 	void UpdateGrid(unsigned int gameObjectId);

@@ -1,6 +1,6 @@
 #pragma region INCLUDE
 #include "Goomba.h"
-#include "MicroGoomba.h"
+#include "GoombaMicro.h"
 #include "../SuperMarioBros3.h"
 
 #include "Platform.h"

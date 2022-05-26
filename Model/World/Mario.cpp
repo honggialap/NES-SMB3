@@ -3,7 +3,7 @@
 #include "../SuperMarioBros3.h"
 
 #include "Goomba.h"
-#include "MicroGoomba.h"
+#include "GoombaMicro.h"
 
 #include "Platform.h"
 #include "Block.h"

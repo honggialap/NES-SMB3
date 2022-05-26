@@ -1,10 +1,9 @@
 #include "GameObject.h"
 #include "Game.h"
 
-CGameObject::CGameObject(pGame game, pScene scene, unsigned int id, std::string name, std::string source, float x, float y, int gx, int gy, unsigned int layer)
+CGameObject::CGameObject(pGame game, unsigned int id, std::string name, std::string source, float x, float y, int gx, int gy, unsigned int layer)
 {
 	_game = game;
-	_scene = scene;
 	_id = id;
 	_name = name;
 	_source = source;

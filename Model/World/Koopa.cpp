@@ -34,7 +34,6 @@ void CKoopa::Load()
 	SENSOR_OFFSETY = sensor.attribute("OffsetY").as_float();
 	_sensor = dynamic_cast<pKoopaSensor>(
 		_game->Create(
-			_scene,
 			sensor.attribute("actor").as_int(),
 			_name + sensor.attribute("name").as_string(),
 			sensor.attribute("source").as_string(),

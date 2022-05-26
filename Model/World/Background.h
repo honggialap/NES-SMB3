@@ -16,10 +16,17 @@ class CBackground : public CGameObject
 {
 public:
 	CBackground(
-		pGame game, pScene scene,
+		pGame game,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
+
+	/* Tiled Map */
+	unsigned int _mapWidth = 0;
+	unsigned int _mapHeight = 0;
+	float _cellWidth = 0;
+	float _cellHeight = 0;
+	std::vector<unsigned int> _cells;
 
 public:
 	virtual void Load();

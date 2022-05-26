@@ -22,7 +22,7 @@ class CGameObject
 {
 public:
 	CGameObject(
-		pGame game, pScene scene,
+		pGame game,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
 	);

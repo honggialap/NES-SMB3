@@ -76,7 +76,6 @@ void CSpawnZone::Spawn()
 		if (_game->Get(_name + spawnable.attribute("name").as_string()) == nullptr)
 		{
 			_game->Create(
-				_scene,
 				spawnable.attribute("actor").as_int(),
 				_name + spawnable.attribute("name").as_string(),
 				spawnable.attribute("source").as_string(),

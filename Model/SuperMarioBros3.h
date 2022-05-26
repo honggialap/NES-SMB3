@@ -66,7 +66,6 @@ class CSuperMarioBros3 : public CGame
 {
 public:
 	pGameObject Create(
-		pScene scene,
 		unsigned int actor, std::string name, std::string source,
 		float posX, float posY, int gridX, int gridY,
 		unsigned int layer

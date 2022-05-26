@@ -4,8 +4,6 @@
 		windowWidth ="512"
 		windowHeight ="480"
 		framePerSecond ="144"
-		gridWidth ="512"
-		gridHeight ="480"
 		cameraBuffer ="16"
 		startScene ="0"
 		/>
@@ -57,12 +55,17 @@
 	<Texture id="301" source="Data/Texture/Item.png"/>
 	<Texture id="401" source="Data/Texture/Block.png"/>
 	<Texture id="402" source="Data/Texture/Pipe.png"/>
+	<Texture id="501" source="Data/Texture/World11MainSection.png"/>
+	<Texture id="502" source="Data/Texture/World11SubSection.png"/>
+  
 	<Texture id="701" source="Data/Texture/Effect.png"/>
 
 	<!-- Scenes -->
 	<Scene id="0" source="Data/Scene/Sandbox.xml"/>
-	<Scene id="101" source="Data/Scene/MainGame.xml"/>
+	<!--
+  <Scene id="101" source="Data/Scene/MainGame.xml"/>
 	<Scene id="201" source="Data/Scene/Title.xml"/>
 	<Scene id="301" source="Data/Scene/WorldMapGrassland.xml"/>
 	<Scene id="401" source="Data/Scene/World11.xml"/>
+  -->
 </GameData>

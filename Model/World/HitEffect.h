@@ -8,18 +8,19 @@
 
 #pragma region DEFINE
 /* SPRITE ID */
-/* ANIMATION ID */
-/* SOUNDCLIP ID */
+#define SPR_BBOX					999901
+#define SPR_MICRO_GOOMBA_LEFT		110101
+#define SPR_MICRO_GOOMBA_RIGHT		120101
 #pragma endregion
 
 class CHitEffect : public CGameObject
 {
 public:
 	CHitEffect(
-		pGame game, pScene scene,
+		pGame game,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();

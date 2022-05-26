@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __SEMI_PLATFORM_H__
-#define __SEMI_PLATFORM_H__
+#ifndef __MICRO_GOOMBA_H__
+#define __MICRO_GOOMBA_H__
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
@@ -8,18 +8,19 @@
 
 #pragma region DEFINE
 /* SPRITE ID */
-/* ANIMATION ID */
-/* SOUNDCLIP ID */
+#define SPR_BBOX					999901
+#define SPR_MICRO_GOOMBA_LEFT		110101
+#define SPR_MICRO_GOOMBA_RIGHT		120101
 #pragma endregion
 
-class CSemiPlatform : public CGameObject
+class CGoombaMicro : public CGameObject
 {
 public:
-	CSemiPlatform(
-		pGame game, pScene scene,
+	CGoombaMicro(
+		pGame game,
 		unsigned int id, std::string name, std::string source,
 		float x, float y, int gx, int gy, unsigned int layer
-	) : CGameObject(game, scene, id, name, source, x, y, gx, gy, layer) {};
+	) : CGameObject(game, id, name, source, x, y, gx, gy, layer) {};
 
 public:
 	virtual void Load();
@@ -31,6 +32,6 @@ public:
 	virtual int IsBlocking();
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };
-typedef CSemiPlatform* pSemiPlatform;
+typedef CGoombaMicro* pGoombaMicro;
 
-#endif // !__SEMI_PLATFORM_H__
+#endif // !__MICRO_GOOMBA_H__

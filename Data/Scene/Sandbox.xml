@@ -1,5 +1,6 @@
-<Scene>
+<Scene gridWidth ="512" gridHeight ="480">
 	<GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="50101" name="bg1" source="Data/Asset/Misc/Background/World11MainBG.xml" x="0" y="864" gx="0" gy="0" layer="0"/>
 	<!--
 	<GameObject actor="20201" name="goomba" source="Data/Asset/Character/Goomba/Goomba.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
 	<GameObject actor="20201" name="paraGoomba" source="Data/Asset/Character/Goomba/ParaGoomba.xml" x="400" y="100" gx="0" gy="0" layer="10"/>

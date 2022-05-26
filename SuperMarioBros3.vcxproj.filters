@@ -63,46 +63,13 @@
     <ClCompile Include="Model\World\Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\BigCannon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\Block.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\BoomBoom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Boomerang.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\BounceBlock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Brick.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\BrickFragEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Brother.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\BubbleEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\BulletBill.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\BulletBillCannon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\BuzzyBeetle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Cannonball.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\CannonSmokeEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Coin.cpp">
@@ -112,12 +79,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\DeathEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\DropCeiling.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\DryBones.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\ExtraLifeMushroom.cpp">
@@ -132,12 +93,6 @@
     <ClCompile Include="Model\World\Goomba.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\Hammer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\HitEffect.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\HUD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -145,15 +100,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\KoopaSensor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Larry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\LarryProjectile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\LavaEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Mario.cpp">
@@ -165,10 +111,7 @@
     <ClCompile Include="Model\World\MarioTail.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\MicroGoomba.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\MovingPlatform.cpp">
+    <ClCompile Include="Model\World\GoombaMicro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Pipe.cpp">
@@ -186,37 +129,16 @@
     <ClCompile Include="Model\World\Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\Podoboo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\PowerBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Pusher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\Relay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\Roto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\ScoreEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\SemiPlatform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Slope.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\SmallCannon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\SpawnZone.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Starman.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\SuperLeaf.cpp">
@@ -225,22 +147,7 @@
     <ClCompile Include="Model\World\SuperMushroom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\TransportBounceBlock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\TransportDoor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\TransportPipe.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\TreasureBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\Water.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model\World\WaterEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\World.cpp">
@@ -259,6 +166,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\SuperMarioBros3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\HitEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -308,46 +218,13 @@
     <ClInclude Include="Model\World\Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\BigCannon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\Block.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\BoomBoom.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Boomerang.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\BounceBlock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Brick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\BrickFragEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Brother.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\BubbleEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\BulletBill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\BulletBillCannon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\BuzzyBeetle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Cannonball.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\CannonSmokeEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Coin.h">
@@ -357,12 +234,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\DeathEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\DropCeiling.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\DryBones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\ExtraLifeMushroom.h">
@@ -377,12 +248,6 @@
     <ClInclude Include="Model\World\Goomba.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\Hammer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\HitEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\HUD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -390,15 +255,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\KoopaSensor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Larry.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\LarryProjectile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\LavaEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Mario.h">
@@ -410,10 +266,7 @@
     <ClInclude Include="Model\World\MarioTail.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\MicroGoomba.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\MovingPlatform.h">
+    <ClInclude Include="Model\World\GoombaMicro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Pipe.h">
@@ -431,37 +284,16 @@
     <ClInclude Include="Model\World\Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\Podoboo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\PowerBar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Pusher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\Relay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\Roto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\ScoreEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\SemiPlatform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Slope.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\SmallCannon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\SpawnZone.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Starman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\SuperLeaf.h">
@@ -470,22 +302,7 @@
     <ClInclude Include="Model\World\SuperMushroom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\TransportBounceBlock.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\TransportDoor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\TransportPipe.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\TreasureBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\Water.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Model\World\WaterEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\World.h">
@@ -504,6 +321,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\SuperMarioBros3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\HitEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
