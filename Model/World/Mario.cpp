@@ -9,6 +9,8 @@
 #include "Block.h"
 #include "Brick.h"
 #include "Pipe.h"
+
+#include"../Engine/Framework/Debug.h"
 #pragma endregion
 
 void CMario::Load()
@@ -124,8 +126,12 @@ void CMario::Update(float elapsedMs)
 	UpdateFlyTimeout(elapsedMs);
 	UpdateInvincible(elapsedMs);
 
+	if (_vy < -BLOCK_PUSH_FACTOR * elapsedMs / 100) _ground = false;
+
 	std::vector<pGameObject> collidables = _game->GetLocal(_id);
 	_collider->Process(elapsedMs, &collidables);
+
+	DebugOut(L"Grounded: %d | vy: %f \n", _ground, _vy);
 
 	HandleAction(elapsedMs);
 
@@ -140,486 +146,488 @@ void CMario::Render()
 	if (_renderSmallBody) _sprites[SPR_MARIO_S_BBOX]->Render(_x, _y);
 	if (_renderLargeBody) _sprites[SPR_MARIO_L_BBOX]->Render(_x, _y);
 
-	if (!_blink)
+	if (_blink)
 	{
+		return;
+	}
 
-		switch (_action)
+	switch (_action)
+	{
+	case CMario::EAction::IDLE:
+	{
+		switch (_power)
 		{
-		case CMario::EAction::IDLE:
+		case CMario::EPower::SMALL:
 		{
-			switch (_power)
-			{
-			case CMario::EPower::SMALL:
-			{
-				if (_left)	_sprites[SPR_MARIO_S_IDLE_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_S_IDLE_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::LARGE:
-			{
-				if (_left)	_sprites[SPR_MARIO_L_IDLE_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_L_IDLE_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::FIRE:
-			{
-				if (_left)	_sprites[SPR_MARIO_F_IDLE_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_F_IDLE_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::RACCOON:
-			{
-				if (_left)	_sprites[SPR_MARIO_R_IDLE_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_R_IDLE_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
+			if (_left)	_sprites[SPR_MARIO_S_IDLE_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_S_IDLE_RIGHT]->Render(_x, _y);
 		}
 		break;
-
-		case CMario::EAction::CROUNCH:
+		case CMario::EPower::LARGE:
 		{
-			switch (_power)
-			{
-			case CMario::EPower::LARGE:
-			{
-				if (_left)	_sprites[SPR_MARIO_L_CROUNCH_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_L_CROUNCH_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::FIRE:
-			{
-				if (_left)	_sprites[SPR_MARIO_F_CROUNCH_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_F_CROUNCH_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::RACCOON:
-			{
-				if (_left)	_sprites[SPR_MARIO_R_CROUNCH_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_R_CROUNCH_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
+			if (_left)	_sprites[SPR_MARIO_L_IDLE_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_L_IDLE_RIGHT]->Render(_x, _y);
 		}
 		break;
-
-		case CMario::EAction::WALK:
+		case CMario::EPower::FIRE:
 		{
-			switch (_power)
+			if (_left)	_sprites[SPR_MARIO_F_IDLE_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_F_IDLE_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_sprites[SPR_MARIO_R_IDLE_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_R_IDLE_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::CROUNCH:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::LARGE:
+		{
+			if (_left)	_sprites[SPR_MARIO_L_CROUNCH_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_L_CROUNCH_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::FIRE:
+		{
+			if (_left)	_sprites[SPR_MARIO_F_CROUNCH_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_F_CROUNCH_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_sprites[SPR_MARIO_R_CROUNCH_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_R_CROUNCH_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::WALK:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			if (_left)	_animations[ANI_MARIO_S_WALK_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_S_WALK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::LARGE:
+		{
+			if (_left)	_animations[ANI_MARIO_L_WALK_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_L_WALK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::FIRE:
+		{
+			if (_left)	_animations[ANI_MARIO_F_WALK_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_F_WALK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_animations[ANI_MARIO_R_WALK_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_R_WALK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::RUN:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			if (_fullSpeed)
 			{
-			case CMario::EPower::SMALL:
+				if (_left)	_animations[ANI_MARIO_S_RUN_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_S_RUN_RIGHT]->Render(_x, _y);
+			}
+			else
 			{
 				if (_left)	_animations[ANI_MARIO_S_WALK_LEFT]->Render(_x, _y);
 				else		_animations[ANI_MARIO_S_WALK_RIGHT]->Render(_x, _y);
 			}
-			break;
-			case CMario::EPower::LARGE:
+		}
+		break;
+		case CMario::EPower::LARGE:
+		{
+			if (_fullSpeed)
+			{
+				if (_left)	_animations[ANI_MARIO_L_RUN_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_L_RUN_RIGHT]->Render(_x, _y);
+			}
+			else
 			{
 				if (_left)	_animations[ANI_MARIO_L_WALK_LEFT]->Render(_x, _y);
 				else		_animations[ANI_MARIO_L_WALK_RIGHT]->Render(_x, _y);
 			}
-			break;
-			case CMario::EPower::FIRE:
+		}
+		break;
+		case CMario::EPower::FIRE:
+		{
+			if (_fullSpeed)
+			{
+				if (_left)	_animations[ANI_MARIO_F_RUN_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_F_RUN_RIGHT]->Render(_x, _y);
+			}
+			else
 			{
 				if (_left)	_animations[ANI_MARIO_F_WALK_LEFT]->Render(_x, _y);
 				else		_animations[ANI_MARIO_F_WALK_RIGHT]->Render(_x, _y);
 			}
-			break;
-			case CMario::EPower::RACCOON:
+		}
+		break;
+		case CMario::EPower::RACCOON:
+		{
+			if (_fullSpeed)
+			{
+				if (_left)	_animations[ANI_MARIO_R_RUN_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_R_RUN_RIGHT]->Render(_x, _y);
+			}
+			else
 			{
 				if (_left)	_animations[ANI_MARIO_R_WALK_LEFT]->Render(_x, _y);
 				else		_animations[ANI_MARIO_R_WALK_RIGHT]->Render(_x, _y);
 			}
-			break;
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::DRIFT:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			if (_left)	_sprites[SPR_MARIO_S_DRIFT_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_S_DRIFT_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::LARGE:
+		{
+			if (_left)	_sprites[SPR_MARIO_L_DRIFT_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_L_DRIFT_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::FIRE:
+		{
+			if (_left)	_sprites[SPR_MARIO_F_DRIFT_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_F_DRIFT_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_sprites[SPR_MARIO_R_DRIFT_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_R_DRIFT_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::JUMP:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			if (_fullSpeed)
+			{
+				if (_left)	_sprites[SPR_MARIO_S_FLY_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_S_FLY_RIGHT]->Render(_x, _y);
+			}
+			else
+			{
+				if (_left)	_sprites[SPR_MARIO_S_JUMP_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_S_JUMP_RIGHT]->Render(_x, _y);
 			}
 		}
 		break;
-
-		case CMario::EAction::RUN:
+		case CMario::EPower::LARGE:
 		{
-			switch (_power)
+			if (_fullSpeed)
 			{
-			case CMario::EPower::SMALL:
+				if (_left)	_sprites[SPR_MARIO_L_FLY_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_L_FLY_RIGHT]->Render(_x, _y);
+			}
+			else
 			{
-				if (_fullSpeed)
+				if (_falling)
 				{
-					if (_left)	_animations[ANI_MARIO_S_RUN_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_S_RUN_RIGHT]->Render(_x, _y);
+					if (_left)	_sprites[SPR_MARIO_L_WALK2_LEFT]->Render(_x, _y);
+					else		_sprites[SPR_MARIO_L_WALK2_RIGHT]->Render(_x, _y);
 				}
 				else
 				{
-					if (_left)	_animations[ANI_MARIO_S_WALK_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_S_WALK_RIGHT]->Render(_x, _y);
+					if (_left)	_sprites[SPR_MARIO_L_JUMP_LEFT]->Render(_x, _y);
+					else		_sprites[SPR_MARIO_L_JUMP_RIGHT]->Render(_x, _y);
 				}
-			}
-			break;
-			case CMario::EPower::LARGE:
-			{
-				if (_fullSpeed)
-				{
-					if (_left)	_animations[ANI_MARIO_L_RUN_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_L_RUN_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_left)	_animations[ANI_MARIO_L_WALK_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_L_WALK_RIGHT]->Render(_x, _y);
-				}
-			}
-			break;
-			case CMario::EPower::FIRE:
-			{
-				if (_fullSpeed)
-				{
-					if (_left)	_animations[ANI_MARIO_F_RUN_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_F_RUN_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_left)	_animations[ANI_MARIO_F_WALK_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_F_WALK_RIGHT]->Render(_x, _y);
-				}
-			}
-			break;
-			case CMario::EPower::RACCOON:
-			{
-				if (_fullSpeed)
-				{
-					if (_left)	_animations[ANI_MARIO_R_RUN_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_R_RUN_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_left)	_animations[ANI_MARIO_R_WALK_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_R_WALK_RIGHT]->Render(_x, _y);
-				}
-			}
-			break;
 			}
 		}
 		break;
-
-		case CMario::EAction::DRIFT:
+		case CMario::EPower::FIRE:
 		{
-			switch (_power)
+			if (_fullSpeed)
 			{
-			case CMario::EPower::SMALL:
-			{
-				if (_left)	_sprites[SPR_MARIO_S_DRIFT_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_S_DRIFT_RIGHT]->Render(_x, _y);
+				if (_left)	_sprites[SPR_MARIO_F_FLY_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_F_FLY_RIGHT]->Render(_x, _y);
 			}
-			break;
-			case CMario::EPower::LARGE:
+			else
 			{
-				if (_left)	_sprites[SPR_MARIO_L_DRIFT_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_L_DRIFT_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::FIRE:
-			{
-				if (_left)	_sprites[SPR_MARIO_F_DRIFT_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_F_DRIFT_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::RACCOON:
-			{
-				if (_left)	_sprites[SPR_MARIO_R_DRIFT_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_R_DRIFT_RIGHT]->Render(_x, _y);
-			}
-			break;
+				if (_falling)
+				{
+					if (_left)	_sprites[SPR_MARIO_F_WALK2_LEFT]->Render(_x, _y);
+					else		_sprites[SPR_MARIO_F_WALK2_RIGHT]->Render(_x, _y);
+				}
+				else
+				{
+					if (_left)	_sprites[SPR_MARIO_F_JUMP_LEFT]->Render(_x, _y);
+					else		_sprites[SPR_MARIO_F_JUMP_RIGHT]->Render(_x, _y);
+				}
 			}
 		}
 		break;
-
-		case CMario::EAction::JUMP:
+		case CMario::EPower::RACCOON:
 		{
-			switch (_power)
+			if (_fullSpeed)
 			{
-			case CMario::EPower::SMALL:
-			{
-				if (_fullSpeed)
-				{
-					if (_left)	_sprites[SPR_MARIO_S_FLY_LEFT]->Render(_x, _y);
-					else		_sprites[SPR_MARIO_S_FLY_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_left)	_sprites[SPR_MARIO_S_JUMP_LEFT]->Render(_x, _y);
-					else		_sprites[SPR_MARIO_S_JUMP_RIGHT]->Render(_x, _y);
-				}
+				if (_left)	_sprites[SPR_MARIO_R_FLY1_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_R_FLY1_RIGHT]->Render(_x, _y);
 			}
-			break;
-			case CMario::EPower::LARGE:
+			else
 			{
-				if (_fullSpeed)
-				{
-					if (_left)	_sprites[SPR_MARIO_L_FLY_LEFT]->Render(_x, _y);
-					else		_sprites[SPR_MARIO_L_FLY_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_falling)
-					{
-						if (_left)	_sprites[SPR_MARIO_L_WALK2_LEFT]->Render(_x, _y);
-						else		_sprites[SPR_MARIO_L_WALK2_RIGHT]->Render(_x, _y);
-					}
-					else
-					{
-						if (_left)	_sprites[SPR_MARIO_L_JUMP_LEFT]->Render(_x, _y);
-						else		_sprites[SPR_MARIO_L_JUMP_RIGHT]->Render(_x, _y);
-					}
-				}
-			}
-			break;
-			case CMario::EPower::FIRE:
-			{
-				if (_fullSpeed)
-				{
-					if (_left)	_sprites[SPR_MARIO_F_FLY_LEFT]->Render(_x, _y);
-					else		_sprites[SPR_MARIO_F_FLY_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_falling)
-					{
-						if (_left)	_sprites[SPR_MARIO_F_WALK2_LEFT]->Render(_x, _y);
-						else		_sprites[SPR_MARIO_F_WALK2_RIGHT]->Render(_x, _y);
-					}
-					else
-					{
-						if (_left)	_sprites[SPR_MARIO_F_JUMP_LEFT]->Render(_x, _y);
-						else		_sprites[SPR_MARIO_F_JUMP_RIGHT]->Render(_x, _y);
-					}
-				}
-			}
-			break;
-			case CMario::EPower::RACCOON:
-			{
-				if (_fullSpeed)
-				{
-					if (_left)	_sprites[SPR_MARIO_R_FLY1_LEFT]->Render(_x, _y);
-					else		_sprites[SPR_MARIO_R_FLY1_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_falling)
-					{
-						if (_left)	_sprites[SPR_MARIO_R_WALK2_LEFT]->Render(_x, _y);
-						else		_sprites[SPR_MARIO_R_WALK2_RIGHT]->Render(_x, _y);
-					}
-					else
-					{
-						if (_left)	_sprites[SPR_MARIO_R_JUMP_LEFT]->Render(_x, _y);
-						else		_sprites[SPR_MARIO_R_JUMP_RIGHT]->Render(_x, _y);
-					}
-				}
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::FLY:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::RACCOON:
-			{
-				if (_fly)
-				{
-					if (_left)	_animations[ANI_MARIO_R_FLY_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_R_FLY_RIGHT]->Render(_x, _y);
-				}
-				else
-				{
-					if (_left)	_sprites[SPR_MARIO_R_FLY1_LEFT]->Render(_x, _y);
-					else		_sprites[SPR_MARIO_R_FLY1_RIGHT]->Render(_x, _y);
-				}
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::HOVER:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::RACCOON:
-			{
-				if (_hover)
-				{
-					if (_left)	_animations[ANI_MARIO_R_HOVER_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_R_HOVER_RIGHT]->Render(_x, _y);
-				}
-				else
+				if (_falling)
 				{
 					if (_left)	_sprites[SPR_MARIO_R_WALK2_LEFT]->Render(_x, _y);
 					else		_sprites[SPR_MARIO_R_WALK2_RIGHT]->Render(_x, _y);
 				}
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::KICK:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::SMALL:
-			{
-				if (_left)	_sprites[SPR_MARIO_S_KICK_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_S_KICK_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::LARGE:
-			{
-				if (_left)	_sprites[SPR_MARIO_L_KICK_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_L_KICK_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::FIRE:
-			{
-				if (_left)	_sprites[SPR_MARIO_F_KICK_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_F_KICK_RIGHT]->Render(_x, _y);
-			}
-			break;
-			case CMario::EPower::RACCOON:
-			{
-				if (_left)	_sprites[SPR_MARIO_R_KICK_LEFT]->Render(_x, _y);
-				else		_sprites[SPR_MARIO_R_KICK_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::SPIN:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::RACCOON:
-			{
-				if (_left)	_animations[ANI_MARIO_R_ATTACK_LEFT]->Render(_x, _y);
-				else		_animations[ANI_MARIO_R_ATTACK_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::FIRE:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::FIRE:
-			{
-				if (_ground)
-				{
-					if (_left)	_animations[ANI_MARIO_F_GROUND_ATTACK_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_F_GROUND_ATTACK_RIGHT]->Render(_x, _y);
-				}
 				else
 				{
-					if (_left)	_animations[ANI_MARIO_F_AIR_ATTACK_LEFT]->Render(_x, _y);
-					else		_animations[ANI_MARIO_F_AIR_ATTACK_RIGHT]->Render(_x, _y);
+					if (_left)	_sprites[SPR_MARIO_R_JUMP_LEFT]->Render(_x, _y);
+					else		_sprites[SPR_MARIO_R_JUMP_RIGHT]->Render(_x, _y);
 				}
 			}
-			break;
-			}
 		}
 		break;
-
-		case CMario::EAction::GROW:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::SMALL:
-			{
-				if (_left)	_animations[ANI_MARIO_GROW_LEFT]->Render(_x, _y);
-				else		_animations[ANI_MARIO_GROW_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::SHRINK:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::LARGE:
-			{
-				if (_left)	_animations[ANI_MARIO_SHRINK_LEFT]->Render(_x, _y);
-				else		_animations[ANI_MARIO_SHRINK_RIGHT]->Render(_x, _y);
-
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::POWER_FIRE:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::LARGE:
-			case CMario::EPower::RACCOON:
-			{
-				if (_left)	_animations[ANI_MARIO_TRANSFORM_LEFT]->Render(_x, _y);
-				else		_animations[ANI_MARIO_TRANSFORM_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::POWER_TAIL:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::LARGE:
-			case CMario::EPower::FIRE:
-			{
-				if (_left)	_animations[ANI_MARIO_TRANSFORM_LEFT]->Render(_x, _y);
-				else		_animations[ANI_MARIO_TRANSFORM_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::POWER_DOWN:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::RACCOON:
-			case CMario::EPower::FIRE:
-			{
-				if (_left)	_animations[ANI_MARIO_TRANSFORM_LEFT]->Render(_x, _y);
-				else		_animations[ANI_MARIO_TRANSFORM_RIGHT]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
-		case CMario::EAction::DIE:
-		{
-			switch (_power)
-			{
-			case CMario::EPower::SMALL:
-			{
-				_sprites[SPR_MARIO_S_DIE]->Render(_x, _y);
-			}
-			break;
-			}
-		}
-		break;
-
 		}
 	}
+	break;
+
+	case CMario::EAction::FLY:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::RACCOON:
+		{
+			if (_fly)
+			{
+				if (_left)	_animations[ANI_MARIO_R_FLY_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_R_FLY_RIGHT]->Render(_x, _y);
+			}
+			else
+			{
+				if (_left)	_sprites[SPR_MARIO_R_FLY1_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_R_FLY1_RIGHT]->Render(_x, _y);
+			}
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::HOVER:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::RACCOON:
+		{
+			if (_hover)
+			{
+				if (_left)	_animations[ANI_MARIO_R_HOVER_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_R_HOVER_RIGHT]->Render(_x, _y);
+			}
+			else
+			{
+				if (_left)	_sprites[SPR_MARIO_R_WALK2_LEFT]->Render(_x, _y);
+				else		_sprites[SPR_MARIO_R_WALK2_RIGHT]->Render(_x, _y);
+			}
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::KICK:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			if (_left)	_sprites[SPR_MARIO_S_KICK_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_S_KICK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::LARGE:
+		{
+			if (_left)	_sprites[SPR_MARIO_L_KICK_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_L_KICK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::FIRE:
+		{
+			if (_left)	_sprites[SPR_MARIO_F_KICK_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_F_KICK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_sprites[SPR_MARIO_R_KICK_LEFT]->Render(_x, _y);
+			else		_sprites[SPR_MARIO_R_KICK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::SPIN:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_animations[ANI_MARIO_R_ATTACK_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_R_ATTACK_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::FIRE:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::FIRE:
+		{
+			if (_ground)
+			{
+				if (_left)	_animations[ANI_MARIO_F_GROUND_ATTACK_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_F_GROUND_ATTACK_RIGHT]->Render(_x, _y);
+			}
+			else
+			{
+				if (_left)	_animations[ANI_MARIO_F_AIR_ATTACK_LEFT]->Render(_x, _y);
+				else		_animations[ANI_MARIO_F_AIR_ATTACK_RIGHT]->Render(_x, _y);
+			}
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::GROW:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			if (_left)	_animations[ANI_MARIO_GROW_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_GROW_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::SHRINK:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::LARGE:
+		{
+			if (_left)	_animations[ANI_MARIO_SHRINK_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_SHRINK_RIGHT]->Render(_x, _y);
+
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::POWER_FIRE:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::LARGE:
+		case CMario::EPower::RACCOON:
+		{
+			if (_left)	_animations[ANI_MARIO_TRANSFORM_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_TRANSFORM_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::POWER_TAIL:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::LARGE:
+		case CMario::EPower::FIRE:
+		{
+			if (_left)	_animations[ANI_MARIO_TRANSFORM_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_TRANSFORM_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::POWER_DOWN:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::RACCOON:
+		case CMario::EPower::FIRE:
+		{
+			if (_left)	_animations[ANI_MARIO_TRANSFORM_LEFT]->Render(_x, _y);
+			else		_animations[ANI_MARIO_TRANSFORM_RIGHT]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	case CMario::EAction::DIE:
+	{
+		switch (_power)
+		{
+		case CMario::EPower::SMALL:
+		{
+			_sprites[SPR_MARIO_S_DIE]->Render(_x, _y);
+		}
+		break;
+		}
+	}
+	break;
+
+	}
+
 }
 
 #pragma region STATE MACHINE
@@ -658,6 +666,10 @@ void CMario::HandleAction(float elapsedMs)
 
 	case CMario::EAction::HOVER:
 		Hover(elapsedMs);
+		break;
+
+	case CMario::EAction::FALL:
+		Fall(elapsedMs);
 		break;
 
 	case CMario::EAction::KICK:
@@ -861,6 +873,7 @@ void CMario::Walk(float elapsedMs)
 
 	case CMario::EActionStage::PROGRESS:
 	{
+
 		if (_game->IsKeyDown(DOWN) && _power != EPower::SMALL)
 		{
 			SetNextAction(EAction::CROUNCH);
@@ -1579,6 +1592,32 @@ void CMario::Hover(float elapsedMs)
 	}
 }
 
+void CMario::Fall(float elapsedMs)
+{
+	switch (_actionStage)
+	{
+	case CMario::EActionStage::ENTRY:
+	{
+
+	}
+	_actionStage = EActionStage::PROGRESS;
+	break;
+
+	case CMario::EActionStage::PROGRESS:
+	{
+
+	}
+	break;
+
+	case CMario::EActionStage::EXIT:
+	{
+
+	}
+	NextAction();
+	break;
+	}
+}
+
 void CMario::Kick(float elapsedMs)
 {
 	switch (_actionStage)
@@ -2049,6 +2088,7 @@ int CMario::IsCollidable()
 	case CMario::EAction::JUMP:
 	case CMario::EAction::FLY:
 	case CMario::EAction::HOVER:
+	case CMario::EAction::FALL:
 	case CMario::EAction::KICK:
 	case CMario::EAction::SPIN:
 	case CMario::EAction::FIRE:
@@ -2090,6 +2130,7 @@ void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom
 		case CMario::EAction::JUMP:
 		case CMario::EAction::FLY:
 		case CMario::EAction::HOVER:
+		case CMario::EAction::FALL:
 		case CMario::EAction::KICK:
 		case CMario::EAction::SPIN:
 		case CMario::EAction::FIRE:
@@ -2130,6 +2171,7 @@ void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom
 		case CMario::EAction::JUMP:
 		case CMario::EAction::FLY:
 		case CMario::EAction::HOVER:
+		case CMario::EAction::FALL:
 		case CMario::EAction::KICK:
 		case CMario::EAction::SPIN:
 		case CMario::EAction::FIRE:

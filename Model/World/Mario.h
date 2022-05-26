@@ -484,6 +484,7 @@ public:
 		JUMP,
 		FLY,
 		HOVER,
+		FALL,
 		KICK,
 		SPIN,
 		FIRE,
@@ -530,6 +531,7 @@ public:
 	void Jump(float elapsedMs);
 	void Fly(float elapsedMs);
 	void Hover(float elapsedMs);
+	void Fall(float elapsedMs);
 	void Kick(float elapsedMs);
 	void Spin(float elapsedMs);
 	void Fire(float elapsedMs);

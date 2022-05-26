@@ -1,6 +1,6 @@
 <Scene>
 	<GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
-	
+	<!--
 	<GameObject actor="20201" name="goomba" source="Data/Asset/Character/Goomba/Goomba.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
 	<GameObject actor="20201" name="paraGoomba" source="Data/Asset/Character/Goomba/ParaGoomba.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
 	<GameObject actor="20201" name="redGoomba" source="Data/Asset/Character/Goomba/RedGoomba.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
@@ -62,7 +62,7 @@
 	<GameObject actor="40401" name="entryBlackPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
 	<GameObject actor="40401" name="exitGreenPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
 	<GameObject actor="40402" name="upTranportPipe" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
-
+	-->
   <!--
 	<GameObject actor="40501" name="relay" source="Data/Asset/Item/ExtraLifeMushroom.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
 	
