@@ -84,9 +84,9 @@
 		/>
 
 	<Hit
-		HORIZONTAL_DEFLECT_FORCE	="0.1"
-		VERTICAL_DEFLECT_FORCE		="0.1"
-		DECAY_TIMEOUT				="200"
+		HORIZONTAL_DEFLECT_FORCE	=".3"
+		VERTICAL_DEFLECT_FORCE		=".3"
+		DECAY_TIMEOUT				="500"
 		targetName					="mario"
 		/>
 

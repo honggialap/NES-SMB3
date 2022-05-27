@@ -154,12 +154,12 @@
 	<Sprite id="320801" textureId="201" left="426" top="278" width="32" height="64" offsetX="0" offsetY="32"/>
 	<Sprite id="320901" textureId="201" left="462" top="278" width="32" height="64" offsetX="0" offsetY="32"/>
 	<Sprite id="320902" textureId="201" left="498" top="278" width="32" height="64" offsetX="0" offsetY="32"/>
-	<Sprite id="321001" textureId="201" left="534" top="278" width="48" height="64" offsetX="-8" offsetY="32"/>
+	<Sprite id="321001" textureId="201" left="534" top="278" width="48" height="64" offsetX="8" offsetY="32"/>
 	<Sprite id="321101" textureId="201" left="586" top="278" width="32" height="64" offsetX="0" offsetY="32"/>
-	<Sprite id="321201" textureId="201" left="622" top="278" width="48" height="64" offsetX="8" offsetY="32"/>
-	<Sprite id="321202" textureId="201" left="674" top="278" width="48" height="64" offsetX="8" offsetY="32"/>
-	<Sprite id="321203" textureId="201" left="726" top="278" width="48" height="64" offsetX="8" offsetY="32"/>
-	<Sprite id="321204" textureId="201" left="778" top="278" width="48" height="64" offsetX="8" offsetY="32"/>
+	<Sprite id="321201" textureId="201" left="622" top="278" width="48" height="64" offsetX="-8" offsetY="32"/>
+	<Sprite id="321202" textureId="201" left="674" top="278" width="48" height="64" offsetX="-8" offsetY="32"/>
+	<Sprite id="321203" textureId="201" left="726" top="278" width="48" height="64" offsetX="-8" offsetY="32"/>
+	<Sprite id="321204" textureId="201" left="778" top="278" width="48" height="64" offsetX="-8" offsetY="32"/>
 	<Sprite id="321301" textureId="201" left="830" top="278" width="32" height="64" offsetX="0" offsetY="32"/>
 	<Sprite id="321401" textureId="201" left="866" top="278" width="48" height="64" offsetX="0" offsetY="20"/>
 	<Sprite id="321402" textureId="201" left="918" top="278" width="48" height="64" offsetX="0" offsetY="20"/>
@@ -248,14 +248,14 @@
 	<Sprite id="400104" textureId="201" left="1742" top="346" width="48" height="64" offsetX="-8" offsetY="32"/>
 
 	<!--EFFECT-->
-	<Sprite id="510101" textureId="201" left="802" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="510102" textureId="201" left="838" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="510103" textureId="201" left="874" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="510104" textureId="201" left="910" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="520101" textureId="201" left="802" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="520102" textureId="201" left="838" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="520103" textureId="201" left="874" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
-	<Sprite id="520104" textureId="201" left="910" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="510101" textureId="701" left="154" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="510102" textureId="701" left="190" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="510103" textureId="701" left="226" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="510104" textureId="701" left="262" top="2" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="520101" textureId="701" left="154" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="520102" textureId="701" left="190" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="520103" textureId="701" left="226" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
+	<Sprite id="520104" textureId="701" left="262" top="38" width="32" height="32" offsetX="0" offsetY="24"/>
 
 	<!--SMALL - LEFT -->
 	<Animation id="1101">
@@ -409,8 +409,9 @@
 		<Frame id="311502" time="100"/>
 	</Animation>
 	<Animation id="3107">
-		<Frame id="310601" time="100"/>
-		<Frame id="311204" time="100"/>
+		<Frame id="311202" time="100"/>
+		<Frame id="311204" time="50"/>
+		<Frame id="310601" time="50"/>
 	</Animation>
 
 	<!--FIRE - RIGHT -->
@@ -453,8 +454,9 @@
 		<Frame id="321502" time="100"/>
 	</Animation>
 	<Animation id="3207">
-		<Frame id="320601" time="100"/>
-		<Frame id="321204" time="100"/>
+		<Frame id="321202" time="100"/>
+		<Frame id="321204" time="50"/>
+		<Frame id="320601" time="50"/>
 	</Animation>
 
 	<!--RACCOON - LEFT -->
@@ -629,11 +631,11 @@
 		/>
 
 	<Move
-		WALK_ACCELERATION				="0.001"
+		WALK_ACCELERATION				="0.002"
 		WALK_SPEED_LIMIT				="0.15"
-		RUN_ACCELERATION				="0.002"
+		RUN_ACCELERATION				="0.004"
 		RUN_SPEED_LIMIT					="0.3"
-		FULL_ACCELERATION				="0.003"
+		FULL_ACCELERATION				="0.006"
 		FULL_SPEED_LIMIT				="0.45"
 		IDLE_THRESHOLD					="0.005"
 		DRIFT_THRESHOLD					="0.010"		
@@ -649,7 +651,8 @@
 	<Jump
 		JUMP_FORCE						="0.3"
 		FULL_SPEED_JUMP_FORCE			="0.4"
-		JUMP_LIMIT						="200"
+		JUMP_LIMIT						="400"
+    GROUND_DETECT_FACTOR  ="100"
 		/>
 
 	<Hover
@@ -660,10 +663,10 @@
 		/>
 
 	<Fly
-		FLY_GRAVITY						="0.1"
+		FLY_GRAVITY						="0.2"
 		FLY_COUNTDOWN					="200"
 		FLY_TIMEOUT_LIMIT				="5000"
-		FLY_ACCELERATION				="0.001"
+		FLY_ACCELERATION				="0.005"
 		FLY_SPEED_LIMIT					="0.15"
 		/>
 
@@ -679,5 +682,28 @@
 	<Transformation
 		TRANSFORMATION_TIMEOUT			="200"
 		/>
+
+  <TailAttack
+    TAIL_ENTRY = "100"
+		TAIL_PROGRESS = "50"
+		TAIL_RECOVER = "50"
+    />
+  <Tail actor ="20102" name ="tail" source ="Data/Asset/Character/Mario/MarioTail.xml"/>
+
+  <FireAttack
+		FIRE_ENTRY = "100"
+		FIRE_PROGRESS = "50"
+    FIRE_RECOVER = "50"
+		FIRE_OFFSETX = "16"
+		FIRE_OFFSETY = "48"
+    />
+  <Fire actor ="20103" name ="fireball1" source ="Data/Asset/Character/Mario/MarioFireball.xml"/>
+  <Fire actor ="20103" name ="fireball2" source ="Data/Asset/Character/Mario/MarioFireball.xml"/>
+  <Fire actor ="20103" name ="fireball3" source ="Data/Asset/Character/Mario/MarioFireball.xml"/>
+
+  <Kick
+    KICK_INTERVAL= "200"
+    SHELL_OFFSET ="16"
+    />
 
 </Prefab>

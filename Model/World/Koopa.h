@@ -31,7 +31,7 @@
 #define SPR_KOOPA_SHELL2_DOWN						160102
 #define SPR_KOOPA_SHELL3_DOWN						160103
 #define SPR_KOOPA_SHELL4_DOWN						160104
-#define SPR_KOOPA_RETRECT_DOWN						160201
+#define SPR_KOOPA_RETRACT_DOWN						160201
 
 #define SPR_RED_KOOPA_WALK1_UP_LEFT					210101
 #define SPR_RED_KOOPA_WALK2_UP_LEFT					210102
@@ -72,8 +72,8 @@
 #define ANI_KOOPA_SHELL_SPIN_DOWN_LEFT				1601
 #define ANI_KOOPA_SHELL_SPIN_DOWN_RIGHT				1602
 
-#define ANI_KOOPA_SHELL_RETRACT_UP					1701
-#define ANI_KOOPA_SHELL_RETRACT_DOWN				1702
+#define ANI_KOOPA_SHELL_RECOVER_UP					1701
+#define ANI_KOOPA_SHELL_RECOVER_DOWN				1702
 
 #define ANI_RED_KOOPA_WALK_UP_LEFT					2101
 #define ANI_RED_KOOPA_WALK_UP_RIGHT					2201
@@ -85,8 +85,8 @@
 #define ANI_RED_KOOPA_SHELL_SPIN_DOWN_LEFT			2601
 #define ANI_RED_KOOPA_SHELL_SPIN_DOWN_RIGHT			2602
 
-#define ANI_RED_KOOPA_SHELL_RETRACT_UP				2701
-#define ANI_RED_KOOPA_SHELL_RETRACT_DOWN			2702
+#define ANI_RED_KOOPA_SHELL_RECOVER_UP				2701
+#define ANI_RED_KOOPA_SHELL_RECOVER_DOWN			2702
 
 #define ANI_KOOPA_WING_FLAP_SLOW_LEFT				3101
 #define ANI_KOOPA_WING_FLAP_FAST_LEFT				3102
@@ -142,7 +142,7 @@ public:
 	/* Move */
 	float WALK_SPEED = 0;
 	bool _left = false;
-	bool _up = false;
+	bool _flip = false;
 
 	/* Jump */
 	float JUMP_FORCE = 0;
@@ -158,10 +158,15 @@ public:
 	/* Hit */
 	float HORIZONTAL_DEFLECT_FORCE = 0;
 	float VERTICAL_DEFLECT_FORCE = 0;
+	float SPIN_SPEED = 0;
 	float DECAY_TIMEOUT = 0;
+	float RETRACT_COUNTDOWN = 0;
+	float RECOVER_COUNTDOWN = 0;
+	float _retractCountdown = 0;
+	float _recoverCountdown = 0;
 	float _decayTimeout = 0;
 	bool _hold = false;
-	bool _kick = false;
+
 
 #pragma endregion
 
@@ -172,8 +177,9 @@ public:
 		MOVE,
 		JUMP,
 		FLY,
-		SHELL,
 		RETRACT,
+		SPIN,
+		RECOVER,
 		THROWN,
 		DEADZONED
 	};
@@ -208,17 +214,19 @@ public:
 	void Move(float elapsedMs);
 	void Jump(float elapsedMs);
 	void Fly(float elapsedMs);
-	void Shell(float elapsedMs);
 	void Retract(float elapsedMs);
+	void Spin(float elapsedMs);
+	void Recover(float elapsedMs);
 	void Thrown(float elapsedMs);
 	void DeadZoned(float elapsedMs);
 
 	void UpdateGravity(float elapsedMs);
 	void UpdateSensor(float elapsedMs);
 
-	void HitTop(bool left);
-	void HitSide(bool left);
-	void Kick(bool left);
+	void Stomped(bool left);
+	void Kicked(bool left);
+	void Swept(bool left);
+	void Shot(bool left);
 
 #pragma endregion
 

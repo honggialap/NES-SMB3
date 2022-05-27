@@ -4,6 +4,11 @@
 
 #pragma region INCLUDE
 #include "../Engine/GameObject.h"
+
+#include "MarioTail.h"
+#include "MarioFireball.h"
+#include "Koopa.h"
+#include "TransportPipe.h"
 #pragma endregion
 
 #pragma region DEFINE
@@ -390,6 +395,36 @@ public:
 	};
 	EPower _power = EPower::SMALL;
 
+	/* Tail */
+	pMarioTail _tail = nullptr;
+	float _tailEntry = 0.0f;
+	float _tailProgress = 0.0f;
+	float _tailRecover = 0.0f;
+	float TAIL_ENTRY = 0.0f;
+	float TAIL_PROGRESS = 0.0f;
+	float TAIL_RECOVER = 0.0f;
+
+	/* Fire */
+	bool _shot = false;
+	float _fireEntry = 0.0f;
+	float _fireProgress = 0.0f;
+	float _fireRecover = 0.0f;
+	float FIRE_RECOVER = 0.0f;
+	float FIRE_PROGRESS = 0.0f;
+	float FIRE_ENTRY = 0.0f;
+	float FIRE_OFFSETX = 0.0f;
+	float FIRE_OFFSETY = 0.0f;
+
+	/* Shell */
+	pKoopa _shell = nullptr;
+	bool _hold = false;
+	float _kickInterval = 0.0f;
+	float KICK_INTERVAL = 0.0f;
+	float SHELL_OFFSET = 0.0f;
+	
+	/* Tranport */
+	pTransportPipe _pipe = nullptr;
+
 	/* Gravity */
 	float GRAVITY = 0;
 	float DRAG = 0;
@@ -419,6 +454,7 @@ public:
 	float JUMP_FORCE = 0;
 	float FULL_SPEED_JUMP_FORCE = 0;
 	float JUMP_LIMIT = 0;
+	float GROUND_DETECT_FACTOR = 0;
 	bool _fall = false;
 	bool _falling = false;
 	float _jumpLimit = 0;
@@ -484,7 +520,6 @@ public:
 		JUMP,
 		FLY,
 		HOVER,
-		FALL,
 		KICK,
 		SPIN,
 		FIRE,
@@ -493,7 +528,10 @@ public:
 		POWER_FIRE,
 		POWER_TAIL,
 		POWER_DOWN,
-		DIE
+		DIE,
+		ENTRY,
+		EXIT,
+		CLEAR
 	};
 	EAction _action = EAction::IDLE;
 	EAction _nextAction = EAction::IDLE;
@@ -531,7 +569,6 @@ public:
 	void Jump(float elapsedMs);
 	void Fly(float elapsedMs);
 	void Hover(float elapsedMs);
-	void Fall(float elapsedMs);
 	void Kick(float elapsedMs);
 	void Spin(float elapsedMs);
 	void Fire(float elapsedMs);
@@ -541,12 +578,18 @@ public:
 	void PowerTail(float elapsedMs);
 	void PowerDown(float elapsedMs);
 	void Die(float elapsedMs);
+	void Entry(float elapsedMs);
+	void Exit(float elapsedMs);
+	void Clear(float elapsedMs);
 
 	void UpdateGravity(float elapsedMs);
 	void UpdateMomentum(float elapsedMs);
 	void UpdateFlyTimeout(float elapsedMs);
 	void UpdateInvincible(float elapsedMs);
-
+	
+	void UpdateTail();
+	void UpdateShell();
+	void ShootFireball();
 	void Hit();
 
 	// temporary function for development
@@ -564,12 +607,25 @@ public:
 	void OnCollisionWith(pCollision collision);
 
 	void OnCollisionWithGoomba(pCollision collision);
+	void OnCollisionWithGoombaMicro(pCollision collision);
+	void OnCollisionWithKoopa(pCollision collision);
+	void OnCollisionWithPlant(pCollision collision);
+	void OnCollisionWithPlantFireball(pCollision collision);
 
 	void OnCollisionWithPlatform(pCollision collision);
 	void OnCollisionWithBlock(pCollision collision);
 	void OnCollisionWithBrick(pCollision collision);
 	void OnCollisionWithPipe(pCollision collision);
+	void OnCollisionWithTransportPipe(pCollision collision);
+	void OnCollisionWithRelay(pCollision collision);
+	void OnCollisionWithDeadZone(pCollision collision);
+	void OnCollisionWithGoal(pCollision collision);
 
+	void OnCollisionWithCoin(pCollision collision);
+	void OnCollisionWithSuperMushroom(pCollision collision);
+	void OnCollisionWithSuperLeaf(pCollision collision);
+	void OnCollisionWithFireFlower(pCollision collision);
+	void OnCollisionWithExtraLifeMushroom(pCollision collision);
 #pragma endregion
 };
 typedef CMario* pMario;

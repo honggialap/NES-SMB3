@@ -62,10 +62,10 @@
 
 	<!-- Scenes -->
 	<Scene id="0" source="Data/Scene/Sandbox.xml"/>
+	<Scene id="401" source="Data/Scene/World11.xml"/>
 	<!--
   <Scene id="101" source="Data/Scene/MainGame.xml"/>
 	<Scene id="201" source="Data/Scene/Title.xml"/>
 	<Scene id="301" source="Data/Scene/WorldMapGrassland.xml"/>
-	<Scene id="401" source="Data/Scene/World11.xml"/>
   -->
 </GameData>

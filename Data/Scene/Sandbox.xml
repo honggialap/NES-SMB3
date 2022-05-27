@@ -1,16 +1,18 @@
 <Scene gridWidth ="512" gridHeight ="480">
-	<GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="50101" name="bg1" source="Data/Asset/Misc/Background/World11MainBG.xml" x="0" y="864" gx="0" gy="0" layer="0"/>
+	<GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="100" y="100" gx="0" gy="0" layer="20"/>
+  
+	<GameObject actor="20301" name="koopa" source="Data/Asset/Character/Koopa/Koopa.xml" x="750" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20301" name="paraKoopa" source="Data/Asset/Character/Koopa/ParaKoopa.xml" x="850" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20301" name="redKoopa" source="Data/Asset/Character/Koopa/RedKoopa.xml" x="950" y="200" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20301" name="redParaKoopa" source="Data/Asset/Character/Koopa/RedParaKoopa.xml" x="1050" y="100" gx="0" gy="0" layer="10"/>
+  
 	<!--
-	<GameObject actor="20201" name="goomba" source="Data/Asset/Character/Goomba/Goomba.xml" x="300" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20201" name="paraGoomba" source="Data/Asset/Character/Goomba/ParaGoomba.xml" x="400" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20201" name="redGoomba" source="Data/Asset/Character/Goomba/RedGoomba.xml" x="500" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20201" name="redParaGoomba" source="Data/Asset/Character/Goomba/RedParaGoomba.xml" x="600" y="100" gx="0" gy="0" layer="10"/>
-	
-	<GameObject actor="20301" name="koopa" source="Data/Asset/Character/Koopa/Koopa.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20301" name="paraKoopa" source="Data/Asset/Character/Koopa/ParaKoopa.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20301" name="redKoopa" source="Data/Asset/Character/Koopa/RedKoopa.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20301" name="redParaKoopa" source="Data/Asset/Character/Koopa/RedParaKoopa.xml" x="100" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="50101" name="bg1" source="Data/Asset/Misc/Background/World11MainBG.xml" x="0" y="864" gx="0" gy="0" layer="0"/>
+
+	<GameObject actor="20201" name="goomba" source="Data/Asset/Character/Goomba/Goomba.xml" x="700" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="paraGoomba" source="Data/Asset/Character/Goomba/ParaGoomba.xml" x="800" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="redGoomba" source="Data/Asset/Character/Goomba/RedGoomba.xml" x="900" y="100" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="redParaGoomba" source="Data/Asset/Character/Goomba/RedParaGoomba.xml" x="1000" y="100" gx="0" gy="0" layer="10"/>
 	
 	<GameObject actor="20401" name="piranhaUp" source="Data/Asset/Character/Plant/PiranhaUp.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
 	<GameObject actor="20401" name="piranhaDown" source="Data/Asset/Character/Plant/PiranhaDown.xml" x="300" y="200" gx="0" gy="0" layer="10"/>

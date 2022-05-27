@@ -161,8 +161,9 @@ public:
 
 	void UpdateGravity(float elapsedMs);
 	
-	void HitTop();
-	void HitSide(bool left);
+	void Stomped();
+	void Swept(bool left);
+	
 	void AcquireTarget();
 	void SpawnMicroGoomba();
 

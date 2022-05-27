@@ -1,0 +1,8 @@
+<Prefab>
+    <!--BBOX-->
+    <Sprite id="999901" textureId="101" left="0" top="0" width ="24.0" height="16.0" offsetX="-24.0" offsetY="14.0"/>
+    <Sprite id="999902" textureId="101" left="0" top="0" width ="24.0" height="16.0" offsetX="24.0" offsetY="14.0"/>
+
+    <LeftBody render = "true" width ="24.0" height="16.0" offsetX="-24.0" offsetY="14.0"/>
+    <RightBody render = "true" width ="24.0" height="16.0" offsetX="24.0" offsetY="14.0"/>
+</Prefab>

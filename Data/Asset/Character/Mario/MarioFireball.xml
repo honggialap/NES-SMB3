@@ -1,0 +1,39 @@
+<Prefab>
+
+    <!--BBox-->
+    <Sprite id="999901" textureId="101" left="0" top="0" width ="16" height ="16" offsetX="0" offsetY="0"/>
+
+    <Sprite id="100101" textureId="701" left="2" top="2" width="16" height="32" offsetX="0" offsetY="0"/>
+    <Sprite id="100102" textureId="701" left="22" top="2" width="16" height="32" offsetX="0" offsetY="0"/>
+    <Sprite id="100103" textureId="701" left="42" top="2" width="16" height="32" offsetX="0" offsetY="0"/>
+    <Sprite id="100104" textureId="701" left="62" top="2" width="16" height="32" offsetX="0" offsetY="0"/>
+  
+    <Sprite id="110101" textureId="701" left="2" top="38" width="16" height="32" offsetX="0" offsetY="0"/>
+    <Sprite id="110102" textureId="701" left="22" top="38" width="16" height="32" offsetX="0" offsetY="0"/>
+    <Sprite id="110103" textureId="701" left="42" top="38" width="16" height="32" offsetX="0" offsetY="0"/>
+    <Sprite id="110104" textureId="701" left="62" top="38" width="16" height="32" offsetX="0" offsetY="0"/>
+
+    <Animation id="1001">
+      <Frame id="100101" time="150"/>
+      <Frame id="100102" time="150"/>
+      <Frame id="100103" time="150"/>
+      <Frame id="100104" time="150"/>
+    </Animation> 
+  
+    <Animation id="1101">
+      <Frame id="110101" time="150"/>
+      <Frame id="110102" time="150"/>
+      <Frame id="110103" time="150"/>
+      <Frame id="110104" time="150"/>
+    </Animation>
+
+  <Stats
+		DECAY_INTERVAL="700"
+		DRAG_FORCE="1.05"
+		GRAVITY="0.003"
+		INITIAL_FORCE="1"
+	/>
+  
+  <Body render ="true" width ="16" height ="16" offsetX="0" offsetY="0"/>
+
+</Prefab>

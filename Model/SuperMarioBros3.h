@@ -8,7 +8,6 @@
 
 #pragma region ACTOR ID
 /* Controller */
-#define ACT_GAMEMASTER			10101
 #define ACT_TITLE				10201
 #define ACT_WORLDMAP			10301
 #define ACT_WORLD				10401

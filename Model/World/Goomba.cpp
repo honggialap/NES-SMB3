@@ -867,7 +867,7 @@ void CGoomba::Thrown(float elapsedMs)
 
 		_decayTimeout = DECAY_TIMEOUT;
 
-		if (_left) _vx -= HORIZONTAL_DEFLECT_FORCE;
+		if (_left) _vx = -HORIZONTAL_DEFLECT_FORCE;
 		else _vx = HORIZONTAL_DEFLECT_FORCE;
 
 		_vy = VERTICAL_DEFLECT_FORCE;
@@ -951,21 +951,23 @@ void CGoomba::UpdateGravity(float elapsedMs)
 		_vy -= GRAVITY * elapsedMs;
 }
 
-void CGoomba::HitTop()
+void CGoomba::Stomped()
 {
-	if (_wing) _wing = false;
-	else SetNextAction(EAction::DIE);
+	if (_wing) 
+	{
+		_wing = false;
+		SetNextAction(EAction::MOVE);
+	}
+	else
+	{
+		SetNextAction(EAction::DIE);
+	}
 }
 
-void CGoomba::HitSide(bool left)
+void CGoomba::Swept(bool left)
 {
-	if (left) _vx = 0;
-	else _vx = 0;
-
-	_vy = 0;
-
+	_left = left;
 	_wing = false;
-
 	SetNextAction(EAction::THROWN);
 }
 
