@@ -5,7 +5,7 @@
 		windowHeight ="480"
 		framePerSecond ="144"
 		cameraBuffer ="16"
-		startScene ="0"
+		startScene ="401"
 		/>
 	
 	<!--Buttons-->

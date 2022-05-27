@@ -102,9 +102,6 @@
     <ClCompile Include="Model\World\KoopaSensor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\World\Mario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\World\MarioFireball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -169,6 +166,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model\World\HitEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\World\Mario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -257,9 +257,6 @@
     <ClInclude Include="Model\World\KoopaSensor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\World\Mario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\World\MarioFireball.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -324,6 +321,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model\World\HitEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\World\Mario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
