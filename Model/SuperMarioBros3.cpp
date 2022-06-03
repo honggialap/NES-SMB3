@@ -4,52 +4,52 @@
 
 
 /* Controller */
-#include "Title/Title.h"
-#include "WorldMap/WorldMap.h"
-#include "World/World.h"
+#include "Title.h"
+#include "WorldMap.h"
+#include "World.h"
 
 
 /* Character */
-#include "World/Mario.h"
-#include "World/MarioTail.h"
-#include "World/MarioFireball.h"
-#include "World/Goomba.h"
-#include "World/GoombaMicro.h"
-#include "World/Koopa.h"
-#include "World/KoopaSensor.h"
-#include "World/Plant.h"
-#include "World/PlantSensor.h"
-#include "World/PlantFireball.h"
+#include "Mario.h"
+#include "MarioTail.h"
+#include "MarioFireball.h"
+#include "Goomba.h"
+#include "GoombaMicro.h"
+#include "Koopa.h"
+#include "KoopaSensor.h"
+#include "Plant.h"
+#include "PlantSensor.h"
+#include "PlantFireball.h"
 
 
 /* Item */
-#include "World/Coin.h"
-#include "World/SuperMushroom.h"
-#include "World/FireFlower.h"
-#include "World/SuperLeaf.h"
-#include "World/ExtraLifeMushroom.h"
+#include "Coin.h"
+#include "SuperMushroom.h"
+#include "FireFlower.h"
+#include "SuperLeaf.h"
+#include "ExtraLifeMushroom.h"
 
 
 /* Prop */
-#include "World/Platform.h"
-#include "World/Block.h"
-#include "World/Brick.h"
-#include "World/Relay.h"
-#include "World/Pipe.h"
-#include "World/TransportPipe.h"
-#include "World/SpawnZone.h"
-#include "World/DeadZone.h"
-#include "World/Goal.h"
+#include "Platform.h"
+#include "Block.h"
+#include "Brick.h"
+#include "Relay.h"
+#include "Pipe.h"
+#include "TransportPipe.h"
+#include "SpawnZone.h"
+#include "DeadZone.h"
+#include "Goal.h"
 
 
 /* Misc */
-#include "World/Background.h"
-#include "World/HUD.h"
-#include "World/PowerBar.h"
-#include "World/ScoreEffect.h"
-#include "World/BrickFragEffect.h"
-#include "World/HitEffect.h"
-#include "World/DeathEffect.h"
+#include "Background.h"
+#include "HUD.h"
+#include "PowerBar.h"
+#include "ScoreEffect.h"
+#include "BrickFragEffect.h"
+#include "HitEffect.h"
+#include "DeathEffect.h"
 
 
 /* Title */

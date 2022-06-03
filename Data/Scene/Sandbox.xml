@@ -2,27 +2,9 @@
 	<!--
 	<GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="100" y="100" gx="0" gy="0" layer="20"/>
   
-	<GameObject actor="20301" name="koopa" source="Data/Asset/Character/Koopa/Koopa.xml" x="750" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20301" name="paraKoopa" source="Data/Asset/Character/Koopa/ParaKoopa.xml" x="850" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20301" name="redKoopa" source="Data/Asset/Character/Koopa/RedKoopa.xml" x="950" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20301" name="redParaKoopa" source="Data/Asset/Character/Koopa/RedParaKoopa.xml" x="1050" y="100" gx="0" gy="0" layer="10"/>
   
 	<GameObject actor="50101" name="bg1" source="Data/Asset/Misc/Background/World11MainBG.xml" x="0" y="864" gx="0" gy="0" layer="0"/>
-
-	<GameObject actor="20201" name="goomba" source="Data/Asset/Character/Goomba/Goomba.xml" x="700" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20201" name="paraGoomba" source="Data/Asset/Character/Goomba/ParaGoomba.xml" x="800" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20201" name="redGoomba" source="Data/Asset/Character/Goomba/RedGoomba.xml" x="900" y="100" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20201" name="redParaGoomba" source="Data/Asset/Character/Goomba/RedParaGoomba.xml" x="1000" y="100" gx="0" gy="0" layer="10"/>
-	
-	<GameObject actor="20401" name="piranhaUp" source="Data/Asset/Character/Plant/PiranhaUp.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="piranhaDown" source="Data/Asset/Character/Plant/PiranhaDown.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="redPiranhaUp" source="Data/Asset/Character/Plant/RedPiranhaUp.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="redPiranhaDown" source="Data/Asset/Character/Plant/RedPiranhaDown.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="venusUp" source="Data/Asset/Character/Plant/VenusUp.xml" x="600" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="venusDown" source="Data/Asset/Character/Plant/VenusDown.xml" x="700" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="redVenusUp" source="Data/Asset/Character/Plant/RedVenusUp.xml" x="800" y="200" gx="0" gy="0" layer="10"/>
-	<GameObject actor="20401" name="redVenusDown" source="Data/Asset/Character/Plant/RedVenusDown.xml" x="900" y="200" gx="0" gy="0" layer="10"/>
-	
+		
 	<GameObject actor="30101" name="coin1" source="Data/Asset/Item/Coin.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
 	<GameObject actor="30101" name="coin2" source="Data/Asset/Item/Coin.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
 	<GameObject actor="30101" name="coin3" source="Data/Asset/Item/Coin.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
@@ -87,112 +69,131 @@
 	<GameObject actor="40101" name="platform8" source="Data/Asset/Prop/Platform/PlatformS116.xml" x="2048" y="0" gx="0" gy="0" layer="10"/>
 	-->
 
-  <GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="64" y="128" gx="0" gy="1" layer="2" />
-  <GameObject actor="50101" name="mainSessionBackgound" source="Data/Asset/Misc/Background/World11MainBG.xml" x="0" y="864" gx="0" gy="4" layer="0" />
+  <GameObject actor="20101" name="mario" source="Data/Asset/Mario/Mario.xml" x="64" y="128" gx="0" gy="1" layer="2" />
+  <GameObject actor="50101" name="mainSessionBackgound" source="Data/Asset/Background/World11MainBG.xml" x="0" y="864" gx="0" gy="4" layer="0" />
+
+  <GameObject actor="20201" name="goomba" source="Data/Asset/Goomba/Goomba.xml" x="700" y="100" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20201" name="paraGoomba" source="Data/Asset/Goomba/ParaGoomba.xml" x="800" y="100" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20201" name="redGoomba" source="Data/Asset/Goomba/RedGoomba.xml" x="900" y="100" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20201" name="redParaGoomba" source="Data/Asset/Goomba/RedParaGoomba.xml" x="1000" y="100" gx="0" gy="0" layer="10"/>
+
+  <GameObject actor="20301" name="koopa" source="Data/Asset/Koopa/Koopa.xml" x="750" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20301" name="paraKoopa" source="Data/Asset/Koopa/ParaKoopa.xml" x="850" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20301" name="redKoopa" source="Data/Asset/Koopa/RedKoopa.xml" x="950" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20301" name="redParaKoopa" source="Data/Asset/Koopa/RedParaKoopa.xml" x="1050" y="100" gx="0" gy="0" layer="10"/>
+
+  <GameObject actor="20401" name="piranhaUp" source="Data/Asset/Plant/PiranhaUp.xml" x="200" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="piranhaDown" source="Data/Asset/Plant/PiranhaDown.xml" x="300" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="redPiranhaUp" source="Data/Asset/Plant/RedPiranhaUp.xml" x="400" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="redPiranhaDown" source="Data/Asset/Plant/RedPiranhaDown.xml" x="500" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="venusUp" source="Data/Asset/Plant/VenusUp.xml" x="600" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="venusDown" source="Data/Asset/Plant/VenusDown.xml" x="700" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="redVenusUp" source="Data/Asset/Plant/RedVenusUp.xml" x="800" y="200" gx="0" gy="0" layer="10"/>
+  <GameObject actor="20401" name="redVenusDown" source="Data/Asset/Plant/RedVenusDown.xml" x="900" y="200" gx="0" gy="0" layer="10"/>
 
   <!--Platform-->
-  <GameObject actor="40101" name="topBound01" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="0" y="864" gx="0" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound02" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="256" y="864" gx="1" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound03" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="512" y="864" gx="2" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound04" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="768" y="864" gx="3" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound05" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1024" y="864" gx="4" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound06" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1280" y="864" gx="5" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound07" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1536" y="864" gx="6" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound08" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1792" y="864" gx="7" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound09" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2048" y="864" gx="8" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound10" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2304" y="864" gx="9" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound11" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2560" y="864" gx="10" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound12" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2816" y="864" gx="11" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound13" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="3072" y="864" gx="12" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound14" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="3328" y="864" gx="13" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound15" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="3584" y="864" gx="14" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound16" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="3840" y="864" gx="15" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound17" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4096" y="864" gx="16" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound18" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4352" y="864" gx="17" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound19" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4608" y="864" gx="18" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound20" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4864" y="864" gx="19" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound21" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="5120" y="864" gx="20" gy="4" layer="1" />
-  <GameObject actor="40101" name="topBound22" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="5376" y="864" gx="21" gy="4" layer="1" />
-  <GameObject actor="40101" name="leftBound01" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="0" y="0" gx="0" gy="0" layer="1" />
-  <GameObject actor="40101" name="leftBound02" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="0" y="256" gx="0" gy="1" layer="1" />
-  <GameObject actor="40101" name="leftBound03" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="0" y="512" gx="0" gy="2" layer="1" />
-  <GameObject actor="40101" name="leftBound04" source="Data/Asset/Prop/Platform/PlatformS14.xml" x="0" y="768" gx="0" gy="3" layer="1" />
-  <GameObject actor="40101" name="rightBound01" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="5632" y="0" gx="22" gy="0" layer="1" />
-  <GameObject actor="40101" name="rightBound02" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="5632" y="256" gx="22" gy="1" layer="1" />
-  <GameObject actor="40101" name="rightBound03" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="5632" y="512" gx="22" gy="2" layer="1" />
-  <GameObject actor="40101" name="rightBound04" source="Data/Asset/Prop/Platform/PlatformS14.xml" x="5632" y="768" gx="22" gy="3" layer="1" />
-  <GameObject actor="40101" name="floor01" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="0" y="0" gx="0" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor02" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="256" y="0" gx="1" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor03" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="512" y="0" gx="2" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor04" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="768" y="0" gx="3" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor05" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1024" y="0" gx="4" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor06" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1248" y="32" gx="5" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor07" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1504" y="32" gx="6" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor08" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="1760" y="32" gx="7" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor09" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="2016" y="32" gx="8" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor10" source="Data/Asset/Prop/Platform/PlatformS12.xml" x="2144" y="0" gx="8" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor11" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="704" y="32" gx="3" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor12" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2304" y="0" gx="9" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor13" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2560" y="0" gx="10" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor14" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="2816" y="0" gx="11" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor15" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="2944" y="0" gx="12" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor16" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="3008" y="160" gx="12" gy="1" layer="1" />
-  <GameObject actor="40101" name="floor17" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="3072" y="0" gx="12" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor18" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="3136" y="32" gx="12" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor19" source="Data/Asset/Prop/Platform/PlatformS11.xml" x="3168" y="64" gx="12" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor20" source="Data/Asset/Prop/Platform/PlatformS14.xml" x="3200" y="0" gx="13" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor21" source="Data/Asset/Prop/Platform/PlatformS14.xml" x="3328" y="0" gx="13" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor22" source="Data/Asset/Prop/Platform/PlatformS11.xml" x="3360" y="64" gx="13" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor23" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="3360" y="32" gx="13" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor24" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="3360" y="0" gx="13" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor25" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="3488" y="0" gx="14" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor26" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="3712" y="32" gx="15" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor27" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="3744" y="0" gx="15" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor28" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4000" y="0" gx="16" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor29" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="4256" y="0" gx="17" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor30" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="4384" y="0" gx="17" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor31" source="Data/Asset/Prop/Platform/PlatformS11.xml" x="4448" y="0" gx="17" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor32" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="4512" y="544" gx="18" gy="2" layer="1" />
-  <GameObject actor="40101" name="floor33" source="Data/Asset/Prop/Platform/PlatformS12.xml" x="4512" y="480" gx="18" gy="2" layer="1" />
-  <GameObject actor="40101" name="floor34" source="Data/Asset/Prop/Platform/PlatformS12.xml" x="4544" y="480" gx="18" gy="2" layer="1" />
-  <GameObject actor="40101" name="floor35" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="4512" y="224" gx="18" gy="1" layer="1" />
-  <GameObject actor="40101" name="floor36" source="Data/Asset/Prop/Platform/PlatformS18.xml" x="4544" y="224" gx="18" gy="1" layer="1" />
-  <GameObject actor="40101" name="floor37" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="4512" y="96" gx="18" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor38" source="Data/Asset/Prop/Platform/PlatformS12.xml" x="4512" y="32" gx="18" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor39" source="Data/Asset/Prop/Platform/PlatformS12.xml" x="4544" y="32" gx="18" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor40" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4512" y="0" gx="18" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor41" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="4768" y="0" gx="19" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor42" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="5024" y="0" gx="20" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor43" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="5280" y="0" gx="21" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor44" source="Data/Asset/Prop/Platform/PlatformS21.xml" x="5536" y="0" gx="22" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor45" source="Data/Asset/Prop/Platform/PlatformS11.xml" x="5600" y="0" gx="22" gy="0" layer="1" />
-  <GameObject actor="40101" name="floor46" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="2816" y="448" gx="11" gy="2" layer="1" />
-  <GameObject actor="40101" name="floor47" source="Data/Asset/Prop/Platform/PlatformS81.xml" x="2976" y="480" gx="12" gy="2" layer="1" />
-  <GameObject actor="40101" name="floor48" source="Data/Asset/Prop/Platform/PlatformS41.xml" x="3232" y="480" gx="13" gy="2" layer="1" />
-  <GameObject actor="40101" name="floor49" source="Data/Asset/Prop/Platform/PlatformS11.xml" x="3360" y="480" gx="13" gy="2" layer="1" />
-  <GameObject actor="40101" name="hollowed01" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="480" y="96" gx="2" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed02" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="544" y="96" gx="2" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed03" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="544" y="160" gx="2" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed04" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="608" y="160" gx="2" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed05" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="800" y="96" gx="3" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed06" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="928" y="96" gx="4" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed07" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="928" y="160" gx="4" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed08" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="1024" y="224" gx="4" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed09" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="1024" y="64" gx="4" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed10" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="1152" y="64" gx="5" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed11" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="2528" y="64" gx="10" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed12" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="2656" y="64" gx="10" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed13" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="2720" y="64" gx="11" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed14" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="2592" y="128" gx="10" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed15" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="2720" y="128" gx="11" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed16" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="2784" y="128" gx="11" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed17" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="2657.5" y="192" gx="10" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed18" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="2784" y="192" gx="11" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed19" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="2848" y="192" gx="11" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed20" source="Data/Asset/Prop/Platform/PlatformH41.xml" x="2624" y="544" gx="10" gy="2" layer="1" />
-  <GameObject actor="40101" name="hollowed21" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="4288" y="96" gx="17" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed22" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="4352" y="96" gx="17" gy="0" layer="1" />
-  <GameObject actor="40101" name="hollowed23" source="Data/Asset/Prop/Platform/PlatformH21.xml" x="4352" y="288" gx="17" gy="1" layer="1" />
-  <GameObject actor="40101" name="hollowed24" source="Data/Asset/Prop/Platform/PlatformH11.xml" x="4416" y="288" gx="17" gy="1" layer="1" />
+  <GameObject actor="40101" name="topBound01" source="Data/Asset/Platform/PlatformS81.xml" x="0" y="864" gx="0" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound02" source="Data/Asset/Platform/PlatformS81.xml" x="256" y="864" gx="1" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound03" source="Data/Asset/Platform/PlatformS81.xml" x="512" y="864" gx="2" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound04" source="Data/Asset/Platform/PlatformS81.xml" x="768" y="864" gx="3" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound05" source="Data/Asset/Platform/PlatformS81.xml" x="1024" y="864" gx="4" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound06" source="Data/Asset/Platform/PlatformS81.xml" x="1280" y="864" gx="5" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound07" source="Data/Asset/Platform/PlatformS81.xml" x="1536" y="864" gx="6" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound08" source="Data/Asset/Platform/PlatformS81.xml" x="1792" y="864" gx="7" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound09" source="Data/Asset/Platform/PlatformS81.xml" x="2048" y="864" gx="8" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound10" source="Data/Asset/Platform/PlatformS81.xml" x="2304" y="864" gx="9" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound11" source="Data/Asset/Platform/PlatformS81.xml" x="2560" y="864" gx="10" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound12" source="Data/Asset/Platform/PlatformS81.xml" x="2816" y="864" gx="11" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound13" source="Data/Asset/Platform/PlatformS81.xml" x="3072" y="864" gx="12" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound14" source="Data/Asset/Platform/PlatformS81.xml" x="3328" y="864" gx="13" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound15" source="Data/Asset/Platform/PlatformS81.xml" x="3584" y="864" gx="14" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound16" source="Data/Asset/Platform/PlatformS81.xml" x="3840" y="864" gx="15" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound17" source="Data/Asset/Platform/PlatformS81.xml" x="4096" y="864" gx="16" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound18" source="Data/Asset/Platform/PlatformS81.xml" x="4352" y="864" gx="17" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound19" source="Data/Asset/Platform/PlatformS81.xml" x="4608" y="864" gx="18" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound20" source="Data/Asset/Platform/PlatformS81.xml" x="4864" y="864" gx="19" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound21" source="Data/Asset/Platform/PlatformS81.xml" x="5120" y="864" gx="20" gy="4" layer="1" />
+  <GameObject actor="40101" name="topBound22" source="Data/Asset/Platform/PlatformS81.xml" x="5376" y="864" gx="21" gy="4" layer="1" />
+  <GameObject actor="40101" name="leftBound01" source="Data/Asset/Platform/PlatformS18.xml" x="0" y="0" gx="0" gy="0" layer="1" />
+  <GameObject actor="40101" name="leftBound02" source="Data/Asset/Platform/PlatformS18.xml" x="0" y="256" gx="0" gy="1" layer="1" />
+  <GameObject actor="40101" name="leftBound03" source="Data/Asset/Platform/PlatformS18.xml" x="0" y="512" gx="0" gy="2" layer="1" />
+  <GameObject actor="40101" name="leftBound04" source="Data/Asset/Platform/PlatformS14.xml" x="0" y="768" gx="0" gy="3" layer="1" />
+  <GameObject actor="40101" name="rightBound01" source="Data/Asset/Platform/PlatformS18.xml" x="5632" y="0" gx="22" gy="0" layer="1" />
+  <GameObject actor="40101" name="rightBound02" source="Data/Asset/Platform/PlatformS18.xml" x="5632" y="256" gx="22" gy="1" layer="1" />
+  <GameObject actor="40101" name="rightBound03" source="Data/Asset/Platform/PlatformS18.xml" x="5632" y="512" gx="22" gy="2" layer="1" />
+  <GameObject actor="40101" name="rightBound04" source="Data/Asset/Platform/PlatformS14.xml" x="5632" y="768" gx="22" gy="3" layer="1" />
+  <GameObject actor="40101" name="floor01" source="Data/Asset/Platform/PlatformS81.xml" x="0" y="0" gx="0" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor02" source="Data/Asset/Platform/PlatformS81.xml" x="256" y="0" gx="1" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor03" source="Data/Asset/Platform/PlatformS81.xml" x="512" y="0" gx="2" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor04" source="Data/Asset/Platform/PlatformS81.xml" x="768" y="0" gx="3" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor05" source="Data/Asset/Platform/PlatformS81.xml" x="1024" y="0" gx="4" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor06" source="Data/Asset/Platform/PlatformS81.xml" x="1248" y="32" gx="5" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor07" source="Data/Asset/Platform/PlatformS81.xml" x="1504" y="32" gx="6" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor08" source="Data/Asset/Platform/PlatformS81.xml" x="1760" y="32" gx="7" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor09" source="Data/Asset/Platform/PlatformS41.xml" x="2016" y="32" gx="8" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor10" source="Data/Asset/Platform/PlatformS12.xml" x="2144" y="0" gx="8" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor11" source="Data/Asset/Platform/PlatformS21.xml" x="704" y="32" gx="3" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor12" source="Data/Asset/Platform/PlatformS81.xml" x="2304" y="0" gx="9" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor13" source="Data/Asset/Platform/PlatformS81.xml" x="2560" y="0" gx="10" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor14" source="Data/Asset/Platform/PlatformS41.xml" x="2816" y="0" gx="11" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor15" source="Data/Asset/Platform/PlatformS21.xml" x="2944" y="0" gx="12" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor16" source="Data/Asset/Platform/PlatformS21.xml" x="3008" y="160" gx="12" gy="1" layer="1" />
+  <GameObject actor="40101" name="floor17" source="Data/Asset/Platform/PlatformS41.xml" x="3072" y="0" gx="12" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor18" source="Data/Asset/Platform/PlatformS21.xml" x="3136" y="32" gx="12" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor19" source="Data/Asset/Platform/PlatformS11.xml" x="3168" y="64" gx="12" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor20" source="Data/Asset/Platform/PlatformS14.xml" x="3200" y="0" gx="13" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor21" source="Data/Asset/Platform/PlatformS14.xml" x="3328" y="0" gx="13" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor22" source="Data/Asset/Platform/PlatformS11.xml" x="3360" y="64" gx="13" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor23" source="Data/Asset/Platform/PlatformS21.xml" x="3360" y="32" gx="13" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor24" source="Data/Asset/Platform/PlatformS41.xml" x="3360" y="0" gx="13" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor25" source="Data/Asset/Platform/PlatformS81.xml" x="3488" y="0" gx="14" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor26" source="Data/Asset/Platform/PlatformS21.xml" x="3712" y="32" gx="15" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor27" source="Data/Asset/Platform/PlatformS81.xml" x="3744" y="0" gx="15" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor28" source="Data/Asset/Platform/PlatformS81.xml" x="4000" y="0" gx="16" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor29" source="Data/Asset/Platform/PlatformS41.xml" x="4256" y="0" gx="17" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor30" source="Data/Asset/Platform/PlatformS21.xml" x="4384" y="0" gx="17" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor31" source="Data/Asset/Platform/PlatformS11.xml" x="4448" y="0" gx="17" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor32" source="Data/Asset/Platform/PlatformS21.xml" x="4512" y="544" gx="18" gy="2" layer="1" />
+  <GameObject actor="40101" name="floor33" source="Data/Asset/Platform/PlatformS12.xml" x="4512" y="480" gx="18" gy="2" layer="1" />
+  <GameObject actor="40101" name="floor34" source="Data/Asset/Platform/PlatformS12.xml" x="4544" y="480" gx="18" gy="2" layer="1" />
+  <GameObject actor="40101" name="floor35" source="Data/Asset/Platform/PlatformS18.xml" x="4512" y="224" gx="18" gy="1" layer="1" />
+  <GameObject actor="40101" name="floor36" source="Data/Asset/Platform/PlatformS18.xml" x="4544" y="224" gx="18" gy="1" layer="1" />
+  <GameObject actor="40101" name="floor37" source="Data/Asset/Platform/PlatformS21.xml" x="4512" y="96" gx="18" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor38" source="Data/Asset/Platform/PlatformS12.xml" x="4512" y="32" gx="18" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor39" source="Data/Asset/Platform/PlatformS12.xml" x="4544" y="32" gx="18" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor40" source="Data/Asset/Platform/PlatformS81.xml" x="4512" y="0" gx="18" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor41" source="Data/Asset/Platform/PlatformS81.xml" x="4768" y="0" gx="19" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor42" source="Data/Asset/Platform/PlatformS81.xml" x="5024" y="0" gx="20" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor43" source="Data/Asset/Platform/PlatformS81.xml" x="5280" y="0" gx="21" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor44" source="Data/Asset/Platform/PlatformS21.xml" x="5536" y="0" gx="22" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor45" source="Data/Asset/Platform/PlatformS11.xml" x="5600" y="0" gx="22" gy="0" layer="1" />
+  <GameObject actor="40101" name="floor46" source="Data/Asset/Platform/PlatformS41.xml" x="2816" y="448" gx="11" gy="2" layer="1" />
+  <GameObject actor="40101" name="floor47" source="Data/Asset/Platform/PlatformS81.xml" x="2976" y="480" gx="12" gy="2" layer="1" />
+  <GameObject actor="40101" name="floor48" source="Data/Asset/Platform/PlatformS41.xml" x="3232" y="480" gx="13" gy="2" layer="1" />
+  <GameObject actor="40101" name="floor49" source="Data/Asset/Platform/PlatformS11.xml" x="3360" y="480" gx="13" gy="2" layer="1" />
+  <GameObject actor="40101" name="hollowed01" source="Data/Asset/Platform/PlatformH21.xml" x="480" y="96" gx="2" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed02" source="Data/Asset/Platform/PlatformH11.xml" x="544" y="96" gx="2" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed03" source="Data/Asset/Platform/PlatformH21.xml" x="544" y="160" gx="2" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed04" source="Data/Asset/Platform/PlatformH11.xml" x="608" y="160" gx="2" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed05" source="Data/Asset/Platform/PlatformH41.xml" x="800" y="96" gx="3" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed06" source="Data/Asset/Platform/PlatformH11.xml" x="928" y="96" gx="4" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed07" source="Data/Asset/Platform/PlatformH41.xml" x="928" y="160" gx="4" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed08" source="Data/Asset/Platform/PlatformH41.xml" x="1024" y="224" gx="4" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed09" source="Data/Asset/Platform/PlatformH41.xml" x="1024" y="64" gx="4" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed10" source="Data/Asset/Platform/PlatformH21.xml" x="1152" y="64" gx="5" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed11" source="Data/Asset/Platform/PlatformH41.xml" x="2528" y="64" gx="10" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed12" source="Data/Asset/Platform/PlatformH21.xml" x="2656" y="64" gx="10" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed13" source="Data/Asset/Platform/PlatformH11.xml" x="2720" y="64" gx="11" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed14" source="Data/Asset/Platform/PlatformH41.xml" x="2592" y="128" gx="10" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed15" source="Data/Asset/Platform/PlatformH21.xml" x="2720" y="128" gx="11" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed16" source="Data/Asset/Platform/PlatformH11.xml" x="2784" y="128" gx="11" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed17" source="Data/Asset/Platform/PlatformH41.xml" x="2657.5" y="192" gx="10" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed18" source="Data/Asset/Platform/PlatformH21.xml" x="2784" y="192" gx="11" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed19" source="Data/Asset/Platform/PlatformH11.xml" x="2848" y="192" gx="11" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed20" source="Data/Asset/Platform/PlatformH41.xml" x="2624" y="544" gx="10" gy="2" layer="1" />
+  <GameObject actor="40101" name="hollowed21" source="Data/Asset/Platform/PlatformH21.xml" x="4288" y="96" gx="17" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed22" source="Data/Asset/Platform/PlatformH11.xml" x="4352" y="96" gx="17" gy="0" layer="1" />
+  <GameObject actor="40101" name="hollowed23" source="Data/Asset/Platform/PlatformH21.xml" x="4352" y="288" gx="17" gy="1" layer="1" />
+  <GameObject actor="40101" name="hollowed24" source="Data/Asset/Platform/PlatformH11.xml" x="4416" y="288" gx="17" gy="1" layer="1" />
 
 </Scene>

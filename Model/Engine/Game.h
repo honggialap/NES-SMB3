@@ -3,12 +3,12 @@
 #define __GAME_H__
 
 #pragma region INCLUDE
-#include "Framework/Application.h"
-#include "Framework/Time.h"
-#include "Framework/Graphics.h"
-#include "Framework/Input.h"
-#include "Framework/Audio.h"
-#include "Framework/pugixml.hpp"
+#include "Application.h"
+#include "Time.h"
+#include "Graphics.h"
+#include "Input.h"
+#include "Audio.h"
+#include "pugixml.hpp"
 #include "GameObject.h"
 
 #include <map>

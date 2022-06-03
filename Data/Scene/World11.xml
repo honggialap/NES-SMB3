@@ -9,9 +9,9 @@
   <!--Mario-->
   <GameObject actor="20101" name="mario" source="Data/Asset/Character/Mario/Mario.xml" x="64" y="128" gx="0" gy="1" layer="2" />
 	
+  <GameObject actor="20201" name="goomba01" source="Data/Asset/Character/Goomba/Goomba.xml" x="640" y="64" gx="3" gy="0" layer="1" />
+	<GameObject actor="20201" name="goomba02" source="Data/Asset/Character/Goomba/Goomba.xml" x="960" y="64" gx="4" gy="0" layer="1" />
   <!--Enemy
-  <GameObject actor="" name="goomba01" source="Data/Asset/Character/Goomba.xml" x="640" y="64" gx="3" gy="0" layer="1" />
-	<GameObject actor="" name="goomba02" source="Data/Asset/Character/Goomba.xml" x="960" y="64" gx="4" gy="0" layer="1" />
 	<GameObject actor="" name="redKoopa01" source="Data/Asset/Character/RedKoopa.xml" x="1120" y="128" gx="4" gy="1" layer="1" />
 	<GameObject actor="" name="redKoopa02" source="Data/Asset/Character/RedKoopa.xml" x="4224" y="128" gx="17" gy="1" layer="1" />
 	<GameObject actor="" name="piranha01" source="Data/Asset/Character/Piranha.xml" x="3616" y="32" gx="14" gy="0" layer="1" />

@@ -1,0 +1,222 @@
+<Prefab>
+	<!--SPRITES-->
+	<!--BBOX-->
+	<Sprite id="999901" textureId="101" left="0" top="0" width="28" height="28" offsetX="0" offsetY="14"/>
+
+	<!--KOOPA-->
+	<Sprite id="110101" textureId="203" left="2" top="2" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="110102" textureId="203" left="38" top="2" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="120101" textureId="203" left="74" top="2" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="120102" textureId="203" left="110" top="2" width="32" height="64" offsetX="0" offsetY="24"/>
+
+	<Sprite id="130101" textureId="203" left="2" top="70" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="130102" textureId="203" left="38" top="70" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="140101" textureId="203" left="74" top="70" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="140102" textureId="203" left="110" top="70" width="32" height="64" offsetX="0" offsetY="24"/>
+
+	<Sprite id="150101" textureId="203" left="2" top="138" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="150102" textureId="203" left="38" top="138" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="150103" textureId="203" left="74" top="138" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="150104" textureId="203" left="110" top="138" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="150201" textureId="203" left="146" top="138" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<Sprite id="160101" textureId="203" left="2" top="174" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="160102" textureId="203" left="38" top="174" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="160103" textureId="203" left="74" top="174" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="160104" textureId="203" left="110" top="174" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="160201" textureId="203" left="146" top="174" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--RED KOOPA-->
+	<Sprite id="210101" textureId="203" left="2" top="210" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="210102" textureId="203" left="38" top="210" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="220101" textureId="203" left="74" top="210" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="220102" textureId="203" left="110" top="210" width="32" height="64" offsetX="0" offsetY="24"/>
+
+	<Sprite id="230101" textureId="203" left="2" top="278" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="230102" textureId="203" left="38" top="278" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="240101" textureId="203" left="74" top="278" width="32" height="64" offsetX="0" offsetY="24"/>
+	<Sprite id="240102" textureId="203" left="110" top="278" width="32" height="64" offsetX="0" offsetY="24"/>
+
+	<Sprite id="250101" textureId="203" left="2" top="346" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="250102" textureId="203" left="38" top="346" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="250103" textureId="203" left="74" top="346" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="250104" textureId="203" left="110" top="346" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="250201" textureId="203" left="146" top="346" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<Sprite id="260101" textureId="203" left="2" top="382" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="260102" textureId="203" left="38" top="382" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="260103" textureId="203" left="74" top="382" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="260104" textureId="203" left="110" top="382" width="32" height="32" offsetX="0" offsetY="16"/>
+	<Sprite id="260201" textureId="203" left="146" top="382" width="32" height="32" offsetX="0" offsetY="16"/>
+
+	<!--WING-->
+	<Sprite id="310101" textureId="203" left="2" top="418" width="16" height="32" offsetX="12" offsetY="32"/>
+	<Sprite id="310102" textureId="203" left="22" top="418" width="16" height="32" offsetX="12" offsetY="32"/>
+
+	<Sprite id="320101" textureId="203" left="62" top="418" width="16" height="32" offsetX="-12" offsetY="32"/>
+	<Sprite id="320102" textureId="203" left="42" top="418" width="16" height="32" offsetX="-12" offsetY="32"/>
+
+	<!--ANIMATION-->
+	<!--GOOMBA-->
+	<Animation id="1101">
+		<Frame id="110101" time="50"/>
+		<Frame id="110102" time="50"/>
+	</Animation>
+	<Animation id="1201">
+		<Frame id="120101" time="50"/>
+		<Frame id="120102" time="50"/>
+	</Animation>
+	<Animation id="1301">
+		<Frame id="130101" time="50"/>
+		<Frame id="130102" time="50"/>
+	</Animation>
+	<Animation id="1401">
+		<Frame id="140101" time="50"/>
+		<Frame id="140102" time="50"/>
+	</Animation>
+
+	<Animation id="1501">
+		<Frame id="150101" time="50"/>
+		<Frame id="150104" time="50"/>
+		<Frame id="150103" time="50"/>
+		<Frame id="150102" time="50"/>
+	</Animation>
+	<Animation id="1502">
+		<Frame id="150101" time="50"/>
+		<Frame id="150102" time="50"/>
+		<Frame id="150103" time="50"/>
+		<Frame id="150104" time="50"/>
+	</Animation>
+	<Animation id="1601">
+		<Frame id="160101" time="50"/>
+		<Frame id="160104" time="50"/>
+		<Frame id="160103" time="50"/>
+		<Frame id="160102" time="50"/>
+	</Animation>
+	<Animation id="1602">
+		<Frame id="160101" time="50"/>
+		<Frame id="160102" time="50"/>
+		<Frame id="160103" time="50"/>
+		<Frame id="160104" time="50"/>
+	</Animation>
+
+	<Animation id="1701">
+		<Frame id="150101" time="50"/>
+		<Frame id="150201" time="50"/>
+	</Animation>
+	<Animation id="1702">
+		<Frame id="160101" time="50"/>
+		<Frame id="160201" time="50"/>
+	</Animation>
+
+	<!--RED GOOMBA-->
+	<Animation id="2101">
+		<Frame id="210101" time="50"/>
+		<Frame id="210102" time="50"/>
+	</Animation>
+	<Animation id="2201">
+		<Frame id="220101" time="50"/>
+		<Frame id="220102" time="50"/>
+	</Animation>
+	<Animation id="2301">
+		<Frame id="230101" time="50"/>
+		<Frame id="230102" time="50"/>
+	</Animation>
+	<Animation id="2401">
+		<Frame id="240101" time="50"/>
+		<Frame id="240102" time="50"/>
+	</Animation>
+
+	<Animation id="2501">
+		<Frame id="250101" time="50"/>
+		<Frame id="250104" time="50"/>
+		<Frame id="250103" time="50"/>
+		<Frame id="250102" time="50"/>
+	</Animation>
+	<Animation id="2502">
+		<Frame id="250101" time="50"/>
+		<Frame id="250102" time="50"/>
+		<Frame id="250103" time="50"/>
+		<Frame id="250104" time="50"/>
+	</Animation>
+	<Animation id="2601">
+		<Frame id="260101" time="50"/>
+		<Frame id="260104" time="50"/>
+		<Frame id="260103" time="50"/>
+		<Frame id="260102" time="50"/>
+	</Animation>
+	<Animation id="2602">
+		<Frame id="260101" time="50"/>
+		<Frame id="260102" time="50"/>
+		<Frame id="260103" time="50"/>
+		<Frame id="260104" time="50"/>
+	</Animation>
+
+	<Animation id="2701">
+		<Frame id="250101" time="50"/>
+		<Frame id="250201" time="50"/>
+	</Animation>
+	<Animation id="2702">
+		<Frame id="260101" time="50"/>
+		<Frame id="260201" time="50"/>
+	</Animation>
+
+	<!--WING-->
+	<Animation id="3101">
+		<Frame id="310101" time="100"/>
+		<Frame id="310102" time="100"/>
+	</Animation>
+	<Animation id="3102">
+		<Frame id="310101" time="50"/>
+		<Frame id="310102" time="50"/>
+	</Animation>
+
+	<Animation id="3201">
+		<Frame id="320101" time="100"/>
+		<Frame id="320102" time="100"/>
+	</Animation>
+	<Animation id="3202">
+		<Frame id="320101" time="50"/>
+		<Frame id="320102" time="50"/>
+	</Animation>
+
+	<!--BODY-->
+	<Body render="true" width="28" height="28" offsetX="0" offsetY="14"/>
+
+	<!--STATS-->
+	<Type
+		type ="1"
+		wing ="false"
+		/>
+
+	<Sensor actor="20302" name="sensor" source="Data/Asset/Koopa/KoopaSensor.xml"
+			OffsetX="16" OffsetY="-16"/>
+
+	<Gravity
+		GRAVITY ="0.001"
+		/>
+
+	<Move
+		WALK_SPEED ="0.1"
+		/>
+
+	<Jump
+		JUMP_FORCE ="0.5"/>
+
+	<Fly
+		FLY_LIMIT = "100"
+		FLY_ACCELERATION = "0.01"
+		FLY_MAX_SPEED		= "0.1"
+		/>
+
+	<Hit
+		HORIZONTAL_DEFLECT_FORCE	="0.1"
+		VERTICAL_DEFLECT_FORCE		="0.1"
+    SPIN_SPEED = "0.2"
+    RETRACT_COUNTDOWN = "5000"
+		RECOVER_COUNTDOWN = "5000"
+		DECAY_TIMEOUT				="200"
+	/>
+
+
+</Prefab>
