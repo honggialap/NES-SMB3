@@ -2,12 +2,10 @@
 /* Game */
 #include "SuperMarioBros3.h"
 
-
 /* Controller */
 #include "Title.h"
 #include "WorldMap.h"
 #include "World.h"
-
 
 /* Character */
 #include "Mario.h"
@@ -21,14 +19,12 @@
 #include "PlantSensor.h"
 #include "PlantFireball.h"
 
-
 /* Item */
 #include "Coin.h"
 #include "SuperMushroom.h"
 #include "FireFlower.h"
 #include "SuperLeaf.h"
 #include "ExtraLifeMushroom.h"
-
 
 /* Prop */
 #include "Platform.h"
@@ -41,16 +37,13 @@
 #include "DeadZone.h"
 #include "Goal.h"
 
-
 /* Misc */
 #include "Background.h"
 #include "HUD.h"
-#include "PowerBar.h"
 #include "ScoreEffect.h"
 #include "BrickFragEffect.h"
 #include "HitEffect.h"
 #include "DeathEffect.h"
-
 
 /* Title */
 /* World Map */
@@ -458,19 +451,6 @@ pGameObject CSuperMarioBros3::Create(unsigned int actor, std::string name, std::
 	case ACT_HUD:
 	{
 		auto gameObject = new CHUD(
-			this, _nextGameObjectID++,
-			name, source,
-			x, y, gx, gy, layer
-		);
-		Add(gameObject);
-		gameObject->Load();
-		return gameObject;
-	}
-	break;
-
-	case ACT_POWER_BAR:
-	{
-		auto gameObject = new CPowerBar(
 			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer

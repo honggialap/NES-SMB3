@@ -5,7 +5,7 @@
 		windowHeight ="480"
 		framePerSecond ="144"
 		cameraBuffer ="16"
-		startScene ="0"
+		startScene ="301"
 		/>
 	
 	<!--Buttons-->
@@ -57,15 +57,14 @@
 	<Texture id="402" source="Data/Texture/Pipe.png"/>
 	<Texture id="501" source="Data/Texture/World11MainSection.png"/>
 	<Texture id="502" source="Data/Texture/World11SubSection.png"/>
-  
-	<Texture id="701" source="Data/Texture/Effect.png"/>
+ 	<Texture id="701" source="Data/Texture/Effect.png"/>
+	<!-- place holder 
+  <Texture id="601" source="Data/Texture/HUD.png"/>
+  -->
 
 	<!-- Scenes -->
-	<Scene id="0" source="Data/Scene/Sandbox.xml"/>
-	<Scene id="401" source="Data/Scene/World11.xml"/>
-	<!--
-  <Scene id="101" source="Data/Scene/MainGame.xml"/>
-	<Scene id="201" source="Data/Scene/Title.xml"/>
-	<Scene id="301" source="Data/Scene/WorldMapGrassland.xml"/>
-  -->
+	<Scene id="101" source="Data/Scene/Title.xml"/>
+	<Scene id="201" source="Data/Scene/WorldMap1-test.xml"/>
+	<Scene id="301" source="Data/Scene/World11.xml"/>
+
 </GameData>

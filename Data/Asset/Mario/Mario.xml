@@ -603,95 +603,123 @@
     <Frame id="520104" time="50"/>
   </Animation>
 
-  <SmallBody render="true" width="30" height="30" offsetX="0" offsetY="15"/>
-  <LargeBody render="true" width="30" height="54" offsetX="0" offsetY="27"/>
+  <SmallBody
+    render  ="true"
+    width   ="30"
+    height  ="30"
+    offsetX ="0"
+    offsetY ="15"
+    />
+  <LargeBody
+    render  ="true"
+    width   ="30"
+    height  ="54"
+    offsetX ="0"
+    offsetY ="27"
+    />
 
   <Command
-		LEFT	="203"
-		UP		="200"
-		RIGHT	="205"
-		DOWN	="208"
-		ACTION	="30"
-		JUMP	="31"
+		LEFT    ="203"
+		UP      ="200"
+		RIGHT   ="205"
+		DOWN    ="208"
+		ACTION  ="30"
+		JUMP    ="31"
 		/>
 
   <Cheat
-    HOT1 ="2"
-    HOT2 ="3"
-    HOT3 ="4"
-    HOT4 ="5"
+    HOT1    ="2"
+    HOT2    ="3"
+    HOT3    ="4"
+    HOT4    ="5"
     />
 
   <Gravity
-		GRAVITY							="0.00175"
-    GROUND_DETECT_FACTOR ="0.05"
-  />
+		GRAVITY							        ="0.00175"
+    GROUND_DETECT_FACTOR        ="0.05"
+    />
 
   <Move
-    DRAG = "0.04"
-    IDLE_THRESHOLD = "0.0035"
-    WALK_ACCELERATION ="0.0005"
-    WALK_SPEED_LIMIT ="0.18"
-    RUN_ACCELERATION ="0.0008"
-    RUN_SPEED_LIMIT ="0.28"
-    FULLSPEED_ACCELERATION ="0.001"
-    FULLSPEED_SPEED_LIMIT ="0.36"
-    MOMENTUM_INCREASE_RATE =" 1"
-    MOMENTUM_DECREASE_RATE =" 1"
-    MOMENTUM_LIMIT ="1200"
-    MOMENTUM_THRESHOLD ="0.04"
+    DRAG                        ="0.04"
+    IDLE_THRESHOLD              ="0.0035"
+    WALK_ACCELERATION           ="0.0005"
+    WALK_SPEED_LIMIT            ="0.18"
+    RUN_ACCELERATION            ="0.0008"
+    RUN_SPEED_LIMIT             ="0.28"
+    FULLSPEED_ACCELERATION      ="0.001"
+    FULLSPEED_SPEED_LIMIT       ="0.36"
+    MOMENTUM_INCREASE_RATE      ="1"
+    MOMENTUM_DECREASE_RATE      ="1"
+    MOMENTUM_LIMIT              ="1200"
+    MOMENTUM_THRESHOLD          ="0.04"
     WALK_ANIMATION_SPEED_FACTOR ="0.5"
-    DRIFT_THRESHOLD ="0.1"
+    DRIFT_THRESHOLD             ="0.1"
     />
 
   <Jump
-    JUMP_FORCE ="0.375"
-    FULLSPEED_JUMP_FORCE ="1.25"
-    JUMP_LIMIT ="335"
-    JUMP_ACCELERATION ="0.0001"
+    JUMP_FORCE                  ="0.375"
+    FULLSPEED_JUMP_FORCE        ="1.25"
+    JUMP_LIMIT                  ="335"
+    JUMP_ACCELERATION           ="0.0001"
     />
 
   <Hover
-    HOVER_GRAVITY					="0.025"
-    HOVER_COUNTDOWN					="200"
+    HOVER_GRAVITY					      ="0.025"
+    HOVER_COUNTDOWN					    ="200"
     />
 
   <Fly
-    FLY_GRAVITY						="0.2"
-    FLY_COUNTDOWN					="200"
-    FLY_TIMEOUT_LIMIT				="5000"
+    FLY_GRAVITY						      ="0.2"
+    FLY_COUNTDOWN					      ="200"
+    FLY_TIMEOUT_LIMIT				    ="5000"
     />
 
   <Transformation
-  TRANSFORMATION_TIMEOUT			="200"
+    TRANSFORMATION_TIMEOUT			="200"
 		/>
 
   <Invincible
-    INVINCIBLE_TIMEOUT = "3000"
-    BLINK_INTERVAL = "25"
-  />
+    INVINCIBLE_TIMEOUT          ="3000"
+    BLINK_INTERVAL              ="25"
+    />
 
   <TailAttack
-    TAIL_ENTRY = "100"
-		TAIL_PROGRESS = "50"
-		TAIL_RECOVER = "50"
+    TAIL_ENTRY                  ="100"
+		TAIL_PROGRESS               ="50"
+		TAIL_RECOVER                ="50"
     />
-  <Tail actor ="20102" name ="tail" source ="Data/Asset/Mario/MarioTail.xml"/>
+  <Tail
+    actor   ="20102"
+    name    ="tail"
+    source  ="Data/Asset/Mario/MarioTail.xml"
+    />
 
   <FireAttack
-		FIRE_ENTRY = "100"
-		FIRE_PROGRESS = "50"
-    FIRE_RECOVER = "50"
-		FIRE_OFFSETX = "16"
-		FIRE_OFFSETY = "48"
+		FIRE_ENTRY                  ="100"
+		FIRE_PROGRESS               ="50"
+    FIRE_RECOVER                ="50"
+		FIRE_OFFSETX                ="16"
+		FIRE_OFFSETY                ="48"
     />
-  <Fire actor ="20103" name ="fireball1" source ="Data/Asset/Mario/MarioFireball.xml"/>
-  <Fire actor ="20103" name ="fireball2" source ="Data/Asset/Mario/MarioFireball.xml"/>
-  <Fire actor ="20103" name ="fireball3" source ="Data/Asset/Mario/MarioFireball.xml"/>
+  <Fire
+    actor   ="20103"
+    name    ="fireball1"
+    source  ="Data/Asset/Mario/MarioFireball.xml"
+    />
+  <Fire
+    actor   ="20103"
+    name    ="fireball2"
+    source  ="Data/Asset/Mario/MarioFireball.xml"
+    />
+  <Fire
+    actor   ="20103"
+    name    ="fireball3"
+    source  ="Data/Asset/Mario/MarioFireball.xml"
+    />
 
   <Kick
-    KICK_INTERVAL= "200"
-    SHELL_OFFSET ="16"
+    KICK_INTERVAL                ="200"
+    SHELL_OFFSET                 ="16"
     />
 
 </Prefab>

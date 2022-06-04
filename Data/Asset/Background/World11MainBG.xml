@@ -88,7 +88,8 @@
 		mapWidth="176"
 		mapHeight="27"
 		cellWidth="32"
-		cellHeight="32">
+		cellHeight="32"
+    >
     <Cell spriteId="1"/>
     <Cell spriteId="1"/>
     <Cell spriteId="1"/>
@@ -4842,6 +4843,5 @@
     <Cell spriteId="78"/>
     <Cell spriteId="79"/>
   </TileMap>
-
 
 </Prefab>

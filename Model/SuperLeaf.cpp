@@ -175,6 +175,11 @@ void CSuperLeaf::Consumed(float elapsedMs)
 	}
 }
 
+void CSuperLeaf::Taken()
+{
+	SetNextAction(EAction::CONSUMED);
+}
+
 #pragma endregion
 
 #pragma region COLLISION

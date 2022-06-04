@@ -193,14 +193,14 @@ void CBlock::Bounce(float elapsedMs)
 			if (_leftBounce)
 			{
 				_bounceOrigin = _x;
-				_bounceLimit = _x - BOUNCE_LIMIT/2;
+				_bounceLimit = _x - (BOUNCE_LIMIT/2);
 				_renderX = _bounceOrigin;
 				_renderY = _y;
 			}
 			else
 			{
 				_bounceOrigin = _x;
-				_bounceLimit = _x + BOUNCE_LIMIT/2;
+				_bounceLimit = _x + (BOUNCE_LIMIT/2);
 				_renderX = _bounceOrigin;
 				_renderY = _y;
 			}
@@ -294,7 +294,7 @@ void CBlock::Bounce(float elapsedMs)
 					}
 					else
 					{
-						_renderY = _bounceOrigin;
+						_renderX = _bounceOrigin;
 						_return = false;
 						
 						if (_spawnCount == 0)
@@ -319,7 +319,6 @@ void CBlock::Bounce(float elapsedMs)
 					{
 						_renderX = _bounceLimit;
 						_return = true;
-
 						if (_spawnCount > 0)
 						{
 							Spawn();
@@ -335,9 +334,9 @@ void CBlock::Bounce(float elapsedMs)
 					}
 					else
 					{
-						_renderY = _bounceOrigin;
+						_renderX = _bounceOrigin;
 						_return = false;
-						
+
 						if (_spawnCount == 0)
 						{
 							SetNextAction(EAction::EMPTY);

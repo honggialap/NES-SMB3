@@ -126,9 +126,6 @@
     <ClCompile Include="Model\Platform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\PowerBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\Relay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -281,9 +278,6 @@
     <ClInclude Include="Model\Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\PowerBar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\Relay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -330,5 +324,87 @@
   <ItemGroup>
     <Xml Include="Data\GameSave.xml" />
     <Xml Include="Data\GameData.xml" />
+    <Xml Include="Data\Asset\SpawnZone\World11SpawnZone1.xml" />
+    <Xml Include="Data\Asset\SpawnZone\World11SpawnZone2.xml" />
+    <Xml Include="Data\Scene\WorldMap1.xml" />
+    <Xml Include="Data\Scene\Title.xml" />
+    <Xml Include="Data\Scene\World11.xml" />
+    <Xml Include="Data\Asset\Background\World1BG.xml" />
+    <Xml Include="Data\Asset\Background\World11MainBG.xml" />
+    <Xml Include="Data\Asset\Background\World11SubBG.xml" />
+    <Xml Include="Data\Asset\Block\BrickExtraLifeBlock.xml" />
+    <Xml Include="Data\Asset\Block\BrickMultipleCoinBlock.xml" />
+    <Xml Include="Data\Asset\Block\BrickRelayBlock.xml" />
+    <Xml Include="Data\Asset\Block\QuestionCoinBlock.xml" />
+    <Xml Include="Data\Asset\Block\QuestionFireFlowerBlock.xml" />
+    <Xml Include="Data\Asset\Block\QuestionPowerUpBlock.xml" />
+    <Xml Include="Data\Asset\Block\QuestionStarmanBlock.xml" />
+    <Xml Include="Data\Asset\Brick\Brick.xml" />
+    <Xml Include="Data\Asset\DeadZone\DeadZone.xml" />
+    <Xml Include="Data\Asset\Effect\BrickFragEffect.xml" />
+    <Xml Include="Data\Asset\Effect\DeathEffect.xml" />
+    <Xml Include="Data\Asset\Effect\HitEffect.xml" />
+    <Xml Include="Data\Asset\Effect\ScoreEffect.xml" />
+    <Xml Include="Data\Asset\Goal\Goal.xml" />
+    <Xml Include="Data\Asset\Goomba\Goomba.xml" />
+    <Xml Include="Data\Asset\Goomba\MicroGoomba.xml" />
+    <Xml Include="Data\Asset\Goomba\ParaGoomba.xml" />
+    <Xml Include="Data\Asset\Goomba\RedGoomba.xml" />
+    <Xml Include="Data\Asset\Goomba\RedParaGoomba.xml" />
+    <Xml Include="Data\Asset\HUD\HUD.xml" />
+    <Xml Include="Data\Asset\Item\Coin.xml" />
+    <Xml Include="Data\Asset\Item\ExtraLifeMushroom.xml" />
+    <Xml Include="Data\Asset\Item\FireFlower.xml" />
+    <Xml Include="Data\Asset\Item\Starman.xml" />
+    <Xml Include="Data\Asset\Item\SuperLeaf.xml" />
+    <Xml Include="Data\Asset\Item\SuperMushroom.xml" />
+    <Xml Include="Data\Asset\Koopa\Koopa.xml" />
+    <Xml Include="Data\Asset\Koopa\KoopaSensor.xml" />
+    <Xml Include="Data\Asset\Koopa\ParaKoopa.xml" />
+    <Xml Include="Data\Asset\Koopa\RedKoopa.xml" />
+    <Xml Include="Data\Asset\Koopa\RedParaKoopa.xml" />
+    <Xml Include="Data\Asset\Mario\Mario.xml" />
+    <Xml Include="Data\Asset\Mario\MarioFireball.xml" />
+    <Xml Include="Data\Asset\Mario\MarioTail.xml" />
+    <Xml Include="Data\Asset\Pipe\BlackDownPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\BlackLeftPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\BlackRightPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\BlackUpPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\GreenDownPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\GreenLeftPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\GreenRightPipe.xml" />
+    <Xml Include="Data\Asset\Pipe\GreenUpPipe.xml" />
+    <Xml Include="Data\Asset\Plant\PiranhaDown.xml" />
+    <Xml Include="Data\Asset\Plant\PiranhaUp.xml" />
+    <Xml Include="Data\Asset\Plant\PlantFireball.xml" />
+    <Xml Include="Data\Asset\Plant\PlantSensor.xml" />
+    <Xml Include="Data\Asset\Plant\RedPiranhaDown.xml" />
+    <Xml Include="Data\Asset\Plant\RedPiranhaUp.xml" />
+    <Xml Include="Data\Asset\Plant\RedVenusDown.xml" />
+    <Xml Include="Data\Asset\Plant\RedVenusUp.xml" />
+    <Xml Include="Data\Asset\Plant\VenusDown.xml" />
+    <Xml Include="Data\Asset\Plant\VenusUp.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH11.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH12.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH14.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH18.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH21.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH41.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH81.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH116.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformH161.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS11.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS12.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS14.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS18.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS21.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS41.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS81.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS116.xml" />
+    <Xml Include="Data\Asset\Platform\PlatformS161.xml" />
+    <Xml Include="Data\Asset\Relay\Relay.xml" />
+    <Xml Include="Data\Asset\TransportPipe\World11SubTransportPipe.xml" />
+    <Xml Include="Data\Asset\TransportPipe\World11MainTransportPipe.xml" />
+    <Xml Include="Data\Asset\World\World11.xml" />
   </ItemGroup>
 </Project>

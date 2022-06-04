@@ -155,6 +155,11 @@ void CFireFlower::Consumed(float elapsedMs)
 	}
 }
 
+void CFireFlower::Taken()
+{
+	SetNextAction(EAction::CONSUMED);
+}
+
 #pragma endregion
 
 #pragma region COLLISION

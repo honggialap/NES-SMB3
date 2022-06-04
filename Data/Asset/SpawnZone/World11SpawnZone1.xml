@@ -1,0 +1,20 @@
+<Prefab>
+	<!--BBOX-->
+	<Sprite id="999901" textureId="101" left="0" top="0" width="256" height="64" offsetX="128" offsetY="32"/>
+
+	<!--BODY-->
+	<Body render="true" width="256" height="64" offsetX="128" offsetY="32"/>
+	
+	<!--SPAWN-->
+	<Spawn
+		repeatable		="true"
+		SPAWN_COUNTDOWN	="5000"
+		target			="mario"
+		/>
+
+	<!--SPAWNABLE-->
+	<GameObject actor="20201" name="goomba03" source="Data/Asset/Goomba/Goomba.xml" x="2016" y="96" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="goomba04" source="Data/Asset/Goomba/Goomba.xml" x="2080" y="96" gx="0" gy="0" layer="10"/>
+	<GameObject actor="20201" name="redParaGoomba01" source="Data/Asset/Goomba/RedParaGoomba.xml" x="2144" y="96" gx="0" gy="0" layer="10"/>
+
+</Prefab>

@@ -87,6 +87,8 @@ public:
 	void Move(float elapsedMs);
 	void Consumed(float elapsedMs);
 
+	void Taken();
+
 	void AcquireTarget();
 
 #pragma endregion
@@ -101,6 +103,9 @@ public:
 	void OnCollisionWith(pCollision collision);
 
 	void OnCollisionWithPlatform(pCollision collision);
+	void OnCollisionWithBrick(pCollision collision);
+	void OnCollisionWithBlock(pCollision collision);
+	void OnCollisionWithPipe(pCollision collision);
 
 #pragma endregion
 

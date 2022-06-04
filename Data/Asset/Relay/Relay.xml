@@ -7,7 +7,6 @@
 	<Sprite id="100102" textureId="401" left="38" top="146" width="32" height="32" offsetX="0" offsetY="16"/>
 	<Sprite id="100201" textureId="401" left="74" top="146" width="32" height="32" offsetX="0" offsetY="16"/>
 
-	<!--BLOCK-->
 	<Animation id="1001">
 		<Frame id="100101" time="100"/>
 		<Frame id="100102" time="100"/>

@@ -167,6 +167,10 @@ public:
 	float _decayTimeout = 0;
 	bool _hold = false;
 
+	/* Target */
+	std::string _targetName;
+	float _targetX = 0;
+	float _targetY = 0;
 
 #pragma endregion
 
@@ -227,6 +231,8 @@ public:
 	void Kicked(bool left);
 	void Swept(bool left);
 	void Shot(bool left);
+
+	void AcquireTarget();
 
 #pragma endregion
 

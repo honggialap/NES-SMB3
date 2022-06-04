@@ -67,6 +67,7 @@ void CKoopa::Load()
 	SPIN_SPEED = hit.attribute("SPIN_SPEED").as_float();
 	RETRACT_COUNTDOWN = hit.attribute("RETRACT_COUNTDOWN").as_float();
 	RECOVER_COUNTDOWN = hit.attribute("RECOVER_COUNTDOWN").as_float();
+	_targetName = hit.attribute("targetName").as_string();
 }
 
 void CKoopa::Start()
@@ -86,6 +87,7 @@ void CKoopa::Start()
 		}
 	}
 
+	AcquireTarget();
 }
 
 void CKoopa::Update(float elapsedMs)
@@ -182,14 +184,14 @@ void CKoopa::Render()
 		{
 		case CKoopa::EType::GREEN:
 		{
-			if (_flip)	_sprites[SPR_KOOPA_SHELL1_UP]->Render(_x, _y);
+			if (!_flip)	_sprites[SPR_KOOPA_SHELL1_UP]->Render(_x, _y);
 			else		_sprites[SPR_KOOPA_SHELL1_DOWN]->Render(_x, _y);
 		}
 		break;
 
 		case CKoopa::EType::RED:
 		{
-			if (_flip)	_sprites[SPR_RED_KOOPA_SHELL1_UP]->Render(_x, _y);
+			if (!_flip)	_sprites[SPR_RED_KOOPA_SHELL1_UP]->Render(_x, _y);
 			else		_sprites[SPR_RED_KOOPA_SHELL1_DOWN]->Render(_x, _y);
 		}
 		break;
@@ -203,7 +205,7 @@ void CKoopa::Render()
 		{
 		case CKoopa::EType::GREEN:
 		{
-			if (_flip)
+			if (!_flip)
 			{
 				if (_left)	_animations[ANI_KOOPA_SHELL_SPIN_UP_LEFT]->Render(_x, _y);
 				else		_animations[ANI_KOOPA_SHELL_SPIN_UP_RIGHT]->Render(_x, _y);
@@ -218,7 +220,7 @@ void CKoopa::Render()
 
 		case CKoopa::EType::RED:
 		{
-			if (_flip)
+			if (!_flip)
 			{
 				if (_left)	_animations[ANI_RED_KOOPA_SHELL_SPIN_UP_LEFT]->Render(_x, _y);
 				else		_animations[ANI_RED_KOOPA_SHELL_SPIN_UP_RIGHT]->Render(_x, _y);
@@ -240,14 +242,14 @@ void CKoopa::Render()
 		{
 		case CKoopa::EType::GREEN:
 		{
-			if (_flip)	_animations[ANI_KOOPA_SHELL_RECOVER_UP]->Render(_x, _y);
+			if (!_flip)	_animations[ANI_KOOPA_SHELL_RECOVER_UP]->Render(_x, _y);
 			else		_animations[ANI_KOOPA_SHELL_RECOVER_DOWN]->Render(_x, _y);
 		}
 		break;
 
 		case CKoopa::EType::RED:
 		{
-			if (_flip)	_animations[ANI_RED_KOOPA_SHELL_RECOVER_UP]->Render(_x, _y);
+			if (!_flip)	_animations[ANI_RED_KOOPA_SHELL_RECOVER_UP]->Render(_x, _y);
 			else		_animations[ANI_RED_KOOPA_SHELL_RECOVER_DOWN]->Render(_x, _y);
 		}
 		break;
@@ -438,21 +440,6 @@ void CKoopa::Jump(float elapsedMs)
 
 	case CKoopa::EActionStage::PROGRESS:
 	{
-		/* Animation Update */
-		{
-			switch (_type)
-			{
-			case CKoopa::EType::GREEN:
-			{
-				_animations[ANI_KOOPA_WALK_UP_LEFT]->Update(elapsedMs);
-				_animations[ANI_KOOPA_WALK_UP_RIGHT]->Update(elapsedMs);
-				_animations[ANI_KOOPA_WING_FLAP_SLOW_LEFT]->Update(elapsedMs);
-				_animations[ANI_KOOPA_WING_FLAP_SLOW_RIGHT]->Update(elapsedMs);
-			}
-			break;
-			}
-		}
-
 		if (_ground)
 		{
 			_vy = JUMP_FORCE;
@@ -461,6 +448,12 @@ void CKoopa::Jump(float elapsedMs)
 
 		if (_left)	_vx = -WALK_SPEED;
 		else		_vx = WALK_SPEED;
+
+		/* Animation Update */
+		_animations[ANI_KOOPA_WALK_UP_LEFT]->Update(elapsedMs);
+		_animations[ANI_KOOPA_WALK_UP_RIGHT]->Update(elapsedMs);
+		_animations[ANI_KOOPA_WING_FLAP_SLOW_LEFT]->Update(elapsedMs);
+		_animations[ANI_KOOPA_WING_FLAP_SLOW_RIGHT]->Update(elapsedMs);
 	}
 	break;
 
@@ -855,10 +848,10 @@ void CKoopa::DeadZoned(float elapsedMs)
 
 void CKoopa::UpdateGravity(float elapsedMs)
 {
-	if (_action != EAction::FLY)
-	{
-		_vy -= GRAVITY * elapsedMs;
-	}
+	if (_action == EAction::FLY || _hold)
+		return;
+
+	_vy -= GRAVITY * elapsedMs;
 }
 
 void CKoopa::UpdateSensor(float elapsedMs)
@@ -908,12 +901,22 @@ void CKoopa::Kicked(bool left)
 void CKoopa::Swept(bool _left)
 {
 	_flip = true;
+	if (_wing) _wing = false;
 	SetNextAction(EAction::RETRACT);
 }
 
 void CKoopa::Shot(bool _left)
 {
 	SetNextAction(EAction::THROWN);
+}
+
+void CKoopa::AcquireTarget()
+{
+	auto target = _game->Get(_targetName);
+	if (target != nullptr) target->GetPosition(_targetX, _targetY);
+
+	if (_targetX > _x) _left = false;
+	else _left = true;
 }
 
 #pragma endregion
@@ -979,6 +982,7 @@ void CKoopa::OnCollisionWith(pCollision collision)
 {
 	if (dynamic_cast<pGoomba>(collision->_target))
 		OnCollisionWithGoomba(collision);
+
 	else if (dynamic_cast<pPlatform>(collision->_target))
 		OnCollisionWithPlatform(collision);
 }

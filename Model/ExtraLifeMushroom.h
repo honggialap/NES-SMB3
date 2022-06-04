@@ -89,6 +89,8 @@ public:
 
 	void AcquireTarget();
 
+	void Taken();
+
 #pragma endregion
 
 #pragma region COLLISION
@@ -101,6 +103,9 @@ public:
 	void OnCollisionWith(pCollision collision);
 
 	void OnCollisionWithPlatform(pCollision collision);
+	void OnCollisionWithBrick(pCollision collision);
+	void OnCollisionWithBlock(pCollision collision);
+	void OnCollisionWithPipe(pCollision collision);
 
 #pragma endregion
 

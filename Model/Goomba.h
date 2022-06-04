@@ -163,6 +163,7 @@ public:
 	
 	void Stomped();
 	void Swept(bool left);
+	void DropDead();
 	
 	void AcquireTarget();
 	void SpawnMicroGoomba();

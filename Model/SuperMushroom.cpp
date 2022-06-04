@@ -4,6 +4,9 @@
 #include "SuperMarioBros3.h"
 
 #include "Platform.h"
+#include "Brick.h"
+#include "Block.h"
+#include "Pipe.h"
 #pragma endregion
 
 void CSuperMushroom::Load()
@@ -168,6 +171,11 @@ void CSuperMushroom::Consumed(float elapsedMs)
 	}
 }
 
+void CSuperMushroom::Taken()
+{
+	SetNextAction(EAction::CONSUMED);
+}
+
 void CSuperMushroom::AcquireTarget()
 {
 	if (_game->Get(_targetName) != nullptr)
@@ -234,7 +242,16 @@ void CSuperMushroom::OnNoCollision(float elapsedMs)
 void CSuperMushroom::OnCollisionWith(pCollision collision)
 {
 	if (dynamic_cast<pPlatform>(collision->_target))
-		OnCollisionWithPlatform(collision);
+		OnCollisionWithPlatform(collision);	
+	
+	else if (dynamic_cast<pBlock>(collision->_target))
+		OnCollisionWithBlock(collision);
+
+	else if (dynamic_cast<pBrick>(collision->_target))
+		OnCollisionWithBrick(collision);
+
+	else if (dynamic_cast<pPipe>(collision->_target))
+		OnCollisionWithPipe(collision);
 }
 
 void CSuperMushroom::OnCollisionWithPlatform(pCollision collision)
@@ -262,6 +279,80 @@ void CSuperMushroom::OnCollisionWithPlatform(pCollision collision)
 
 			_y = top + BLOCK_PUSH_FACTOR;
 			_vy = 0;
+		}
+	}
+}
+
+void CSuperMushroom::OnCollisionWithBrick(pCollision collision)
+{
+	auto brick = dynamic_cast<pBrick>(collision->_target);
+	if (collision->_ny != 0 && collision->_target->IsBlocking())
+	{
+		_vy = 0;
+	}
+
+	if (collision->_nx != 0 && collision->_target->IsBlocking())
+	{
+		_left = !_left;
+	}
+}
+
+void CSuperMushroom::OnCollisionWithBlock(pCollision collision)
+{
+	auto block = dynamic_cast<pBlock>(collision->_target);
+	if (collision->_ny != 0 && collision->_target->IsBlocking())
+	{
+		_vy = 0;
+	}
+
+	if (collision->_nx != 0 && collision->_target->IsBlocking())
+	{
+		_left = !_left;
+	}
+}
+
+void CSuperMushroom::OnCollisionWithPipe(pCollision collision)
+{
+	auto pipe = dynamic_cast<pPipe>(collision->_target);
+
+	float pipeLeft = 0;
+	float pipeTop = 0;
+	float pipeRight = 0;
+	float pipeBottom = 0;
+	collision->_target->GetBoundingBox(pipeLeft, pipeTop, pipeRight, pipeBottom);
+
+	float left = 0;
+	float top = 0;
+	float right = 0;
+	float bottom = 0;
+	GetBoundingBox(left, top, right, bottom);
+
+	if (collision->_ny == 0 && collision->_nx != 0)
+	{
+		if (collision->_nx > 0)
+		{
+			_vx = 0;
+			_x = pipeRight + ((right - left) / 2) + BLOCK_PUSH_FACTOR;
+		}
+		else
+		{
+			_vx = 0;
+			_x = pipeLeft - ((right - left) / 2) - BLOCK_PUSH_FACTOR;
+		}
+
+		_left = !_left;
+	}
+	else if (collision->_ny != 0 && collision->_nx == 0)
+	{
+		if (collision->_ny > 0)
+		{
+			_vy = 0;
+			_y = pipeTop + BLOCK_PUSH_FACTOR;
+		}
+		else
+		{
+			_vy = 0;
+			_y = pipeBottom - (top - bottom) - BLOCK_PUSH_FACTOR;
 		}
 	}
 }

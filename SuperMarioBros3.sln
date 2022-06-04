@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32428.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SuperMarioBros3", "SuperMarioBros3.vcxproj", "{13739D83-E5FE-4DB8-8509-DED29474A0F2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GridMaker", "..\GridMaker\GridMaker.vcxproj", "{7EF6E972-DCF9-4141-BC5A-D088AF201D69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{13739D83-E5FE-4DB8-8509-DED29474A0F2}.Release|x64.Build.0 = Release|x64
 		{13739D83-E5FE-4DB8-8509-DED29474A0F2}.Release|x86.ActiveCfg = Release|Win32
 		{13739D83-E5FE-4DB8-8509-DED29474A0F2}.Release|x86.Build.0 = Release|Win32
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Debug|x64.ActiveCfg = Debug|x64
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Debug|x64.Build.0 = Debug|x64
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Debug|x86.ActiveCfg = Debug|Win32
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Debug|x86.Build.0 = Debug|Win32
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Release|x64.ActiveCfg = Release|x64
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Release|x64.Build.0 = Release|x64
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Release|x86.ActiveCfg = Release|Win32
+		{7EF6E972-DCF9-4141-BC5A-D088AF201D69}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

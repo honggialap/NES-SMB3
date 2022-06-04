@@ -125,9 +125,10 @@ public:
 	void Bounce(float elapsedMs);
 	void Empty(float elapsedMs);
 
-	void Spawn();
 	void HitBottom();
 	void HitSide(bool left);
+
+	void Spawn();
 
 #pragma endregion
 

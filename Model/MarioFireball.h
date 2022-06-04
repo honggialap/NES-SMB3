@@ -63,10 +63,12 @@ public:
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	void OnNoCollision(float elapsedMs);
 	void OnCollisionWith(pCollision e);
+
 	void OnCollisionWithPlatform(pCollision e);
 	void OnCollisionWithPipe(pCollision e);
 	void OnCollisionWithBrick(pCollision e);
 	void OnCollisionWithBlock(pCollision e);
+
 	void OnCollisionWithGoomba(pCollision e);
 	void OnCollisionWithKoopa(pCollision e);
 	void OnCollisionWithPlant(pCollision e);

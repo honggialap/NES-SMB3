@@ -55,6 +55,6 @@
 	<FireFlower actor ="30301" name="fireFlower" source="Data/Asset/Item/FireFlower.xml"/>
 	<Starman actor ="30501" name="starman" source="Data/Asset/Item/Starman.xml"/>
 	<ExtraLifeMushroom actor ="30601" name="extraLifeMushroom" source="Data/Asset/Item/ExtraLifeMushroom.xml"/>
-	<Relay actor ="40501" name="relay" source="Data/Asset/Prop/Relay/Relay.xml"/>
+	<Relay actor ="40501" name="relay" source="Data/Asset/Relay/Relay.xml"/>
 
 </Prefab>

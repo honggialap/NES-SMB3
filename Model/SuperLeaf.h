@@ -91,6 +91,8 @@ public:
 	void Move(float elapsedMs);
 	void Consumed(float elapsedMs);
 
+	void Taken();
+
 #pragma endregion
 
 #pragma region COLLISION

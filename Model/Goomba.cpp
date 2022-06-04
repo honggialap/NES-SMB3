@@ -16,45 +16,45 @@ void CGoomba::Load()
 	prefab.load_file(_source.c_str());
 
 	/* Body */
-	pugi::xml_node body			= prefab.child("Prefab").child("Body");
-	_renderBody					= body.attribute("render").as_bool();
-	BODY_WIDTH					= body.attribute("width").as_float();
-	BODY_HEIGHT					= body.attribute("height").as_float();
-	BODY_OFFSETX				= body.attribute("offsetX").as_float();
-	BODY_OFFSETY				= body.attribute("offsetY").as_float();
+	pugi::xml_node body = prefab.child("Prefab").child("Body");
+	_renderBody = body.attribute("render").as_bool();
+	BODY_WIDTH = body.attribute("width").as_float();
+	BODY_HEIGHT = body.attribute("height").as_float();
+	BODY_OFFSETX = body.attribute("offsetX").as_float();
+	BODY_OFFSETY = body.attribute("offsetY").as_float();
 
 	/* Type */
-	pugi::xml_node type			= prefab.child("Prefab").child("Type");
-	_type						= EType(type.attribute("type").as_int());
-	_wing						= type.attribute("wing").as_bool();
+	pugi::xml_node type = prefab.child("Prefab").child("Type");
+	_type = EType(type.attribute("type").as_int());
+	_wing = type.attribute("wing").as_bool();
 
 	/* Gravity */
-	pugi::xml_node gravity		= prefab.child("Prefab").child("Gravity");
-	GRAVITY						= gravity.attribute("GRAVITY").as_float();
+	pugi::xml_node gravity = prefab.child("Prefab").child("Gravity");
+	GRAVITY = gravity.attribute("GRAVITY").as_float();
 
 	/* Move */
-	pugi::xml_node move			= prefab.child("Prefab").child("Move");
-	WALK_SPEED					= move.attribute("WALK_SPEED").as_float();
+	pugi::xml_node move = prefab.child("Prefab").child("Move");
+	WALK_SPEED = move.attribute("WALK_SPEED").as_float();
 
 	/* Jump */
-	pugi::xml_node jump			= prefab.child("Prefab").child("Jump");
-	SMALL_JUMP_FORCE			= jump.attribute("SMALL_JUMP_FORCE").as_float();
-	LARGE_JUMP_FORCE			= jump.attribute("LARGE_JUMP_FORCE").as_float();
-	JUMP_INTERVAL				= jump.attribute("JUMP_INTERVAL").as_float();
+	pugi::xml_node jump = prefab.child("Prefab").child("Jump");
+	SMALL_JUMP_FORCE = jump.attribute("SMALL_JUMP_FORCE").as_float();
+	LARGE_JUMP_FORCE = jump.attribute("LARGE_JUMP_FORCE").as_float();
+	JUMP_INTERVAL = jump.attribute("JUMP_INTERVAL").as_float();
 
 	/* Fly */
-	pugi::xml_node fly			= prefab.child("Prefab").child("Fly");
-	TAKE_OFF_SPEED				= fly.attribute("TAKE_OFF_SPEED").as_float();
-	FLY_TIMEOUT					= fly.attribute("FLY_TIMEOUT").as_float();
-	CHANGE_DIRECTION_COUNTDOWN	= fly.attribute("CHANGE_DIRECTION_COUNTDOWN").as_float();
-	TARGET_FLY_OFFSET			= fly.attribute("TARGET_FLY_OFFSET").as_float();
+	pugi::xml_node fly = prefab.child("Prefab").child("Fly");
+	TAKE_OFF_SPEED = fly.attribute("TAKE_OFF_SPEED").as_float();
+	FLY_TIMEOUT = fly.attribute("FLY_TIMEOUT").as_float();
+	CHANGE_DIRECTION_COUNTDOWN = fly.attribute("CHANGE_DIRECTION_COUNTDOWN").as_float();
+	TARGET_FLY_OFFSET = fly.attribute("TARGET_FLY_OFFSET").as_float();
 
 	/* Hit */
-	pugi::xml_node hit			= prefab.child("Prefab").child("Hit");
-	HORIZONTAL_DEFLECT_FORCE	= hit.attribute("HORIZONTAL_DEFLECT_FORCE").as_float();
-	VERTICAL_DEFLECT_FORCE		= hit.attribute("VERTICAL_DEFLECT_FORCE").as_float();
-	DECAY_TIMEOUT				= hit.attribute("DECAY_TIMEOUT").as_float();
-	_targetName					= hit.attribute("targetName").as_string();
+	pugi::xml_node hit = prefab.child("Prefab").child("Hit");
+	HORIZONTAL_DEFLECT_FORCE = hit.attribute("HORIZONTAL_DEFLECT_FORCE").as_float();
+	VERTICAL_DEFLECT_FORCE = hit.attribute("VERTICAL_DEFLECT_FORCE").as_float();
+	DECAY_TIMEOUT = hit.attribute("DECAY_TIMEOUT").as_float();
+	_targetName = hit.attribute("targetName").as_string();
 }
 
 void CGoomba::Start()
@@ -132,7 +132,7 @@ void CGoomba::Render()
 	case CGoomba::EAction::TAKEOFF:
 	{
 		if (_wing) _animations[ANI_GOOMBA_WING_FLAP_FAST]->Render(_x, _y);
-		
+
 		switch (_type)
 		{
 		case CGoomba::EType::BROWN:
@@ -825,6 +825,7 @@ void CGoomba::Die(float elapsedMs)
 	{
 	case CGoomba::EActionStage::ENTRY:
 	{
+		_vx = 0;
 		_decayTimeout = DECAY_TIMEOUT;
 	}
 	_actionStage = EActionStage::PROGRESS;
@@ -953,9 +954,10 @@ void CGoomba::UpdateGravity(float elapsedMs)
 
 void CGoomba::Stomped()
 {
-	if (_wing) 
+	if (_wing)
 	{
 		_wing = false;
+		_vx = 0;
 		SetNextAction(EAction::MOVE);
 	}
 	else
@@ -969,6 +971,12 @@ void CGoomba::Swept(bool left)
 	_left = left;
 	_wing = false;
 	SetNextAction(EAction::THROWN);
+}
+
+void CGoomba::DropDead()
+{
+	_wing = false;
+	SetNextAction(EAction::DIE);
 }
 
 void CGoomba::AcquireTarget()

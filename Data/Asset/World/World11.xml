@@ -1,0 +1,12 @@
+<Prefab>
+  <Save filePath="Data/GameSave.xml"/>
+
+  <Camera id ="0" targetName="mario"
+      leftBound ="0" topBound ="864" rightBound ="5120" bottomBound ="384"
+      trackWidth ="160" trackHeight ="128" trackOffsetX ="0" trackOffsetY ="-32"/>
+  
+  <Camera id ="1" targetName="mario"
+      leftBound ="5664" topBound ="384" rightBound ="5984" bottomBound ="384"
+      trackWidth ="160" trackHeight ="512" trackOffsetX ="0" trackOffsetY ="0"/>
+
+</Prefab>

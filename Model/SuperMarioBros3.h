@@ -8,9 +8,9 @@
 
 #pragma region ACTOR ID
 /* Controller */
-#define ACT_TITLE				10201
-#define ACT_WORLDMAP			10301
-#define ACT_WORLD				10401
+#define ACT_TITLE				10101
+#define ACT_WORLDMAP			10201
+#define ACT_WORLD				10301
 
 /* Character */
 #define ACT_MARIO				20101
@@ -23,7 +23,6 @@
 #define ACT_PLANT				20401
 #define ACT_PLANT_SENSOR		20402
 #define ACT_PLANT_FIREBALL		20403
-
 
 /* Item */
 #define ACT_COIN				30101
@@ -50,7 +49,6 @@
 #define ACT_BACKGROUND			50101
 
 #define ACT_HUD					60101
-#define ACT_POWER_BAR			60102
 
 #define ACT_SCORE_EFFECT		70101
 #define ACT_BRICK_FRAG_EFFECT	70201

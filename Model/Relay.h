@@ -92,7 +92,9 @@ public:
 	void Idle(float elapsedMs);
 	void Triggered(float elapsedMs);
 
+	void Trigger();
 	void Transform();
+
 
 #pragma endregion
 

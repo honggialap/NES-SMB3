@@ -374,24 +374,24 @@ public:
 
 	/* Small Body */
 	bool _renderSmallBody = false;
-	float SMALL_BODY_WIDTH = 0;
-	float SMALL_BODY_HEIGHT = 0;
-	float SMALL_BODY_OFFSETX = 0;
-	float SMALL_BODY_OFFSETY = 0;
+	float SMALL_BODY_WIDTH = 0.0f;
+	float SMALL_BODY_HEIGHT = 0.0f;
+	float SMALL_BODY_OFFSETX = 0.0f;
+	float SMALL_BODY_OFFSETY = 0.0f;
 
 	/* Large Body */
 	bool _renderLargeBody = false;
-	float LARGE_BODY_WIDTH = 0;
-	float LARGE_BODY_HEIGHT = 0;
-	float LARGE_BODY_OFFSETX = 0;
-	float LARGE_BODY_OFFSETY = 0;
+	float LARGE_BODY_WIDTH = 0.0f;
+	float LARGE_BODY_HEIGHT = 0.0f;
+	float LARGE_BODY_OFFSETX = 0.0f;
+	float LARGE_BODY_OFFSETY = 0.0f;
 
 	/* Gravity */
 	bool _left = false;
 	bool _ground = false;
 	float GRAVITY = 0.0f;
 	float GROUND_DETECT_FACTOR = 0.0f;
-	
+
 	/* Move */
 	bool _fullspeed = false;
 	float _momentum = 0.0f;
@@ -411,8 +411,8 @@ public:
 	float DRIFT_THRESHOLD = 0.0f;
 
 	/* Jump */
-	float _jumpLimit = 0.0f;
 	bool _fall = false;
+	float _jumpLimit = 0.0f;
 	float JUMP_FORCE = 0.0f;
 	float FULLSPEED_JUMP_FORCE = 0.0f;
 	float JUMP_LIMIT = 0.0f;
@@ -426,8 +426,8 @@ public:
 
 	/* Fly */
 	bool _fly = false;
-	float _flyCountdown = 0.0f;
 	bool _flying = false;
+	float _flyCountdown = 0.0f;
 	float _flyTimeout = 0.0f;
 	float FLY_COUNTDOWN = 0.0f;
 	float FLY_GRAVITY = 0.0f;
@@ -440,10 +440,10 @@ public:
 	/* Invincible */
 	bool _invincible = false;
 	bool _blink = false;
-	float _blinkInterval = 0;
-	float _invincibleTimeout = 0;
-	float INVINCIBLE_TIMEOUT = 0;
-	float BLINK_INTERVAL = 0;
+	float _blinkInterval = 0.0f;
+	float _invincibleTimeout = 0.0f;
+	float INVINCIBLE_TIMEOUT = 0.0f;
+	float BLINK_INTERVAL = 0.0f;
 
 	/* Tail */
 	pMarioTail _tail = nullptr;

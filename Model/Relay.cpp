@@ -171,6 +171,12 @@ void CRelay::Triggered(float elapsedMs)
 	}
 }
 
+void CRelay::Trigger()
+{
+	if (_action == EAction::IDLE)
+		SetNextAction(EAction::TRIGGERED);
+}
+
 void CRelay::Transform()
 {
 	/* Read file */

@@ -152,6 +152,11 @@ void CCoin::Consumed(float elapsedMs)
 	}
 }
 
+void CCoin::Taken()
+{
+	SetNextAction(EAction::CONSUMED);
+}
+
 #pragma endregion
 
 #pragma region COLLISION

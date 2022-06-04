@@ -216,6 +216,7 @@
     RETRACT_COUNTDOWN = "5000"
 		RECOVER_COUNTDOWN = "5000"
 		DECAY_TIMEOUT				="200"
+    targetName					="mario"
 	/>
 
 

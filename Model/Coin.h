@@ -93,6 +93,8 @@ public:
 	void Idle(float elapsedMs);
 	void Consumed(float elapsedMs);
 
+	void Taken();
+
 #pragma endregion
 
 #pragma region COLLISION
