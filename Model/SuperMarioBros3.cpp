@@ -12,7 +12,6 @@
 #include "MarioTail.h"
 #include "MarioFireball.h"
 #include "Goomba.h"
-#include "GoombaMicro.h"
 #include "Koopa.h"
 #include "KoopaSensor.h"
 #include "Plant.h"
@@ -40,13 +39,12 @@
 /* Misc */
 #include "Background.h"
 #include "HUD.h"
+
 #include "ScoreEffect.h"
 #include "BrickFragEffect.h"
 #include "HitEffect.h"
 #include "DeathEffect.h"
 
-/* Title */
-/* World Map */
 #pragma endregion
 
 pGameObject CSuperMarioBros3::Create(unsigned int actor, std::string name, std::string source, float x, float y, int gx, int gy, unsigned int layer)
@@ -142,19 +140,6 @@ pGameObject CSuperMarioBros3::Create(unsigned int actor, std::string name, std::
 	case ACT_GOOMBA:
 	{
 		auto gameObject = new CGoomba(
-			this, _nextGameObjectID++,
-			name, source,
-			x, y, gx, gy, layer
-		);
-		Add(gameObject);
-		gameObject->Load();
-		return gameObject;
-	}
-	break;
-
-	case ACT_GOOMBA_MICRO:
-	{
-		auto gameObject = new CGoombaMicro(
 			this, _nextGameObjectID++,
 			name, source,
 			x, y, gx, gy, layer

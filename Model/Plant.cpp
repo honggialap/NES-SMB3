@@ -2,6 +2,8 @@
 #include "Plant.h"
 #include "SuperMarioBros3.h"
 
+#include "PlantFireball.h"
+
 #pragma endregion
 
 void CPlant::Load()
@@ -639,10 +641,36 @@ void CPlant::AcquireTarget()
 
 void CPlant::ShootFireball()
 {
+	/* Read file */
+	pugi::xml_document prefab;
+	prefab.load_file(_source.c_str());
+
+	auto fireballNode = prefab.child("Prefab").child("Fireball");
+	std::string fireballName = _name + fireballNode.attribute("name").as_string();
+	auto fireball = dynamic_cast<pPlantFireball>(
+		_game->Create(
+			fireballNode.attribute("actor").as_uint(),
+			fireballName,
+			fireballNode.attribute("source").as_string(),
+			_x, _y + SHOOT_OFFSETY, _gx, _gy, _layer
+		)
+		);
+
+	float leftSpeed = 0.0f;
+	float upSpeed = 0.0f;
+
+	if (_left) leftSpeed = -SHOOT_HORIZONTAL_SPEED;
+	else leftSpeed = SHOOT_HORIZONTAL_SPEED;
+
+	if (_up) upSpeed = SHOOT_VERTICAL_SPEED;
+	else upSpeed = -SHOOT_VERTICAL_SPEED;
+
+	fireball->SetVelocity(leftSpeed, upSpeed);
 }
 
 void CPlant::Hit()
 {
+	SetNextAction(EAction::DIE);
 }
 
 #pragma endregion

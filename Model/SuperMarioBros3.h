@@ -17,7 +17,6 @@
 #define ACT_MARIO_TAIL			20102
 #define ACT_MARIO_FIREBALL		20103
 #define ACT_GOOMBA				20201
-#define ACT_GOOMBA_MICRO		20202
 #define ACT_KOOPA				20301
 #define ACT_KOOPA_SENSOR		20302
 #define ACT_PLANT				20401
@@ -29,7 +28,6 @@
 #define ACT_SUPER_MUSHROOM		30201
 #define ACT_FIRE_FLOWER			30301
 #define ACT_SUPER_LEAF			30401
-#define ACT_STARMAN				30501
 #define ACT_EXTRA_LIFE_MUSHROOM	30601
 
 
@@ -44,10 +42,8 @@
 #define ACT_DEAD_ZONE			40701
 #define ACT_GOAL				40801
 
-
 /* Misc */
 #define ACT_BACKGROUND			50101
-
 #define ACT_HUD					60101
 
 #define ACT_SCORE_EFFECT		70101

@@ -180,6 +180,11 @@ public:
 	void OnCollisionWith(pCollision collision);
 
 	void OnCollisionWithPlatform(pCollision collision);
+	void OnCollisionWithBlock(pCollision collision);
+	void OnCollisionWithBrick(pCollision collision);
+	void OnCollisionWithPipe(pCollision collision);
+	void OnCollisionWithDeadZone(pCollision collision);
+	
 
 #pragma endregion
 

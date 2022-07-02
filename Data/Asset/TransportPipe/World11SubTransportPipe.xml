@@ -7,9 +7,9 @@
 
   <!--Type-->
   <Type
-		type				="1"
-		DESTINATION_X		="0"
-		DESTINATION_Y		="0"
+		up				="false"
+		DESTINATION_X		="4672"
+		DESTINATION_Y		="32"
 		CAMERA_SWITCH		="0"
 		/>
 

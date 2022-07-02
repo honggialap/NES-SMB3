@@ -1,0 +1,37 @@
+<Prefab>
+  
+  <Sprite id="100001" textureId="601" left="0" top="0" width="512" height="80" offsetX="256" offsetY="40"/>
+  <Sprite id="200001" textureId="601" left="4" top="84" width="16" height="14" offsetX="8" offsetY="7"/>
+  <Sprite id="200002" textureId="601" left="22" top="84" width="30" height="14" offsetX="15" offsetY="7"/>
+  
+  <Stats
+		marioName ="mario"
+		POWER_LIMIT = "7"
+		BLINK_INTERVAL="150"
+		
+		FRAME_X = "0"
+		FRAME_Y = "-448"
+		
+		LEVEL1_X = "128"
+		LEVEL1_Y = "-408"
+		
+		LEVEL2_X = "144"
+		LEVEL2_Y = "-408"
+		
+		LEVEL3_X = "160"
+		LEVEL3_Y = "-408"
+		
+		LEVEL4_X = "176"
+		LEVEL4_Y = "-408"
+		
+		LEVEL5_X = "192"
+		LEVEL5_Y = "-408"
+		
+		LEVEL6_X = "208"
+		LEVEL6_Y = "-408"
+		
+		POWER_X = "224"
+		POWER_Y = "-408"
+		/>
+
+</Prefab>

@@ -181,7 +181,6 @@
     <ClCompile Include="Model\Mario.cpp" />
     <ClCompile Include="Model\MarioFireball.cpp" />
     <ClCompile Include="Model\MarioTail.cpp" />
-    <ClCompile Include="Model\GoombaMicro.cpp" />
     <ClCompile Include="Model\Pipe.cpp" />
     <ClCompile Include="Model\Plant.cpp" />
     <ClCompile Include="Model\PlantFireball.cpp" />
@@ -233,7 +232,6 @@
     <ClInclude Include="Model\Mario.h" />
     <ClInclude Include="Model\MarioFireball.h" />
     <ClInclude Include="Model\MarioTail.h" />
-    <ClInclude Include="Model\GoombaMicro.h" />
     <ClInclude Include="Model\Pipe.h" />
     <ClInclude Include="Model\Plant.h" />
     <ClInclude Include="Model\PlantFireball.h" />
@@ -324,8 +322,10 @@
     <Xml Include="Data\Asset\Relay\Relay.xml" />
     <Xml Include="Data\Asset\SpawnZone\World11SpawnZone1.xml" />
     <Xml Include="Data\Asset\SpawnZone\World11SpawnZone2.xml" />
+    <Xml Include="Data\Asset\Title\Title.xml" />
     <Xml Include="Data\Asset\TransportPipe\World11MainTransportPipe.xml" />
     <Xml Include="Data\Asset\TransportPipe\World11SubTransportPipe.xml" />
+    <Xml Include="Data\Asset\WorldMap\WorldMap1.xml" />
     <Xml Include="Data\Asset\World\World11.xml" />
     <Xml Include="Data\GameData.xml" />
     <Xml Include="Data\GameSave.xml" />

@@ -20,7 +20,7 @@ void CTransportPipe::Load()
 
 	/* Type */
 	pugi::xml_node type = prefab.child("Prefab").child("Type");
-	_type = EType(type.attribute("type").as_int());
+	_up = type.attribute("up").as_bool();
 	DESTINATION_X = type.attribute("DESTINATION_X").as_float();
 	DESTINATION_Y = type.attribute("DESTINATION_Y").as_float();
 	CAMERA_SWITCH = type.attribute("CAMERA_SWITCH").as_int();

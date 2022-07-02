@@ -1,9 +1,11 @@
 #pragma region INCLUDE
 #include "Goomba.h"
-#include "GoombaMicro.h"
 #include "SuperMarioBros3.h"
-
 #include "Platform.h"
+#include "Block.h"
+#include "Brick.h"
+#include "Pipe.h"
+#include "DeadZone.h"
 
 #pragma endregion
 
@@ -1053,7 +1055,19 @@ void CGoomba::OnNoCollision(float elapsedMs)
 void CGoomba::OnCollisionWith(pCollision collision)
 {
 	if (dynamic_cast<pPlatform>(collision->_target))
-		OnCollisionWithPlatform(collision);
+		OnCollisionWithPlatform(collision);	
+	
+	else if (dynamic_cast<pBlock>(collision->_target))
+		OnCollisionWithBlock(collision);
+	
+	else if (dynamic_cast<pBrick>(collision->_target))
+		OnCollisionWithBrick(collision);	
+	
+	else if (dynamic_cast<pPipe>(collision->_target))
+		OnCollisionWithPipe(collision);	
+	
+	else if (dynamic_cast<pDeadZone>(collision->_target))
+		OnCollisionWithPipe(collision);
 }
 
 void CGoomba::OnCollisionWithPlatform(pCollision collision)
@@ -1086,6 +1100,87 @@ void CGoomba::OnCollisionWithPlatform(pCollision collision)
 			_ground = true;
 		}
 	}
+}
+
+void CGoomba::OnCollisionWithBlock(pCollision collision)
+{
+	auto block = dynamic_cast<pBlock>(collision->_target);
+	if (collision->_ny != 0 && collision->_target->IsBlocking())
+	{
+		_vy = 0;
+		if (collision->_ny > 0) _ground = true;
+	}
+
+	if (collision->_nx != 0 && collision->_target->IsBlocking())
+	{
+		_left = !_left;
+	}
+}
+
+void CGoomba::OnCollisionWithBrick(pCollision collision)
+{
+	auto brick = dynamic_cast<pBrick>(collision->_target);
+	if (collision->_ny != 0 && collision->_target->IsBlocking())
+	{
+		_vy = 0;
+		if (collision->_ny > 0) _ground = true;
+	}
+
+	if (collision->_nx != 0 && collision->_target->IsBlocking())
+	{
+		_left = !_left;
+	}
+}
+
+void CGoomba::OnCollisionWithPipe(pCollision collision)
+{
+	auto pipe = dynamic_cast<pPipe>(collision->_target);
+
+	float pipeLeft = 0;
+	float pipeTop = 0;
+	float pipeRight = 0;
+	float pipeBottom = 0;
+	collision->_target->GetBoundingBox(pipeLeft, pipeTop, pipeRight, pipeBottom);
+
+	float left = 0;
+	float top = 0;
+	float right = 0;
+	float bottom = 0;
+	GetBoundingBox(left, top, right, bottom);
+
+	if (collision->_ny == 0 && collision->_nx != 0)
+	{
+		if (collision->_nx > 0)
+		{
+			_left = !_left;
+			_x = pipeRight + ((right - left) / 2) + BLOCK_PUSH_FACTOR;
+		}
+		else
+		{
+			_left = !_left;
+			_x = pipeLeft - ((right - left) / 2) - BLOCK_PUSH_FACTOR;
+		}
+	}
+	else if (collision->_ny != 0 && collision->_nx == 0)
+	{
+		if (collision->_ny > 0)
+		{
+			_vy = 0;
+			_ground = true;
+			_y = pipeTop + BLOCK_PUSH_FACTOR;
+		}
+		else
+		{
+			_vy = 0;
+			_y = pipeBottom - (top - bottom) - BLOCK_PUSH_FACTOR;
+		}
+	}
+}
+
+void CGoomba::OnCollisionWithDeadZone(pCollision collision)
+{
+	auto deadZone = dynamic_cast<pDeadZone>(collision->_target);
+	SetNextAction(EAction::DEADZONED);
 }
 
 #pragma endregion

@@ -89,15 +89,14 @@
 		HIDE_INTERVAL ="2000"
 		/>
 
-	<Shoot
+  <Shoot
 		SHOOT_OFFSETY ="32"
 		SHOOT_INTERVAL ="500"
-		SHOOT_HORIZONTAL_SPEED ="0"
-		SHOOT_VERTICAL_SPEED ="0"
+		SHOOT_HORIZONTAL_SPEED ="0.1"
+		SHOOT_VERTICAL_SPEED ="0.1"
 		targetName ="mario"
 		/>
 
-	<Fireball actor="20402" name="fireball1" source="Data/Asset/Plant/PlantFireball.xml"/>
-	<Fireball actor="20402" name="fireball2" source="Data/Asset/Plant/PlantFireball.xml"/>
+  <Fireball actor="20403" name="fireball" source="Data/Asset/Plant/PlantFireball.xml"/>
 
 </Prefab>

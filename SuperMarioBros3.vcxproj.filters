@@ -108,9 +108,6 @@
     <ClCompile Include="Model\MarioTail.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Model\GoombaMicro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model\Pipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -260,9 +257,6 @@
     <ClInclude Include="Model\MarioTail.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model\GoombaMicro.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Model\Pipe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -406,5 +400,7 @@
     <Xml Include="Data\Asset\TransportPipe\World11SubTransportPipe.xml" />
     <Xml Include="Data\Asset\TransportPipe\World11MainTransportPipe.xml" />
     <Xml Include="Data\Asset\World\World11.xml" />
+    <Xml Include="Data\Asset\WorldMap\WorldMap1.xml" />
+    <Xml Include="Data\Asset\Title\Title.xml" />
   </ItemGroup>
 </Project>

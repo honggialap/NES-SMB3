@@ -7,10 +7,10 @@
 
 	<!--Type-->
 	<Type
-		type				="1"
-		DESTINATION_X		="0"
-		DESTINATION_Y		="0"
-		CAMERA_SWITCH		="0"
+		up				="true"
+		DESTINATION_X		="5952"
+		DESTINATION_Y		="320"
+		CAMERA_SWITCH		="1"
 		/>
 
 </Prefab>

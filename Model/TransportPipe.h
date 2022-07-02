@@ -37,12 +37,7 @@ public:
 	float BODY_OFFSETY = 0;
 
 	/* Type */
-	enum class EType
-	{
-		UP,
-		DOWN
-	};
-	EType _type = EType::UP;
+	bool _up = false;	
 	float DESTINATION_X = 0;
 	float DESTINATION_Y = 0;
 	int CAMERA_SWITCH = 0;

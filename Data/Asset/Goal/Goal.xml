@@ -1,0 +1,65 @@
+<Prefab>
+  <!--BBOX-->
+  <Sprite id="999901" textureId="101" left="0" top="0" width="52" height="52" offsetX="0" offsetY="0"/>
+                                 
+  <Sprite id="100001" textureId="801" left="108" top="0" width="52" height="52" offsetX="0" offsetY="0"/>
+  <Sprite id="100002" textureId="801" left="0" top="0" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100003" textureId="801" left="0" top="36" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100004" textureId="801" left="36" top="0" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100005" textureId="801" left="36" top="36" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100006" textureId="801" left="72" top="0" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100007" textureId="801" left="72" top="36" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100008" textureId="801" left="0" top="72" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100009" textureId="801" left="36" top="72" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="100010" textureId="801" left="72" top="72" width="30" height="30" offsetX="0" offsetY="0"/>
+                                 
+  <Sprite id="200001" textureId="801" left="0" top="108" width="504" height="146" offsetX="0" offsetY="0"/>
+  <Sprite id="200002" textureId="801" left="164" top="0" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="200003" textureId="801" left="200" top="0" width="32" height="32" offsetX="0" offsetY="0"/>
+  <Sprite id="200004" textureId="801" left="236" top="0" width="32" height="32" offsetX="0" offsetY="0"/>
+
+  <Animation id="1001">
+    <Frame id="100002" time="50"/>
+    <Frame id="100003" time="50"/>
+    <Frame id="100010" time="50"/>
+    <Frame id="100004" time="50"/>
+    <Frame id="100005" time="50"/>
+    <Frame id="100010" time="50"/>
+    <Frame id="100006" time="50"/>
+    <Frame id="100007" time="50"/>
+    <Frame id="100010" time="50"/>
+  </Animation>
+
+  <Animation id="1002">
+    <Frame id="100002" time="50"/>
+    <Frame id="100003" time="50"/>
+    <Frame id="100010" time="50"/>
+    <Frame id="100004" time="50"/>
+    <Frame id="100005" time="50"/>
+    <Frame id="100010" time="50"/>
+    <Frame id="100006" time="50"/>
+    <Frame id="100007" time="50"/>
+    <Frame id="100010" time="50"/>
+    <Frame id="100008" time="50"/>
+    <Frame id="100009" time="50"/>
+  </Animation>
+
+  <Body
+  render  ="true"
+  width   ="32"
+  height  ="32"
+  offsetX ="0"
+  offsetY ="0"
+    />
+
+  <Stats
+    _controllerName="world"
+    ACQUIRE_COUNTDOWN="3000"
+    POP_UP_SPEED="0.1"
+    ANNOUNCE_COUNTDOWN="3000"
+    NEXT_REWARD_COUNTDOWN="1000"
+    ANNOUNCE_OFFSETX = "124"
+    ANNOUNCE_OFFSETY = "-40"
+    />
+
+</Prefab>

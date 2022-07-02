@@ -1,5 +1,5 @@
 <Prefab>
-  <Save filePath="Data/GameSave.xml"/>
+  <WorldMapID WORLD_MAP_ID="201"/>
 
   <Camera id ="0" targetName="mario"
       leftBound ="0" topBound ="864" rightBound ="5120" bottomBound ="384"

@@ -633,6 +633,10 @@
     HOT3    ="4"
     HOT4    ="5"
     />
+  
+  <Interactive
+    controllerName = "world"
+    />
 
   <Gravity
 		GRAVITY							        ="0.00175"
@@ -640,7 +644,7 @@
     />
 
   <Move
-    DRAG                        ="0.04"
+    DRAG                        ="0.08"
     IDLE_THRESHOLD              ="0.0035"
     WALK_ACCELERATION           ="0.0005"
     WALK_SPEED_LIMIT            ="0.18"
@@ -721,5 +725,13 @@
     KICK_INTERVAL                ="200"
     SHELL_OFFSET                 ="16"
     />
+
+  <Pipe
+    PIPE_MOVEMENT = "64.0"
+    PIPE_SPEED = "0.2"
+    />
+
+  <Die
+    DECAY_TIMEOUT ="5000"/>
 
 </Prefab>

@@ -81,8 +81,8 @@ void CSpawnZone::Spawn()
 				spawnable.attribute("source").as_string(),
 				spawnable.attribute("x").as_float(),
 				spawnable.attribute("y").as_float(),
-				spawnable.attribute("gx").as_float(),
-				spawnable.attribute("gy").as_float(),
+				spawnable.attribute("gx").as_int(),
+				spawnable.attribute("gy").as_int(),
 				spawnable.attribute("layer").as_uint()
 			);
 		}

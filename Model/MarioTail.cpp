@@ -136,7 +136,7 @@ void CMarioTail::OnCollisionWithKoopa(pCollision e)
 void CMarioTail::OnCollisionWithPlant(pCollision e)
 {
 	pPlant plant = dynamic_cast<pPlant>(e->_target);
-	//plant->SetNextAction(CPlant::EAction::DIE);
+	plant->Hit();
 }
 
 void CMarioTail::OnCollisionWithBrick(pCollision e)

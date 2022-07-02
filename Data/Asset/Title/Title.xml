@@ -1,0 +1,28 @@
+<Prefab>
+  <Sprite id="100001" textureId="1001" left="516" top="0" width="512" height="448" offsetX="0" offsetY="-224"/>
+  
+  <Sprite id="200001" textureId="1001" left="0" top="380" width="84" height="84" offsetX="0" offsetY="0"/>
+  <Sprite id="200002" textureId="1001" left="88" top="380" width="84" height="84" offsetX="0" offsetY="0"/>  
+  <Sprite id="200003" textureId="1001" left="176" top="380" width="84" height="84" offsetX="0" offsetY="0"/>  
+  <Sprite id="200004" textureId="1001" left="264" top="380" width="84" height="84" offsetX="0" offsetY="0"/>  
+  
+  <Sprite id="400001" textureId="1001" left="0" top="468" width="176" height="40" offsetX="0" offsetY="0"/>
+
+  <Animation id="2000">
+    <Frame id="200001" time="100"/>
+    <Frame id="200002" time="100"/>
+    <Frame id="200003" time="100"/>
+    <Frame id="200004" time="100"/>
+  </Animation>
+
+  <Command SPACE ="57"/>
+  <Camera x ="0" y ="0"/>
+  <Background x ="256" y="0"/>
+  <Logo x ="256" y="-232" />
+  <Label x ="256" y="-312"
+         BLINK_INTERVAL ="1000"/>
+
+  <StartGame 
+    NEXT_SCENE ="201"/>
+  
+</Prefab>

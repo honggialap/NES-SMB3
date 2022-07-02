@@ -52,11 +52,14 @@ public:
 	virtual int IsCollidable();
 	virtual int IsBlocking();
 	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
+
 	void OnNoCollision(float elapsedMs);
 	void OnCollisionWith(pCollision e);
+
 	void OnCollisionWithGoomba(pCollision e);
 	void OnCollisionWithKoopa(pCollision e);
 	void OnCollisionWithPlant(pCollision e);
+
 	void OnCollisionWithBrick(pCollision e);
 	void OnCollisionWithBlock(pCollision e);
 };

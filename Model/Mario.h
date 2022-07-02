@@ -372,6 +372,9 @@ public:
 	int HOT3 = 0;
 	int HOT4 = 0;
 
+	/* Interactive */
+	std::string _controllerName;
+
 	/* Small Body */
 	bool _renderSmallBody = false;
 	float SMALL_BODY_WIDTH = 0.0f;
@@ -471,6 +474,16 @@ public:
 	float _kickInterval = 0.0f;
 	float KICK_INTERVAL = 0.0f;
 	float SHELL_OFFSET = 0.0f;
+
+	/* Pipe */
+	pTransportPipe _pipe = nullptr;
+	float _pipeLimit = 0.0f;
+	float PIPE_MOVEMENT = 0.0f;
+	float PIPE_SPEED = 0.0f;
+
+	/* Die */
+	float DECAY_TIMEOUT = 0.0f;
+	float decayTimeout = 0.0f;
 
 	/* Power */
 	enum class EPower
@@ -583,7 +596,6 @@ public:
 	void OnCollisionWith(pCollision collision);
 
 	void OnCollisionWithGoomba(pCollision collision);
-	void OnCollisionWithGoombaMicro(pCollision collision);
 	void OnCollisionWithKoopa(pCollision collision);
 	void OnCollisionWithPlant(pCollision collision);
 	void OnCollisionWithPlantFireball(pCollision collision);

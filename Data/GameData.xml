@@ -1,11 +1,11 @@
 <GameData>
 	<GameSettings
 		title ="SUPER MARIO BROS 3"
-		windowWidth ="512"
-		windowHeight ="480"
+		windowWidth ="528"
+		windowHeight ="486"
 		framePerSecond ="144"
 		cameraBuffer ="16"
-		startScene ="301"
+		startScene ="101"
 		/>
 	
 	<!--Buttons-->
@@ -46,6 +46,9 @@
 	<!--KEYPAD DOWN-->
 	<Button keyCode ="80"/>
 
+  <!--SPACE-->
+  <Button keyCode ="57"/>
+
 	<!-- Textures -->
 	<Texture id="101" source="Data/Texture/BBox.png"/>
 	<Texture id="201" source="Data/Texture/Mario.png"/>
@@ -57,14 +60,15 @@
 	<Texture id="402" source="Data/Texture/Pipe.png"/>
 	<Texture id="501" source="Data/Texture/World11MainSection.png"/>
 	<Texture id="502" source="Data/Texture/World11SubSection.png"/>
+	<Texture id="601" source="Data/Texture/HUD.png"/>
  	<Texture id="701" source="Data/Texture/Effect.png"/>
-	<!-- place holder 
-  <Texture id="601" source="Data/Texture/HUD.png"/>
-  -->
-
+ 	<Texture id="801" source="Data/Texture/Goal.png"/>
+ 	<Texture id="1001" source="Data/Texture/Title.png"/>
+ 	<Texture id="1101" source="Data/Texture/WorldMap1.png"/>
+  
 	<!-- Scenes -->
 	<Scene id="101" source="Data/Scene/Title.xml"/>
-	<Scene id="201" source="Data/Scene/WorldMap1-test.xml"/>
+	<Scene id="201" source="Data/Scene/WorldMap1.xml"/>
 	<Scene id="301" source="Data/Scene/World11.xml"/>
 
 </GameData>
